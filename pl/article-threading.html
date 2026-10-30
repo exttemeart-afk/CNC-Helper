@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- GENERATED SOURCE: edit this template, then run build.ps1 to regenerate ru/ pl/ en/ pages, sitemap.xml and robots.txt -->
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gwint: gwintownik, frez do gwint&#243;w czy wygniatak | CNCHelper</title>
+<meta name="description" content="Por&#243;wnanie metod wykonania gwintu i obliczanie średnicy otworu pod gwintownik.">
+<link rel="canonical" href="https://example.com/pl/article-threading.html">
+<link rel="alternate" hreflang="ru" href="https://example.com/ru/article-threading.html">
+<link rel="alternate" hreflang="pl" href="https://example.com/pl/article-threading.html">
+<link rel="alternate" hreflang="en" href="https://example.com/en/article-threading.html">
+<link rel="alternate" hreflang="x-default" href="https://example.com/en/article-threading.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gwint: gwintownik, frez do gwint&#243;w czy wygniatak | CNCHelper">
+<meta property="og:description" content="Por&#243;wnanie metod wykonania gwintu i obliczanie średnicy otworu pod gwintownik.">
+<meta property="og:url" content="https://example.com/pl/article-threading.html">
+<meta property="og:image" content="https://example.com/images/hero.jpg">
+<meta property="og:locale" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","inLanguage":"pl","url":"https://example.com/pl/article-threading.html","description":"Porównanie metod wykonania gwintu i obliczanie średnicy otworu pod gwintownik.","headline":"Gwint: gwintownik, frez do gwintów czy wygniatak","image":"https://example.com/images/hero.jpg"}</script>
+<script>
+  (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);localStorage.setItem('lang','pl');})();
+</script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body data-route="article" data-article="threading" data-file="article-threading.html">
+
+<header class="header">
+  <div class="container header-in">
+    <a class="logo" href="index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-route-link="home" data-i18n="nav_home">Home</a>
+      <a href="calculators.html" data-route-link="calc" data-i18n="nav_calc">Calculators</a>
+      <a href="codes.html" data-route-link="codes" data-i18n="nav_codes">G &amp; M codes</a>
+      <a href="articles.html" data-route-link="articles" data-i18n="nav_articles">Articles</a>
+    </nav>
+    <div class="tools">
+      <select id="lang" aria-label="Language">
+        <option value="ru">RU</option>
+        <option value="pl">PL</option>
+        <option value="en">EN</option>
+      </select>
+      <button id="themeBtn" class="icon-btn" aria-label="Theme">🌙</button>
+      <button id="burger" class="icon-btn burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HOME HERO -->
+<section class="hero-full home-only">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="hero-badge" data-i18n="hero_tag"></span>
+      <h1 data-i18n="hero_title"></h1>
+      <p data-i18n="hero_sub"></p>
+      <div class="hero-btns">
+        <a class="btn" href="calculators.html" data-i18n="hero_cta1"></a>
+        <a class="btn btn-ghost" href="codes.html" data-i18n="hero_cta2"></a>
+      </div>
+      <div class="stats">
+        <div><b>13</b><span data-i18n="stat_calc"></span></div>
+        <div><b>150+</b><span data-i18n="stat_codes"></span></div>
+        <div><b>3</b><span data-i18n="stat_lang"></span></div>
+        <div><b>8</b><span data-i18n="stat_art"></span></div>
+      </div>
+    </div>
+    <div class="terminal" aria-hidden="true">
+      <div class="term-bar"><i></i><i></i><i></i><span>O0001.nc</span></div>
+      <pre id="termCode"></pre>
+    </div>
+  </div>
+</section>
+
+<!--
+  ====== AD SLOTS ======
+  Each .ad-slot is a placeholder. To activate: replace the inner <div class="ad-ph"> with your ad code
+  (e.g. Google AdSense <ins class="adsbygoogle">). Slots: top, side, inline, footer.
+  Sizes: top 728x90 / 320x100, side 300x600 / 300x250, inline 336x280 / responsive, footer 728x90.
+-->
+<div class="container"><div class="ad-slot ad-top" data-slot="top"><div class="ad-ph"><span data-i18n="ad_label"></span> · 728×90</div></div></div>
+
+<main class="container" id="main">
+
+  <!-- HOME -->
+  <section class="page" data-page="home">
+    <h2 data-i18n="quick_title"></h2>
+    <p class="sub" data-i18n="quick_sub"></p>
+    <div class="grid calcs" id="calcsQuick"></div>
+    <p class="more-link"><a href="calculators.html" data-i18n="all_calcs"></a></p>
+
+    <div class="grid feat">
+      <a class="card feat-c" href="calculators.html"><div class="feat-ic">🧮</div><h3 data-i18n="feat1_t"></h3><p data-i18n="feat1_d"></p></a>
+      <a class="card feat-c" href="codes.html"><div class="feat-ic">📟</div><h3 data-i18n="feat2_t"></h3><p data-i18n="feat2_d"></p></a>
+      <a class="card feat-c" href="articles.html"><div class="feat-ic">📚</div><h3 data-i18n="feat3_t"></h3><p data-i18n="feat3_d"></p></a>
+      <div class="card feat-c"><div class="feat-ic">🌍</div><h3 data-i18n="feat4_t"></h3><p data-i18n="feat4_d"></p></div>
+    </div>
+    <div class="ad-slot ad-inline" data-slot="inline"><div class="ad-ph"><span data-i18n="ad_label"></span> · 336×280 / responsive</div></div>
+    <h2 data-i18n="latest"></h2>
+    <div class="grid" id="homeArticles"></div>
+    <p class="more-link"><a href="articles.html" data-i18n="all_articles"></a></p>
+  </section>
+
+  <div class="layout" id="layout">
+    <div class="content">
+      <section class="page" data-page="calc">
+        <h1 data-i18n="calc_title"></h1>
+        <p class="sub" data-i18n="calc_sub"></p>
+        <h2 data-i18n="group_cut"></h2>
+        <div class="grid calcs" id="calcsCut"></div>
+        <div class="ad-slot ad-inline" data-slot="inline-2"><div class="ad-ph"><span data-i18n="ad_label"></span> · 336×280 / responsive</div></div>
+        <h2 data-i18n="group_trig"></h2>
+        <div class="grid calcs" id="calcsTrig"></div>
+        <h2 id="saved" data-i18n="saved_title"></h2>
+        <div class="card" id="savedList"></div>
+        <h2 data-i18n="ref_title"></h2>
+        <div class="card table-wrap"><table id="matTable"></table></div>
+        <p class="note" data-i18n="ref_note"></p>
+      </section>
+
+      <section class="page" data-page="codes">
+        <h1 data-i18n="codes_title"></h1>
+        <p class="sub" data-i18n="codes_sub"></p>
+        <div class="codes-bar">
+          <label class="ctl-lab"><span data-i18n="ctl"></span><select id="ctlSel"></select></label>
+          <div class="tabs" id="gmTabs">
+            <button class="tab active" data-tab="G">G</button>
+            <button class="tab" data-tab="M">M</button>
+          </div>
+          <input type="search" id="codeSearch" data-i18n-ph="search_ph">
+        </div>
+        <div class="card table-wrap"><table id="codesTable"></table></div>
+        <p class="note" data-i18n="codes_note"></p>
+      </section>
+
+      <section class="page" data-page="articles">
+        <h1 data-i18n="articles_title"></h1>
+        <p class="sub" data-i18n="articles_sub"></p>
+        <div class="grid" id="articlesList"></div>
+      </section>
+
+      <section class="page" data-page="article">
+        <a href="articles.html" class="back" data-i18n="back"></a>
+        <article class="card article" id="articleBody"></article>
+        <div class="ad-slot ad-inline" data-slot="article-bottom"><div class="ad-ph"><span data-i18n="ad_label"></span> · 336×280 / responsive</div></div>
+      </section>
+    </div>
+    <aside class="side">
+      <div class="ad-slot ad-side" data-slot="side"><div class="ad-ph"><span data-i18n="ad_label"></span><br>300×600</div></div>
+    </aside>
+  </div>
+</main>
+
+<div class="container"><div class="ad-slot ad-top" data-slot="footer"><div class="ad-ph"><span data-i18n="ad_label"></span> · 728×90</div></div></div>
+
+<footer class="footer">
+  <div class="container">
+    <p data-i18n="footer_text"></p>
+    <p class="note" data-i18n="footer_disc"></p>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/articles.js"></script>
+<script src="../js/calculators.js"></script>
+<script src="../js/app.js"></script>
+</body>
+</html>

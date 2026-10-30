@@ -1,0 +1,25 @@
+{
+  "domain": "https://example.com",
+  "pages": {
+    "index": {
+      "ru": {"t": "CNCHelper — калькуляторы и справочник G/M кодов для оператора ЧПУ", "d": "Бесплатные калькуляторы оборотов, подачи, массы, резьбы и тригонометрии, база G и M кодов Fanuc, Haas, Siemens и Heidenhain, статьи для операторов ЧПУ."},
+      "pl": {"t": "CNCHelper — kalkulatory i baza kodów G/M dla operatora CNC", "d": "Darmowe kalkulatory obrotów, posuwu, masy, gwintów i trygonometrii, baza kodów G i M dla Fanuc, Haas, Siemens i Heidenhain oraz artykuły dla operatorów CNC."},
+      "en": {"t": "CNCHelper — CNC calculators and G/M code reference for operators", "d": "Free speed, feed, mass, thread and trigonometry calculators, a G and M code database for Fanuc, Haas, Siemens and Heidenhain, plus articles for CNC operators."}
+    },
+    "calculators": {
+      "ru": {"t": "Калькуляторы ЧПУ: обороты, подача, масса, резьба, конус, PCD | CNCHelper", "d": "13 онлайн-калькуляторов для станков с ЧПУ: обороты и подача, токарка, сверление, масса заготовки, мощность, резьба, конус, отверстия по окружности. Сохранение расчётов."},
+      "pl": {"t": "Kalkulatory CNC: obroty, posuw, masa, gwint, stożek, PCD | CNCHelper", "d": "13 kalkulatorów online dla maszyn CNC: obroty i posuw, toczenie, wiercenie, masa materiału, moc, gwint, stożek, otwory na okręgu. Zapisywanie obliczeń."},
+      "en": {"t": "CNC calculators: speed, feed, mass, thread, taper, bolt circle | CNCHelper", "d": "13 online calculators for CNC machining: speed and feed, turning, drilling, material mass, power, threads, tapers, bolt hole circles. Save your calculations."}
+    },
+    "codes": {
+      "ru": {"t": "G и M коды: Fanuc, Haas, Siemens, Heidenhain — справочник | CNCHelper", "d": "Справочник G и M кодов с примерами и поиском. Отдельные разделы для Haas, Siemens SINUMERIK и Heidenhain TNC."},
+      "pl": {"t": "Kody G i M: Fanuc, Haas, Siemens, Heidenhain — baza | CNCHelper", "d": "Baza kodów G i M z przykładami i wyszukiwarką. Osobne sekcje dla Haas, Siemens SINUMERIK i Heidenhain TNC."},
+      "en": {"t": "G and M codes: Fanuc, Haas, Siemens, Heidenhain reference | CNCHelper", "d": "G and M code reference with examples and search. Dedicated sections for Haas, Siemens SINUMERIK and Heidenhain TNC."}
+    },
+    "articles": {
+      "ru": {"t": "Статьи о ЧПУ: режимы резания, программирование, наладка | CNCHelper", "d": "Практические статьи для операторов и наладчиков ЧПУ: режимы резания, G-коды, привязка нулей, износ инструмента, резьба."},
+      "pl": {"t": "Artykuły o CNC: parametry skrawania, programowanie, ustawianie | CNCHelper", "d": "Praktyczne artykuły dla operatorów CNC: parametry skrawania, kody G, punkty zerowe, zużycie narzędzi, gwinty."},
+      "en": {"t": "CNC articles: cutting data, programming, setup | CNCHelper", "d": "Practical articles for CNC operators and setters: cutting data, G-codes, work offsets, tool wear, threading."}
+    }
+  }
+}
