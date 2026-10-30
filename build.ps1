@@ -80,6 +80,8 @@ $rootHtml = @"
 <link rel="alternate" hreflang="pl" href="$domain/pl/index.html">
 <link rel="alternate" hreflang="en" href="$domain/en/index.html">
 <link rel="alternate" hreflang="x-default" href="$domain/en/index.html">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1775700331598232"
+     crossorigin="anonymous"></script>
 <script>
 var s=localStorage.getItem('lang'),n=(navigator.language||'en').slice(0,2),l=['ru','pl','en'].indexOf(s)>-1?s:(['ru','pl'].indexOf(n)>-1?n:'en');
 location.replace(l+'/index.html');

@@ -10,9 +10,11 @@
 
   function loadAds() {
     if (adsLoaded) return; adsLoaded = true;
-    const s = document.createElement("script");
-    s.async = true; s.crossOrigin = "anonymous"; s.src = ADS_SRC;
-    document.head.appendChild(s);
+    if (!document.querySelector('script[src*="adsbygoogle.js"]')) {
+      const s = document.createElement("script");
+      s.async = true; s.crossOrigin = "anonymous"; s.src = ADS_SRC;
+      document.head.appendChild(s);
+    }
     document.documentElement.classList.add("ads-on");
     // Only fill visible slots (the template contains sections of other routes that are hidden)
     document.querySelectorAll("ins.adsbygoogle").forEach(ins => {
