@@ -62,7 +62,7 @@
         <div><b>13</b><span data-i18n="stat_calc"></span></div>
         <div><b>150+</b><span data-i18n="stat_codes"></span></div>
         <div><b>3</b><span data-i18n="stat_lang"></span></div>
-        <div><b>8</b><span data-i18n="stat_art"></span></div>
+        <div><b id="statArt">18</b><span data-i18n="stat_art"></span></div>
       </div>
     </div>
     <div class="terminal" aria-hidden="true">
@@ -138,6 +138,10 @@
       <section class="page" data-page="articles">
         <h1 data-i18n="articles_title"></h1>
         <p class="sub" data-i18n="articles_sub"></p>
+        <div class="codes-bar">
+          <div class="tag-pills" id="artTags"></div>
+          <input type="search" id="artSearch" data-i18n-ph="art_search_ph">
+        </div>
         <div class="grid" id="articlesList"></div>
       </section>
 

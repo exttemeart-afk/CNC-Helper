@@ -29,9 +29,27 @@
   const articleCard = a => `<a class="card art-card" href="article-${a.id}.html"><span class="tag">${esc(li(a.tag))}</span>
       <h3>${esc(li(a.title))}</h3><p>${esc(li(a.summary))}</p><span class="more">${t("read_more")}</span></a>`;
 
+  let activeTag = "";
   function renderArticles() {
-    if ($("#articlesList")) $("#articlesList").innerHTML = ARTICLES.map(articleCard).join("");
-    if ($("#homeArticles")) $("#homeArticles").innerHTML = ARTICLES.slice(0, 4).map(articleCard).join("");
+    if ($("#statArt")) $("#statArt").textContent = ARTICLES.length;
+    if ($("#articlesList")) {
+      const tags = [...new Set(ARTICLES.map(a => li(a.tag)))];
+      if ($("#artTags") && !$("#artTags").children.length) {
+        $("#artTags").innerHTML = `<button class="pill active" data-tag="">${esc(t("tag_all"))}</button>` +
+          tags.map(tg => `<button class="pill" data-tag="${esc(tg)}">${esc(tg)}</button>`).join("");
+        $("#artTags").addEventListener("click", e => {
+          const b = e.target.closest(".pill"); if (!b) return;
+          activeTag = b.dataset.tag;
+          $$(".pill", $("#artTags")).forEach(x => x.classList.toggle("active", x === b));
+          renderArticles();
+        });
+      }
+      const q = ($("#artSearch") && $("#artSearch").value.trim().toLowerCase()) || "";
+      const list = ARTICLES.filter(a => (!activeTag || li(a.tag) === activeTag) &&
+        (!q || li(a.title).toLowerCase().includes(q) || li(a.summary).toLowerCase().includes(q) || li(a.body).toLowerCase().includes(q)));
+      $("#articlesList").innerHTML = list.length ? list.map(articleCard).join("") : `<p class="note">${t("no_results")}</p>`;
+    }
+    if ($("#homeArticles")) $("#homeArticles").innerHTML = ARTICLES.slice(0, 6).map(articleCard).join("");
     if (route === "article") {
       const a = ARTICLES.find(x => x.id === articleId);
       if (a) {
@@ -97,6 +115,7 @@
   }
 
   setTheme(document.documentElement.getAttribute("data-theme"));
+  if ($("#artSearch")) $("#artSearch").addEventListener("input", renderArticles);
   renderArticles();
   if ($("#matTable")) renderMatTable();
   renderCalcPages();
