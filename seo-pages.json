@@ -2,14 +2,14 @@
   "domain": "https://example.com",
   "pages": {
     "index": {
-      "ru": {"t": "CNCHelper — калькуляторы и справочник G/M кодов для оператора ЧПУ", "d": "Бесплатные калькуляторы оборотов, подачи, массы, резьбы и тригонометрии, база G и M кодов Fanuc, Haas, Siemens и Heidenhain, статьи для операторов ЧПУ."},
-      "pl": {"t": "CNCHelper — kalkulatory i baza kodów G/M dla operatora CNC", "d": "Darmowe kalkulatory obrotów, posuwu, masy, gwintów i trygonometrii, baza kodów G i M dla Fanuc, Haas, Siemens i Heidenhain oraz artykuły dla operatorów CNC."},
-      "en": {"t": "CNCHelper — CNC calculators and G/M code reference for operators", "d": "Free speed, feed, mass, thread and trigonometry calculators, a G and M code database for Fanuc, Haas, Siemens and Heidenhain, plus articles for CNC operators."}
+      "ru": {"t": "CNCHelper — калькуляторы и справочник G/M кодов для оператора ЧПУ", "d": "Бесплатные калькуляторы режимов резания, массы, метрических и дюймовых резьб, резьбофрезерования, допусков и посадок ISO 286, конусов и TNRC, база G и M кодов, статьи для операторов ЧПУ."},
+      "pl": {"t": "CNCHelper — kalkulatory i baza kodów G/M dla operatora CNC", "d": "Darmowe kalkulatory parametrów skrawania, masy, gwintów metrycznych i calowych, frezowania gwintów, pasowań ISO 286, stożków i TNRC, baza kodów G/M, artykuły dla operatorów CNC."},
+      "en": {"t": "CNCHelper — CNC calculators and G/M code reference for operators", "d": "Free CNC calculators for speeds, feeds, mass, metric & pipe threads, thread milling, ISO 286 limits & fits, tapers and TNRC, plus G/M code reference and articles for machinists."}
     },
     "calculators": {
-      "ru": {"t": "Калькуляторы ЧПУ: обороты, подача, масса, резьба, конус, PCD | CNCHelper", "d": "13 онлайн-калькуляторов для станков с ЧПУ: обороты и подача, токарка, сверление, масса заготовки, мощность, резьба, конус, отверстия по окружности. Сохранение расчётов."},
-      "pl": {"t": "Kalkulatory CNC: obroty, posuw, masa, gwint, stożek, PCD | CNCHelper", "d": "13 kalkulatorów online dla maszyn CNC: obroty i posuw, toczenie, wiercenie, masa materiału, moc, gwint, stożek, otwory na okręgu. Zapisywanie obliczeń."},
-      "en": {"t": "CNC calculators: speed, feed, mass, thread, taper, bolt circle | CNCHelper", "d": "13 online calculators for CNC machining: speed and feed, turning, drilling, material mass, power, threads, tapers, bolt hole circles. Save your calculations."}
+      "ru": {"t": "Калькуляторы ЧПУ: режимы, масса, резьбы, ISO допуски, TNRC, конусы | CNCHelper", "d": "17 онлайн-калькуляторов для ЧПУ: обороты и подача, токарка, сверление, масса, мощность, метрические и трубные резьбы G/NPT/UNC/UNF, резьбофрезерование, допуски ISO 286, ручная TNRC, конусы, PCD."},
+      "pl": {"t": "Kalkulatory CNC: obroty, posuw, masa, gwinty, pasowania ISO, TNRC, stożek | CNCHelper", "d": "17 kalkulatorów online dla CNC: obroty i posuw, toczenie, wiercenie, masa, moc, gwinty metryczne i rurowe G/NPT/UNC/UNF, frezowanie gwintów, tolerancje ISO 286, TNRC ręcznie, stożki, otwory na okręgu."},
+      "en": {"t": "CNC calculators: speeds, feeds, mass, threads, ISO fits, TNRC, tapers | CNCHelper", "d": "17 online calculators for CNC machining: speed & feed, turning, drilling, mass, power, metric & pipe threads G/NPT/UNC/UNF, thread milling, ISO 286 fits, manual TNRC, tapers, bolt circles."}
     },
     "codes": {
       "ru": {"t": "G и M коды: Fanuc, Haas, Siemens, Heidenhain — справочник | CNCHelper", "d": "Справочник G и M кодов с примерами и поиском. Отдельные разделы для Haas, Siemens SINUMERIK и Heidenhain TNC."},
