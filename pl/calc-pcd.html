@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- GENERATED SOURCE: edit this template, then run build.ps1 to regenerate ru/ pl/ en/ pages, sitemap.xml and robots.txt -->
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalkulator podziału otworów na okręgu (PCD) — współrzędne X Y i kod G | CNCHelper</title>
+<meta name="description" content="Kalkulator otworów na okręgu (PCD / średnica podziałowa): precyzyjne współrzędne X i Y dla każdego otworu z dowolnym kątem początkowym oraz kopiowanie gotowych bloków kodu G do cykli wiercenia G81/G83.">
+<link rel="canonical" href="https://cnc-helper.pro/pl/calc-pcd.html">
+<link rel="alternate" hreflang="ru" href="https://cnc-helper.pro/ru/calc-pcd.html">
+<link rel="alternate" hreflang="pl" href="https://cnc-helper.pro/pl/calc-pcd.html">
+<link rel="alternate" hreflang="en" href="https://cnc-helper.pro/en/calc-pcd.html">
+<link rel="alternate" hreflang="x-default" href="https://cnc-helper.pro/en/calc-pcd.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kalkulator podziału otworów na okręgu (PCD) — współrzędne X Y i kod G | CNCHelper">
+<meta property="og:description" content="Kalkulator otworów na okręgu (PCD / średnica podziałowa): precyzyjne współrzędne X i Y dla każdego otworu z dowolnym kątem początkowym oraz kopiowanie gotowych bloków kodu G do cykli wiercenia G81/G83.">
+<meta property="og:url" content="https://cnc-helper.pro/pl/calc-pcd.html">
+<meta property="og:image" content="https://cnc-helper.pro/images/hero.jpg">
+<meta property="og:locale" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","inLanguage":"pl","url":"https://cnc-helper.pro/pl/calc-pcd.html","name":"Kalkulator podziału otworów na okręgu (PCD) — współrzędne X Y i kod G | CNCHelper","description":"Kalkulator otworów na okręgu (PCD / średnica podziałowa): precyzyjne współrzędne X i Y dla każdego otworu z dowolnym kątem początkowym oraz kopiowanie gotowych bloków kodu G do cykli wiercenia G81/G83."}</script>
+<script>
+  (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);localStorage.setItem('lang','pl');})();
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1775700331598232"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body data-route="calc-pcd" data-article="" data-file="calc-pcd.html">
+
+<header class="header">
+  <div class="container header-in">
+    <a class="logo" href="index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-route-link="home" data-i18n="nav_home">Strona główna</a>
+      <div class="nav-dropdown">
+        <a href="calculators.html" data-route-link="calc" class="nav-drop-btn"><span data-i18n="nav_calc">Kalkulatory</span> <span class="drop-arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="calculators.html" class="drop-all"><strong data-i18n="nav_all_calcs">Wszystkie kalkulatory (Pulpit)</strong></a>
+          <a href="calc-turning.html"><span>🔩</span> <span data-i18n="nav_calc_turn">Kalkulator toczenia</span></a>
+          <a href="calc-milling.html"><span>🛠</span> <span data-i18n="nav_calc_mill">Kalkulator frezowania</span></a>
+          <a href="calc-drilling.html"><span>🕳</span> <span data-i18n="nav_calc_drill">Wiercenie i pogłębianie</span></a>
+          <a href="calc-thread.html"><span>🔧</span> <span data-i18n="nav_calc_thread">Gwint metryczny</span></a>
+          <a href="calc-pcd.html"><span>🎯</span> <span data-i18n="nav_calc_pcd">Otwory na okręgu (PCD)</span></a>
+        </div>
+      </div>
+      <a href="codes.html" data-route-link="codes" data-i18n="nav_codes">Kody G i M</a>
+      <a href="articles.html" data-route-link="articles" data-i18n="nav_articles">Artykuły</a>
+    </nav>
+    <div class="tools">
+      <select id="lang" aria-label="Language">
+        <option value="ru">RU</option>
+        <option value="pl" selected>PL</option>
+        <option value="en">EN</option>
+      </select>
+      <button id="themeBtn" class="icon-btn" aria-label="Theme">🌙</button>
+      <button id="burger" class="icon-btn burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+
+
+<!--
+  ====== AD SLOTS ======
+  Each .ad-slot is a placeholder. To activate: replace the inner <div class="ad-ph"> with your ad code
+  (e.g. Google AdSense <ins class="adsbygoogle">). Slots: top, side, inline, footer.
+  Sizes: top 728x90 / 320x100, side 300x600 / 300x250, inline 336x280 / responsive, footer 728x90.
+-->
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="top">
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="6618895499"></ins>
+</div></div>
+
+<main class="container" id="main">
+
+  <!-- HOME -->
+  
+
+  <div class="layout" id="layout">
+    <div class="content">
+      
+
+      <!-- DEDICATED CALC: TURNING -->
+      
+
+      <!-- DEDICATED CALC: MILLING -->
+      
+
+      <!-- DEDICATED CALC: DRILLING -->
+      
+
+      <!-- DEDICATED CALC: THREAD -->
+      
+
+      <!-- DEDICATED CALC: PCD -->
+      <section class="page" data-page="calc-pcd">
+        <div class="breadcrumbs">
+          <a href="index.html" data-i18n="nav_home">Strona główna</a>
+          <span class="sep">/</span>
+          <a href="calculators.html" data-i18n="nav_calc">Kalkulatory</a>
+          <span class="sep">/</span>
+          <span data-i18n="nav_calc_pcd">Otwory na okręgu (PCD)</span>
+        </div>
+        <h1 data-i18n="seo_pcd_h1">Kalkulator podziału otworów na okręgu (PCD) z kodem G</h1>
+        <p class="sub" data-i18n="seo_pcd_sub">Obliczanie współrzędnych X i Y dla kołnierzy i tarcz podziałowych z kopiowaniem bloków programu G do schowka</p>
+        <div class="grid calcs" id="calcsPcd"><div class="card calc"><h3><span>🎯</span>Otwory na okręgu (PCD)</h3><div class="field"><label>Liczba otworów</label><input type="number" step="any" inputmode="decimal" value="6"></div><div class="field"><label>Średnica okręgu PCD, mm</label><input type="number" step="any" inputmode="decimal" value="80"></div><div class="field"><label>Kąt początkowy, °</label><input type="number" step="any" inputmode="decimal" value="0"></div><div class="field"><label>Środek X, mm</label><input type="number" step="any" inputmode="decimal" value="0"></div><div class="field"><label>Środek Y, mm</label><input type="number" step="any" inputmode="decimal" value="0"></div><div class="results"><div class="res"><span>#1</span><b>X40.000  Y0.000</b></div><div class="res"><span>#2</span><b>X20.000  Y34.641</b></div><div class="res"><span>#3</span><b>X-20.000  Y34.641</b></div><div class="res"><span>#4</span><b>X-40.000  Y0.000</b></div><div class="res"><span>#5</span><b>X-20.000  Y-34.641</b></div><div class="res"><span>#6</span><b>X20.000  Y-34.641</b></div></div><button class="btn-save">💾 Zapisz obliczenie</button><button type="button" class="btn-copy">📋 Kopiuj G-kod</button></div>
+<div class="card calc"><h3><span>⊞</span>Siatka otworów i prosta linia (kod G)</h3><div class="field"><label>Typ szyku</label><select><option value="line" selected>Otwory w linii prostej</option><option value="grid">Siatka prostokątna (macierz)</option></select></div><div class="field"><label>Bazowy X0, mm</label><input type="number" step="any" inputmode="decimal" value="10"></div><div class="field"><label>Bazowy Y0, mm</label><input type="number" step="any" inputmode="decimal" value="10"></div><div class="field"><label>Krok w linii dL, mm</label><input type="number" step="any" inputmode="decimal" value="25"></div><div class="field"><label>Kąt pochylenia / obrotu, °</label><input type="number" step="any" inputmode="decimal" value="30"></div><div class="field"><label>Liczba otworów N</label><input type="number" step="any" inputmode="decimal" value="5"></div><div class="field" hidden><label>Liczba w osi X (Nx)</label><input type="number" step="any" inputmode="decimal" value="4"></div><div class="field" hidden><label>Krok w osi X (dX), mm</label><input type="number" step="any" inputmode="decimal" value="20"></div><div class="field" hidden><label>Liczba w osi Y (Ny)</label><input type="number" step="any" inputmode="decimal" value="3"></div><div class="field" hidden><label>Krok w osi Y (dY), mm</label><input type="number" step="any" inputmode="decimal" value="15"></div><div class="results"><div class="res"><span>Łączna liczba otworów</span><b>5 отверстий</b></div><div class="res"><span>Współrzędne otworów (X, Y)</span><b>#1: X10.000 Y10.000 | #2: X31.651 Y22.500 | #3: X53.301 Y35.000 | #4: X74.952 Y47.500 | #5: X96.603 Y60.000</b></div><div class="res"><span>Kod G do wiercenia (G81)</span><b>N1 X10.000 Y10.000 ; N2 X31.651 Y22.500 ; N3 X53.301 Y35.000 ; N4 X74.952 Y47.500 ; N5 X96.603 Y60.000</b></div></div><button class="btn-save">💾 Zapisz obliczenie</button></div></div>
+        <div class="seo-guide" id="seoGuidePcd"><h2>Obliczanie podziału otworów PCD i programowanie CNC</h2>
+<h3>1. Wzory współrzędnych otworów na okręgu podziałowym</h3>
+<p>Dla średnicy podziałowej <code>PCD</code> i liczby otworów <code>N</code>:</p>
+<p><code>Xi = Xc + (PCD / 2) × cos(α0 + i × (360° / N))</code></p>
+<p><code>Yi = Yc + (PCD / 2) × sin(α0 + i × (360° / N))</code></p>
+
+<h3>2. Zastosowanie w cyklach wiercenia (G81, G83)</h3>
+<p>Wygenerowane współrzędne można skopiować jednym kliknięciem i wkleić bezpośrednio do programu obróbczego pod blokiem cyklu wiercenia:</p>
+<pre>G90 G54 G00 X0. Y0. S2800 M03
+G43 H01 Z50. M08
+G98 G81 Z-18. R2. F350
+; wklejone współrzędne otworów:
+N1 X40.000 Y0.000
+...
+G80 G00 Z100. M09
+M30</pre></div>
+        <div class="other-calcs-bar">
+          <h3 data-i18n="other_calcs_title">Inne dedykowane kalkulatory CNC</h3>
+          <div class="other-calcs-links">
+            <a href="calculators.html" data-i18n="nav_all_calcs">Wszystkie kalkulatory (Pulpit)</a>
+            <a href="calc-turning.html">🔩 <span data-i18n="nav_calc_turn">Kalkulator toczenia</span></a>
+            <a href="calc-milling.html">🛠 <span data-i18n="nav_calc_mill">Kalkulator frezowania</span></a>
+            <a href="calc-drilling.html">🕳 <span data-i18n="nav_calc_drill">Wiercenie i pogłębianie</span></a>
+            <a href="calc-thread.html">🔧 <span data-i18n="nav_calc_thread">Gwint metryczny</span></a>
+          </div>
+        </div>
+      </section>
+
+      
+
+      
+
+      
+    </div>
+    <aside class="side">
+      <div class="ad-slot ad-side ad-live" data-slot="side"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="3745767258"></ins></div>
+    </aside>
+  </div>
+</main>
+
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="footer"><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="7573331629"></ins></div></div>
+
+<footer class="footer">
+  <div class="container">
+    <p data-i18n="footer_text">© CNCHelper — narzędzie dla operatorów CNC</p>
+    <p class="note" data-i18n="footer_disc">Obliczenia mają charakter pomocniczy. Odpowiedzialność za parametry i bezpieczeństwo ponosi operator.</p>
+    <p class="note"><a href="#" id="cookieSettings"></a></p>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/articles.js"></script>
+<script src="../js/calculators.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/consent.js"></script>
+</body>
+</html>

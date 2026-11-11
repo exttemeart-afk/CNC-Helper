@@ -34,7 +34,17 @@
     <a class="logo" href="index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
     <nav class="nav" id="nav">
       <a href="index.html" data-route-link="home" data-i18n="nav_home">Главная</a>
-      <a href="calculators.html" data-route-link="calc" data-i18n="nav_calc">Калькуляторы</a>
+      <div class="nav-dropdown">
+        <a href="calculators.html" data-route-link="calc" class="nav-drop-btn"><span data-i18n="nav_calc">Калькуляторы</span> <span class="drop-arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="calculators.html" class="drop-all"><strong data-i18n="nav_all_calcs">Все калькуляторы (Дашборд)</strong></a>
+          <a href="calc-turning.html"><span>🔩</span> <span data-i18n="nav_calc_turn">Токарный калькулятор</span></a>
+          <a href="calc-milling.html"><span>🛠</span> <span data-i18n="nav_calc_mill">Фрезерный калькулятор</span></a>
+          <a href="calc-drilling.html"><span>🕳</span> <span data-i18n="nav_calc_drill">Сверление и зенковка</span></a>
+          <a href="calc-thread.html"><span>🔧</span> <span data-i18n="nav_calc_thread">Метрическая резьба</span></a>
+          <a href="calc-pcd.html"><span>🎯</span> <span data-i18n="nav_calc_pcd">Отверстия по окружности (PCD)</span></a>
+        </div>
+      </div>
       <a href="codes.html" data-route-link="codes" data-i18n="nav_codes">G и M коды</a>
       <a href="articles.html" data-route-link="articles" data-i18n="nav_articles">Статьи</a>
     </nav>
@@ -91,8 +101,8 @@
   <section class="page" data-page="home">
     <h2 data-i18n="quick_title">Быстрый расчёт</h2>
     <p class="sub" data-i18n="quick_sub">Самые нужные калькуляторы — прямо на главной</p>
-    <div class="grid calcs" id="calcsQuick"><div class="card calc"><h3><span>🛠</span>Фрезерование: обороты и подача</h3><div class="field"><label>Диаметр инструмента, мм</label><input type="number" step="any" inputmode="decimal" value="12"></div><div class="field"><label>Число зубьев</label><input type="number" step="any" inputmode="decimal" value="4"></div><div class="field"><label>Скорость резания Vc, м/мин</label><input type="number" step="any" inputmode="decimal" value="150"></div><div class="field"><label>Подача на зуб fz, мм</label><input type="number" step="any" inputmode="decimal" value="0.05"></div><div class="field"><label>Длина обработки, мм</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="results"><div class="res"><span>Обороты шпинделя n</span><b>3 979 об/мин</b></div><div class="res"><span>Минутная подача F</span><b>796 мм/мин</b></div><div class="res"><span>Основное время</span><b>0,13 мин</b></div></div><button class="btn-save">💾 Сохранить расчёт</button></div>
-<div class="card calc"><h3><span>🔩</span>Токарная обработка</h3><div class="field"><label>Диаметр детали, мм</label><input type="number" step="any" inputmode="decimal" value="50"></div><div class="field"><label>Скорость резания Vc, м/мин</label><input type="number" step="any" inputmode="decimal" value="200"></div><div class="field"><label>Подача на оборот f, мм/об</label><input type="number" step="any" inputmode="decimal" value="0.2"></div><div class="field"><label>Длина обработки, мм</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="field"><label>Радиус при вершине резца, мм</label><input type="number" step="any" inputmode="decimal" value="0.8"></div><div class="results"><div class="res"><span>Обороты шпинделя n</span><b>1 273 об/мин</b></div><div class="res"><span>Минутная подача F</span><b>255 мм/мин</b></div><div class="res"><span>Основное время</span><b>0,39 мин</b></div><div class="res"><span>Теор. шероховатость Ra</span><b>6,25 мкм</b></div></div><button class="btn-save">💾 Сохранить расчёт</button></div>
+    <div class="grid calcs" id="calcsQuick"><div class="card calc"><h3><span>🛠</span>Фрезерование: обороты и подача</h3><div class="field"><label>Диаметр инструмента, мм</label><input type="number" step="any" inputmode="decimal" value="12"></div><div class="field"><label>Число зубьев</label><input type="number" step="any" inputmode="decimal" value="4"></div><div class="field"><label>Скорость резания Vc, м/мин</label><input type="number" step="any" inputmode="decimal" value="150"></div><div class="field"><label>Подача на зуб fz, мм</label><input type="number" step="any" inputmode="decimal" value="0.05"></div><div class="field"><label>Длина траектории (L), мм</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="field"><label>Ширина фрезерования ae, мм (для RCT)</label><input type="number" step="any" inputmode="decimal" value="0"></div><div class="results"><div class="res"><span>Обороты шпинделя n</span><b>3 979 об/мин</b></div><div class="res"><span>Минутная подача F</span><b>796 мм/мин</b></div><div class="res"><span>Основное время</span><b>0,13 мин</b></div></div><button class="btn-save">💾 Сохранить расчёт</button></div>
+<div class="card calc"><h3><span>🔩</span>Токарная обработка</h3><div class="field"><label>Диаметр детали, мм</label><input type="number" step="any" inputmode="decimal" value="50"></div><div class="field"><label>Скорость резания Vc, м/мин</label><input type="number" step="any" inputmode="decimal" value="200"></div><div class="field"><label>Подача на оборот f, мм/об</label><input type="number" step="any" inputmode="decimal" value="0.2"></div><div class="field"><label>Длина обработки, мм</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="field"><label>Радиус при вершине резца, мм</label><input type="number" step="any" inputmode="decimal" value="0.8"></div><div class="results"><div class="res"><span>Обороты шпинделя n</span><b>1 273 об/мин</b></div><div class="res"><span>Минутная подача F</span><b>255 мм/мин</b></div><div class="res"><span>Основное время</span><b>0,39 мин</b></div><div class="res"><span>Чистота поверхности (Ra / Rz)</span><b>Ra: 1.60 µm | Rz: 6.25 µm</b></div></div><button class="btn-save">💾 Сохранить расчёт</button></div>
 <div class="card calc"><h3><span>⚖</span>Масса заготовки</h3><div class="field"><label>Форма</label><select><option value="plate" selected>Плита / лист</option><option value="round">Круглый пруток</option><option value="tube">Труба</option><option value="hex">Шестигранник</option></select></div><div class="field"><label>Материал</label><select><option value="0" selected>Сталь конструкционная</option><option value="1">Нержавеющая сталь</option><option value="2">Алюминий</option><option value="3">Латунь</option><option value="4">Медь</option><option value="5">Титан</option><option value="6">Чугун</option><option value="7">Бронза</option><option value="8">Пластик POM</option></select></div><div class="field"><label>Ширина, мм</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="field"><label>Толщина, мм</label><input type="number" step="any" inputmode="decimal" value="20"></div><div class="field" hidden><label>Диаметр (наружный), мм</label><input type="number" step="any" inputmode="decimal" value="50"></div><div class="field" hidden><label>Толщина стенки, мм</label><input type="number" step="any" inputmode="decimal" value="5"></div><div class="field" hidden><label>Размер под ключ, мм</label><input type="number" step="any" inputmode="decimal" value="30"></div><div class="field"><label>Длина, мм</label><input type="number" step="any" inputmode="decimal" value="200"></div><div class="field"><label>Количество, шт</label><input type="number" step="any" inputmode="decimal" value="1"></div><div class="results"><div class="res"><span>Объём 1 шт</span><b>400 см³</b></div><div class="res"><span>Масса 1 шт</span><b>3,14 кг</b></div></div><button class="btn-save">💾 Сохранить расчёт</button></div></div>
     <p class="more-link"><a href="calculators.html" data-i18n="all_calcs">Все калькуляторы →</a></p>
 
@@ -104,71 +114,16 @@
     </div>
     <div class="ad-slot ad-inline ad-live" data-slot="inline"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
     <h2 data-i18n="latest">Новые статьи</h2>
-    <div class="grid" id="homeArticles"><a class="card art-card" href="article.html?id=trochoidal-milling"><span class="tag">Фрезерование</span><h3>Трохоидальное фрезерование: Как перестать ломать фрезы</h3><p>Устали ломать дорогие фрезы при обработке глубоких пазов? Пора вспомнить про трохоидальное фрезерование.</p><span class="more">Читать →</span></a>
-<a class="card art-card" href="article.html?id=coolant-care"><span class="tag">Обслуживание</span><h3>Выбор и уход за СОЖ: Это вам не просто вода</h3><p>СОЖ (смазочно-охлаждающая жидкость) — это кровь вашего станка. Но если в понедельник утром из бака пахнет как из болота, у вас проблемы.</p><span class="more">Читать →</span></a>
-<a class="card art-card" href="article.html?id=titanium-machining"><span class="tag">Материалы</span><h3>Укрощение титана: Секреты обработки</h3><p>Титан — металл красивый, прочный и жутко капризный. Главная ошибка новичков — пытаться резать его на тех же режимах, что и обычную сталь.</p><span class="more">Читать →</span></a>
-<a class="card art-card" href="article.html?id=chatter-vibrations"><span class="tag">Фрезерование</span><h3>Вибрации (Chatter) и как с ними бороться</h3><p>Слышите этот жуткий визг при фрезеровании? Это &quot;chatter&quot; (автоколебания), и он прямо сейчас убивает вашу фрезу и подшипники шпинделя.</p><span class="more">Читать →</span></a>
-<a class="card art-card" href="article.html?id=mql-lubrication"><span class="tag">Охлаждение</span><h3>Микросмазка (MQL): Забудьте о лужах вокруг станка</h3><p>Все привыкли к потокам СОЖ, водопадами заливающим деталь. Но что, если я скажу, что в 70% случаев это совершенно не нужно? MQL (Minimum Quantity Lubrication)…</p><span class="more">Читать →</span></a>
-<a class="card art-card" href="article.html?id=climb-vs-conventional"><span class="tag">Фрезерование</span><h3>Попутное против Встречного фрезерования</h3><p>Попутное (Climb) или встречное (Conventional) фрезерование? На современных станках с ЧПУ ответ в 99% случаев — попутное.</p><span class="more">Читать →</span></a></div>
+    <div class="grid" id="homeArticles"><a class="card art-card" href="article.html?id=trochoidal-milling"><span class="tag">Фрезерование</span><h3>Трохоидальное фрезерование: Как перестать ломать фрезы</h3><p>Устали ломать дорогие фрезы при обработке глубоких пазов? Пора вспомнить про трохоидальное фрезерование. Суть проста: фреза двигается по спирали, снимая металл...</p><span class="more">Читать →</span></a>
+<a class="card art-card" href="article.html?id=coolant-care"><span class="tag">Обслуживание</span><h3>Выбор и уход за СОЖ: Это вам не просто вода</h3><p>СОЖ (смазочно-охлаждающая жидкость) — это кровь вашего станка. Но если в понедельник утром из бака пахнет как из болота, у вас проблемы. Многие операторы...</p><span class="more">Читать →</span></a>
+<a class="card art-card" href="article.html?id=titanium-machining"><span class="tag">Материалы</span><h3>Укрощение титана: Секреты обработки</h3><p>Титан — металл красивый, прочный и жутко капризный. Главная ошибка новичков — пытаться резать его на тех же режимах, что и обычную сталь. Титан очень плохо...</p><span class="more">Читать →</span></a>
+<a class="card art-card" href="article.html?id=chatter-vibrations"><span class="tag">Фрезерование</span><h3>Вибрации (Chatter) и как с ними бороться</h3><p>Слышите этот жуткий визг при фрезеровании? Это &quot;chatter&quot; (автоколебания), и он прямо сейчас убивает вашу фрезу и подшипники шпинделя. Первый инстинкт — снизить...</p><span class="more">Читать →</span></a>
+<a class="card art-card" href="article.html?id=mql-lubrication"><span class="tag">Охлаждение</span><h3>Микросмазка (MQL): Забудьте о лужах вокруг станка</h3><p>Все привыкли к потокам СОЖ, водопадами заливающим деталь. Но что, если я скажу, что в 70% случаев это совершенно не нужно? MQL (Minimum Quantity Lubrication)...</p><span class="more">Читать →</span></a>
+<a class="card art-card" href="article.html?id=climb-vs-conventional"><span class="tag">Фрезерование</span><h3>Попутное против Встречного фрезерования</h3><p>Попутное (Climb) или встречное (Conventional) фрезерование? На современных станках с ЧПУ ответ в 99% случаев — попутное. При нём зуб фрезы сразу агрессивно...</p><span class="more">Читать →</span></a></div>
     <p class="more-link"><a href="articles.html" data-i18n="all_articles">Все статьи →</a></p>
   </section>
 
-  <div class="layout" id="layout">
-    <div class="content">
-      <section class="page" data-page="calc">
-        <h1 data-i18n="calc_title">Калькуляторы ЧПУ</h1>
-        <p class="sub" data-i18n="calc_sub">Мгновенный расчёт без перезагрузки страницы. Все результаты носят ориентировочный характер.</p>
-        <h2 data-i18n="group_cut">Режимы резания, мощность и стойкость</h2>
-        <div class="grid calcs" id="calcsCut"></div>
-        <div class="ad-slot ad-inline ad-live" data-slot="inline-2"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5983424491"></ins></div>
-        <h2 data-i18n="group_threads">Резьбы, калибры и резьбофрезерование</h2>
-        <div class="grid calcs" id="calcsThread"></div>
-        <h2 data-i18n="group_trig">Геометрия, тригонометрия и координаты</h2>
-        <div class="grid calcs" id="calcsTrig"></div>
-        <h2 data-i18n="group_tol">Допуски ISO 286, шероховатость и метрология</h2>
-        <div class="grid calcs" id="calcsTol"></div>
-        <h2 id="saved" data-i18n="saved_title">Сохранённые расчёты</h2>
-        <div class="card" id="savedList"></div>
-        <h2 data-i18n="ref_title">Справочник материалов</h2>
-        <div class="card table-wrap"><table id="matTable"></table></div>
-        <p class="note" data-i18n="ref_note">Ориентировочные значения для твердосплавного инструмента. Всегда сверяйтесь с каталогом производителя инструмента.</p>
-      </section>
-
-      <section class="page" data-page="codes">
-        <h1 data-i18n="codes_title">G и M коды</h1>
-        <p class="sub" data-i18n="codes_sub">Справочник по 6 популярным системам ЧПУ: Fanuc, Haas, Siemens, Heidenhain, Mazak и Okuma.</p>
-        <div class="codes-bar">
-          <label class="ctl-lab"><span data-i18n="ctl">Система ЧПУ</span><select id="ctlSel"></select></label>
-          <div class="tabs" id="gmTabs">
-            <button class="tab active" data-tab="G">G</button>
-            <button class="tab" data-tab="M">M</button>
-          </div>
-          <input type="search" id="codeSearch" data-i18n-ph="search_ph" placeholder="Поиск: G01, сверление, резьба…">
-        </div>
-        <div class="card table-wrap"><table id="codesTable"></table></div>
-        <p class="note" data-i18n="codes_note">Набор кодов и их синтаксис зависят от конкретной стойки ЧПУ и кинематики станка.</p>
-      </section>
-
-      <section class="page" data-page="articles">
-        <h1 data-i18n="articles_title">Статьи о ЧПУ</h1>
-        <p class="sub" data-i18n="articles_sub">Практика, советы и основы для операторов и программистов.</p>
-        <div class="codes-bar">
-          <div class="tag-pills" id="artTags"></div>
-          <input type="search" id="artSearch" data-i18n-ph="art_search_ph" placeholder="Поиск по статьям…">
-        </div>
-        <div class="grid" id="articlesList"></div>
-      </section>
-
-      <section class="page" data-page="article">
-        <a href="articles.html" class="back" data-i18n="back">← Все статьи</a>
-        <article class="card article" id="articleBody"></article>
-        <div class="ad-slot ad-inline ad-live" data-slot="article-bottom"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
-      </section>
-    </div>
-    <aside class="side">
-      <div class="ad-slot ad-side ad-live" data-slot="side"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="3745767258"></ins></div>
-    </aside>
-  </div>
+  
 </main>
 
 <div class="container"><div class="ad-slot ad-top ad-live" data-slot="footer"><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="7573331629"></ins></div></div>

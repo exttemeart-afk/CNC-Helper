@@ -30,8 +30,11 @@ ru: {
   f_F:"Подача F, мм/мин", f_eff:"КПД станка η", f_thread:"Резьба", f_mm:"Миллиметры, мм", f_in:"Дюймы, in", f_mpm:"Скорость, м/мин", f_sfm:"Скорость, SFM", f_fmm:"Подача, мм/мин", f_ipm:"Подача, IPM",
   sh_plate:"Плита / лист", sh_round:"Круглый пруток", sh_tube:"Труба", sh_hex:"Шестигранник",
   r_n:"Обороты шпинделя n", r_F:"Минутная подача F", r_t:"Основное время", r_Ra:"Теор. шероховатость Ra", r_mass:"Масса 1 шт", r_total:"Масса всего", r_vol:"Объём 1 шт",
-  r_mrr:"Производительность Q", r_pc:"Мощность резания Pc", r_pitch:"Шаг (крупный)", r_drill:"Сверло под нарезание метчиком", r_drillF:"Сверло под раскатник", r_minor:"Внутренний диаметр", r_tdepth:"Высота профиля",
+  r_mrr:"Производительность Q", r_pc:"Мощность резания Pc", r_pc_net:"Чистая мощность резания Pc", r_pm_motor:"Мощность на шпинделе (с η) Pm", r_pitch:"Шаг (крупный)", r_drill:"Сверло под нарезание метчиком", r_drillF:"Сверло под раскатник", r_minor:"Внутренний диаметр", r_tdepth:"Высота профиля",
   r_in:"Дюймы", r_mm:"Миллиметры", r_sfm:"SFM", r_mpm:"м/мин", r_fipm:"IPM", r_fmm:"мм/мин",
+  r_z_spot:"Глубина Z от острой вершины (Spot Drill)", opt_custom_th:"Свой размер (нестандартный шаг)", f_cust_d:"Диаметр резьбы D, мм", f_cust_p:"Шаг резьбы P, мм",
+  f_mill_l:"Длина траектории (L), мм", f_mill_ae:"Ширина фрезерования ae, мм (для RCT)", r_fz_adj:"Подача fz с учётом RCT", r_f_adj:"Минутная подача F с учётом RCT",
+  copy_gcode:"📋 Скопировать G-код", copied_ok:"Скопировано в буфер ✓", r_surf_finish:"Чистота поверхности (Ra / Rz)",
   mat_steel:"Сталь конструкционная", mat_inox:"Нержавеющая сталь", mat_alu:"Алюминий", mat_brass:"Латунь", mat_cu:"Медь", mat_ti:"Титан", mat_ci:"Чугун", mat_bronze:"Бронза", mat_pom:"Пластик POM",
   u_min:"мин", u_kw:"кВт", u_cm3min:"см³/мин", u_cm3:"см³", u_kg:"кг", u_rpm:"об/мин", u_mmmin:"мм/мин", u_um:"мкм",
   invalid:"Введите корректные значения",
@@ -113,7 +116,31 @@ ru: {
   mat_steel_carbon:"Углеродистая сталь (α = 11.5)", mat_steel_tool:"Инструментальная сталь (α = 12.0)", mat_inox_304:"Нержавеющая сталь (α = 16.5)",
   mat_alu_alloys:"Алюминиевые сплавы (α = 23.4)", mat_brass_cu:"Латунь / медь (α = 18.0)", mat_cast_iron:"Чугун серый (α = 10.5)",
   mat_titanium:"Титан и сплавы (α = 8.6)", mat_carbide_vhm:"Твёрдый сплав ВК / ТК (α = 5.0)", mat_invar:"Инвар (α = 1.2)",
-  tool_carbide:"Твёрдый сплав (Carbide, m ≈ 0.25)", tool_hss:"Быстрорез (HSS, m ≈ 0.125)", tool_cbn_ceramic:"Керамика / КНБ (m ≈ 0.40)", tool_pcd:"Алмаз (PCD, m ≈ 0.33)"
+  tool_carbide:"Твёрдый сплав (Carbide, m ≈ 0.25)", tool_hss:"Быстрорез (HSS, m ≈ 0.125)", tool_cbn_ceramic:"Керамика / КНБ (m ≈ 0.40)", tool_pcd:"Алмаз (PCD, m ≈ 0.33)",
+
+  // Navigation & Dropdown
+  nav_all_calcs:"Все калькуляторы (Дашборд)", nav_calc_turn:"Токарный калькулятор", nav_calc_mill:"Фрезерный калькулятор",
+  nav_calc_drill:"Сверление и зенковка", nav_calc_thread:"Метрическая резьба", nav_calc_pcd:"Отверстия по окружности (PCD)",
+
+  // Dashboard & Landing Pages
+  dash_title:"Ключевые калькуляторы ЧПУ", dash_sub:"Отдельные модули с подробной теорией, формулами и экспортом данных",
+  dash_turn_t:"Токарная обработка", dash_turn_d:"Обороты n, подача F, шероховатость Ra/Rz по радиусу пластины, время резания и компенсация TNRC.",
+  dash_mill_t:"Фрезерная обработка", dash_mill_d:"Подача на зуб fz, утончение стружки RCT (ae < 0.5D), мощность резания Pc/Pm и съём металла MRR.",
+  dash_drill_t:"Сверление и зенковка", dash_drill_d:"Подача сверла, длина вершины конуса lp, глубина фаски h и опускание Z от острия Spot Drill.",
+  dash_thread_t:"Метрическая резьба", dash_thread_d:"Отверстие под метчик и раскатник, стандартные и нестандартные шаги, замер по 3 проволочкам.",
+  dash_pcd_t:"Отверстия по окружности (PCD)", dash_pcd_d:"Координаты X/Y для фланцев с любым углом начала и быстрым копированием готовых кадров G-кода.",
+  open_calc:"Открыть калькулятор →", all_tools_title:"Все 25 калькуляторов в едином списке", other_calcs_title:"Другие инструментальные калькуляторы ЧПУ",
+
+  seo_turn_h1:"Калькулятор режимов резания для точения на станках с ЧПУ",
+  seo_turn_sub:"Расчёт скорости резания Vc, частоты вращения n, подачи F, шероховатости Ra/Rz и коррекции резца (TNRC)",
+  seo_mill_h1:"Калькулятор фрезерования на станках с ЧПУ",
+  seo_mill_sub:"Расчёт частоты вращения n, подачи стола F, мощности резания Pc/Pm и эффекта утончения стружки (RCT)",
+  seo_drill_h1:"Калькулятор сверления, зенковки и центровки ЧПУ",
+  seo_drill_sub:"Расчёт режимов сверления, длины конуса вершины lp, глубины фаски h и опускания Z центровочного сверла",
+  seo_thread_h1:"Калькулятор метрической резьбы и отверстий под метчик",
+  seo_thread_sub:"Точный расчёт диаметра отверстия под режущий метчик и раскатник, стандартные и нестандартные шаги",
+  seo_pcd_h1:"Калькулятор отверстий по окружности (PCD) с экспортом G-кода",
+  seo_pcd_sub:"Расчёт полярных координат X и Y для фланцев и матриц, генерация и копирование кадров G-кода в буфер"
 },
 pl: {
   nav_home:"Strona główna", nav_calc:"Kalkulatory", nav_codes:"Kody G i M", nav_articles:"Artykuły",
@@ -144,8 +171,11 @@ pl: {
   f_F:"Posuw F, mm/min", f_eff:"Sprawność maszyny η", f_thread:"Gwint", f_mm:"Milimetry, mm", f_in:"Cale, in", f_mpm:"Prędkość, m/min", f_sfm:"Prędkość, SFM", f_fmm:"Posuw, mm/min", f_ipm:"Posuw, IPM",
   sh_plate:"Płyta / blacha", sh_round:"Pręt okrągły", sh_tube:"Rura", sh_hex:"Sześciokąt",
   r_n:"Obroty wrzeciona n", r_F:"Posuw minutowy F", r_t:"Czas obróbki", r_Ra:"Teor. chropowatość Ra", r_mass:"Masa 1 szt", r_total:"Masa łącznie", r_vol:"Objętość 1 szt",
-  r_mrr:"Wydajność Q", r_pc:"Moc skrawania Pc", r_pitch:"Skok (zwykły)", r_drill:"Wiertło pod gwintownik", r_drillF:"Wiertło pod wygniatak", r_minor:"Średnica rdzenia", r_tdepth:"Wysokość zarysu",
+  r_mrr:"Wydajność Q", r_pc:"Moc skrawania Pc", r_pc_net:"Czysta moc skrawania Pc", r_pm_motor:"Wymagana moc wrzeciona (z η) Pm", r_pitch:"Skok (zwykły)", r_drill:"Wiertło pod gwintownik", r_drillF:"Wiertło pod wygniatak", r_minor:"Średnica rdzenia", r_tdepth:"Wysokość zarysu",
   r_in:"Cale", r_mm:"Milimetry", r_sfm:"SFM", r_mpm:"m/min", r_fipm:"IPM", r_fmm:"mm/min",
+  r_z_spot:"Głębokość Z od wierzchołka (Spot Drill)", opt_custom_th:"Własny wymiar (inny skok)", f_cust_d:"Średnica gwintu D, mm", f_cust_p:"Skok gwintu P, mm",
+  f_mill_l:"Długość ścieżki (L), mm", f_mill_ae:"Szerokość frezowania ae, mm (dla RCT)", r_fz_adj:"Posuw fz po ścienieniu wióra (RCT)", r_f_adj:"Posuw minutowy F po korekcie RCT",
+  copy_gcode:"📋 Kopiuj G-kod", copied_ok:"Skopiowano do schowka ✓", r_surf_finish:"Chropowatość powierzchni (Ra / Rz)",
   mat_steel:"Stal konstrukcyjna", mat_inox:"Stal nierdzewna", mat_alu:"Aluminium", mat_brass:"Mosiądz", mat_cu:"Miedź", mat_ti:"Tytan", mat_ci:"Żeliwo", mat_bronze:"Brąz", mat_pom:"Tworzywo POM",
   u_min:"min", u_kw:"kW", u_cm3min:"cm³/min", u_cm3:"cm³", u_kg:"kg", u_rpm:"obr/min", u_mmmin:"mm/min", u_um:"µm",
   invalid:"Wprowadź poprawne wartości",
@@ -226,7 +256,31 @@ pl: {
   mat_steel_carbon:"Stal węglowa (α = 11.5)", mat_steel_tool:"Stal narzędziowa (α = 12.0)", mat_inox_304:"Stal nierdzewna (α = 16.5)",
   mat_alu_alloys:"Stopy aluminium (α = 23.4)", mat_brass_cu:"Mosiądz / miedź (α = 18.0)", mat_cast_iron:"Żeliwo szare (α = 10.5)",
   mat_titanium:"Tytan i stopy (α = 8.6)", mat_carbide_vhm:"Węglik spiekany VHM (α = 5.0)", mat_invar:"Inwar (α = 1.2)",
-  tool_carbide:"Węglik spiekany (Carbide, m ≈ 0.25)", tool_hss:"Stal szybkotnąca (HSS, m ≈ 0.125)", tool_cbn_ceramic:"Ceramika / CBN (m ≈ 0.40)", tool_pcd:"Diament (PCD, m ≈ 0.33)"
+  tool_carbide:"Węglik spiekany (Carbide, m ≈ 0.25)", tool_hss:"Stal szybkotnąca (HSS, m ≈ 0.125)", tool_cbn_ceramic:"Ceramika / CBN (m ≈ 0.40)", tool_pcd:"Diament (PCD, m ≈ 0.33)",
+
+  // Navigation & Dropdown
+  nav_all_calcs:"Wszystkie kalkulatory (Pulpit)", nav_calc_turn:"Kalkulator toczenia", nav_calc_mill:"Kalkulator frezowania",
+  nav_calc_drill:"Wiercenie i pogłębianie", nav_calc_thread:"Gwint metryczny", nav_calc_pcd:"Otwory na okręgu (PCD)",
+
+  // Dashboard & Landing Pages
+  dash_title:"Kluczowe moduły kalkulatorów CNC", dash_sub:"Dedykowane moduły narzędziowe ze wzorami, teorią i szybkim eksportem danych",
+  dash_turn_t:"Toczenie CNC", dash_turn_d:"Obroty n, posuw F, chropowatość Ra/Rz z promienia płytki r, czas skrawania i kompensacja TNRC.",
+  dash_mill_t:"Frezowanie CNC", dash_mill_d:"Posuw na ząb fz, ścienienie wióra RCT (ae < 0.5D), moc skrawania Pc/Pm i usuwanie wióra MRR.",
+  dash_drill_t:"Wiercenie i fazowanie", dash_drill_d:"Posuw wiertła, długość stożka lp, głębokość fazy h i pełne zagłębienie Z wiertła nakiełkowego.",
+  dash_thread_t:"Gwint metryczny", dash_thread_d:"Średnica wiertła pod gwintownik i wygniatak, skoki zgrubne i własne, pomiar 3 wałeczkami.",
+  dash_pcd_t:"Otwory na okręgu (PCD)", dash_pcd_d:"Współrzędne X/Y dla kołnierzy z dowolnym kątem oraz szybkie kopiowanie bloków kodu G do schowka.",
+  open_calc:"Otwórz kalkulator →", all_tools_title:"Wszystkie 25 kalkulatorów na jednej liście", other_calcs_title:"Inne dedykowane kalkulatory CNC",
+
+  seo_turn_h1:"Kalkulator parametrów skrawania dla toczenia CNC",
+  seo_turn_sub:"Obliczanie prędkości skrawania Vc, obrotów n, posuwu F, chropowatości Ra/Rz oraz kompensacji promienia naroża (TNRC)",
+  seo_mill_h1:"Kalkulator parametrów frezowania na obrabiarkach CNC",
+  seo_mill_sub:"Obliczanie obrotów n, posuwu F, mocy skrawania Pc/Pm oraz kompensacji ścienienia wióra (RCT przy ae < 0.5D)",
+  seo_drill_h1:"Kalkulator wiercenia, pogłębiania i nakiełkowania CNC",
+  seo_drill_sub:"Obliczanie obrotów i posuwu, długości stożka wiertła lp, głębokości fazy h oraz pozycji Z wiertła Spot Drill",
+  seo_thread_h1:"Kalkulator gwintów metrycznych i otworów pod gwintowniki",
+  seo_thread_sub:"Dokładny dobór wiertła pod gwintownik skrawający i wygniatak, skoki zgrubne, drobnozwojne i niestandardowe",
+  seo_pcd_h1:"Kalkulator podziału otworów na okręgu (PCD) z kodem G",
+  seo_pcd_sub:"Obliczanie współrzędnych X i Y dla kołnierzy i tarcz podziałowych z kopiowaniem bloków programu G do schowka"
 },
 en: {
   nav_home:"Home", nav_calc:"Calculators", nav_codes:"G & M codes", nav_articles:"Articles",
@@ -257,8 +311,11 @@ en: {
   f_F:"Feed rate F, mm/min", f_eff:"Machine efficiency η", f_thread:"Thread", f_mm:"Millimeters, mm", f_in:"Inches, in", f_mpm:"Speed, m/min", f_sfm:"Speed, SFM", f_fmm:"Feed, mm/min", f_ipm:"Feed, IPM",
   sh_plate:"Plate / sheet", sh_round:"Round bar", sh_tube:"Tube / pipe", sh_hex:"Hexagon",
   r_n:"Spindle speed n", r_F:"Feed rate F", r_t:"Cutting time", r_Ra:"Theor. roughness Ra", r_mass:"Mass 1 pc", r_total:"Total mass", r_vol:"Volume 1 pc",
-  r_mrr:"Removal rate Q", r_pc:"Cutting power Pc", r_pitch:"Pitch (coarse)", r_drill:"Cutting tap drill", r_drillF:"Forming tap drill", r_minor:"Minor diameter", r_tdepth:"Thread depth",
+  r_mrr:"Removal rate Q", r_pc:"Cutting power Pc", r_pc_net:"Net cutting power Pc", r_pm_motor:"Spindle motor power (with η) Pm", r_pitch:"Pitch (coarse)", r_drill:"Cutting tap drill", r_drillF:"Forming tap drill", r_minor:"Minor diameter", r_tdepth:"Thread depth",
   r_in:"Inches", r_mm:"Millimeters", r_sfm:"SFM", r_mpm:"m/min", r_fipm:"IPM", r_fmm:"mm/min",
+  r_z_spot:"Z depth from sharp tip (Spot Drill)", opt_custom_th:"Custom size (special pitch)", f_cust_d:"Thread diameter D, mm", f_cust_p:"Thread pitch P, mm",
+  f_mill_l:"Toolpath length (L), mm", f_mill_ae:"Radial width ae, mm (for RCT)", r_fz_adj:"Adjusted feed fz (RCT chip thinning)", r_f_adj:"Adjusted table feed F (RCT)",
+  copy_gcode:"📋 Copy G-code", copied_ok:"Copied to clipboard ✓", r_surf_finish:"Surface finish (Ra / Rz)",
   mat_steel:"Carbon steel", mat_inox:"Stainless steel", mat_alu:"Aluminum", mat_brass:"Brass", mat_cu:"Copper", mat_ti:"Titanium", mat_ci:"Cast iron", mat_bronze:"Bronze", mat_pom:"POM plastic",
   u_min:"min", u_kw:"kW", u_cm3min:"cm³/min", u_cm3:"cm³", u_kg:"kg", u_rpm:"RPM", u_mmmin:"mm/min", u_um:"µm",
   invalid:"Enter valid positive numbers",
@@ -339,6 +396,30 @@ en: {
   mat_steel_carbon:"Carbon steel (α = 11.5)", mat_steel_tool:"Tool steel (α = 12.0)", mat_inox_304:"Stainless steel (α = 16.5)",
   mat_alu_alloys:"Aluminum alloys (α = 23.4)", mat_brass_cu:"Brass / copper (α = 18.0)", mat_cast_iron:"Gray cast iron (α = 10.5)",
   mat_titanium:"Titanium alloys (α = 8.6)", mat_carbide_vhm:"Solid carbide VHM (α = 5.0)", mat_invar:"Invar (α = 1.2)",
-  tool_carbide:"Carbide (Carbide, m ≈ 0.25)", tool_hss:"High speed steel (HSS, m ≈ 0.125)", tool_cbn_ceramic:"Ceramic / CBN (m ≈ 0.40)", tool_pcd:"Diamond (PCD, m ≈ 0.33)"
+  tool_carbide:"Carbide (Carbide, m ≈ 0.25)", tool_hss:"High speed steel (HSS, m ≈ 0.125)", tool_cbn_ceramic:"Ceramic / CBN (m ≈ 0.40)", tool_pcd:"Diamond (PCD, m ≈ 0.33)",
+
+  // Navigation & Dropdown
+  nav_all_calcs:"All calculators (Dashboard)", nav_calc_turn:"Turning calculator", nav_calc_mill:"Milling calculator",
+  nav_calc_drill:"Drilling & countersink", nav_calc_thread:"Metric thread", nav_calc_pcd:"Bolt circle (PCD)",
+
+  // Dashboard & Landing Pages
+  dash_title:"Featured CNC Tooling Calculators", dash_sub:"Dedicated tooling modules with formulas, theory, and quick data export",
+  dash_turn_t:"CNC Turning", dash_turn_d:"RPM n, cutting speed Vc, feed F, Ra/Rz finish from insert radius, cutting time, and manual TNRC.",
+  dash_mill_t:"CNC Milling", dash_mill_d:"Feed per tooth fz, RCT chip thinning (ae < 0.5D), cutting power Pc/Pm, and removal rate MRR.",
+  dash_drill_t:"Drilling & Countersink", dash_drill_d:"Drill feed rate, drill point cone lp, chamfer depth h, and spot drill Z plunge from sharp tip.",
+  dash_thread_t:"Metric Thread", dash_thread_d:"Tap drill size for cutting and forming taps, coarse and custom pitches, 3-wire thread measurement.",
+  dash_pcd_t:"Bolt Circle (PCD)", dash_pcd_d:"X/Y coordinates for flanges at any start angle, with instant one-click G-code export to clipboard.",
+  open_calc:"Open calculator →", all_tools_title:"All 25 calculators in a single list", other_calcs_title:"Other CNC Tooling Calculators",
+
+  seo_turn_h1:"CNC Lathe Turning Speeds and Feeds Calculator",
+  seo_turn_sub:"Calculate cutting speed Vc, spindle RPM n, table feed F, surface finish Ra/Rz, and tool nose radius compensation (TNRC)",
+  seo_mill_h1:"CNC Milling Speeds and Feeds Calculator",
+  seo_mill_sub:"Calculate spindle speed n, feed rate F, material removal MRR, cutting power Pc/Pm, and radial chip thinning (RCT)",
+  seo_drill_h1:"CNC Drilling, Countersink & Spot Drill Calculator",
+  seo_drill_sub:"Calculate drill speed and feed, drill point cone length lp, chamfer depth h, and spot drill Z plunge from sharp tip",
+  seo_thread_h1:"Metric Thread & Tap Drill Hole Size Calculator",
+  seo_thread_sub:"Accurate hole sizing for cutting and forming/roll taps, coarse, fine, and custom thread pitches",
+  seo_pcd_h1:"Bolt Circle PCD Calculator with G-Code Export",
+  seo_pcd_sub:"Calculate X and Y coordinates for flange bolt patterns and copy ready-to-run CNC G-code blocks"
 }
 };

@@ -25,6 +25,31 @@
       "ru": {"t": "Статьи и руководства по ЧПУ | CNCHelper", "d": "Практические статьи и руководства по ЧПУ обработке, режимам резания, стойкам Fanuc, Haas, Siemens, Heidenhain, Mazak и Okuma."},
       "pl": {"t": "Artykuły i poradniki CNC | CNCHelper", "d": "Praktyczne artykuły i poradniki na temat obróbki CNC, parametrów skrawania, sterowań Fanuc, Haas, Siemens, Heidenhain, Mazak i Okuma."},
       "en": {"t": "CNC Articles & Guides | CNCHelper", "d": "Practical articles and guides on CNC machining, cutting data, Fanuc, Haas, Siemens, Heidenhain, Mazak and Okuma controls."}
+    },
+    "calc-turning": {
+      "ru": {"t": "Калькулятор режимов резания для точения — скорость, подача, шероховатость Ra/Rz | CNCHelper", "d": "Онлайн-калькулятор режимов точения: расчет скорости резания Vc, частоты вращения шпинделя n, минутной подачи F, теоретической шероховатости Ra и Rz по радиусу пластины, времени обработки и коррекции радиуса резца (TNRC)."},
+      "pl": {"t": "Kalkulator parametrów skrawania tokarka / toczenie — Vc, posuw, chropowatość Ra/Rz | CNCHelper", "d": "Kalkulator toczenia CNC: obliczanie prędkości skrawania Vc, obrotów n, posuwu F, teoretycznej chropowatości powierzchni Ra i Rz na podstawie promienia płytki r oraz czasu obróbki i kompensacji promienia ostrza (TNRC)."},
+      "en": {"t": "CNC Turning Speeds and Feeds Calculator — Vc, Feed, Surface Roughness Ra/Rz | CNCHelper", "d": "Free CNC lathe speeds and feeds calculator: calculate cutting speed Vc, spindle RPM n, table feed F, theoretical Ra and Rz surface roughness based on tool nose radius r, machining time and manual TNRC."}
+    },
+    "calc-milling": {
+      "ru": {"t": "Калькулятор фрезерования ЧПУ — скорость, подача, мощность Pc и утончение стружки RCT | CNCHelper", "d": "Калькулятор фрезерования на станках с ЧПУ: расчет частоты вращения шпинделя n, подачи F, минутного съёма металла MRR, чистой мощности резания Pc, мощности шпинделя Pm и компенсации утончения стружки (RCT при ae < 0.5D)."},
+      "pl": {"t": "Kalkulator frezowania CNC — obroty, posuw, moc skrawania Pc i ścienienie wióra RCT | CNCHelper", "d": "Kalkulator parametrów frezowania CNC: obliczanie obrotów wrzeciona n, posuwu F, wydajności usuwania materiału MRR, czystej mocy Pc i mocy wrzeciona Pm oraz korekcji posuwu przy ścienieniu wióra (RCT)."},
+      "en": {"t": "CNC Milling Speeds and Feeds Calculator — Cutting Power Pc & Chip Thinning RCT | CNCHelper", "d": "Professional CNC milling speeds & feeds calculator: calculate spindle speed n, feed rate F, material removal rate MRR, net cutting power Pc, motor power Pm, and radial chip thinning (RCT) feed adjustment."}
+    },
+    "calc-drilling": {
+      "ru": {"t": "Калькулятор сверления и зенковки — подача, длина вершины сверла и глубина Z центровки | CNCHelper", "d": "Калькулятор параметров сверления и зенковки: расчёт скорости Vc, подачи f, длины конуса вершины сверла lp для глухих отверстий, глубины катета фаски h и опускания по оси Z от вершины центровочного сверла (Spot Drill)."},
+      "pl": {"t": "Kalkulator wiercenia i pogłębiania — wierzchołek wiertła, głębokość fazy i Z Spot Drill | CNCHelper", "d": "Kalkulator parametrów wiercenia i pogłębiania CNC: obliczanie Vc, posuwu f, długości stożka wierzchołka wiertła lp dla otworów nieprzelotowych, głębokości fazy h oraz pełnego zagłębienia Z od ostrego wierzchołka Spot Drill."},
+      "en": {"t": "CNC Drilling & Countersink Calculator — Drill Point Cone & Spot Drill Z Depth | CNCHelper", "d": "CNC drilling and countersink calculator: calculate cutting speed Vc, feed per rev f, drill point cone length lp for blind holes, chamfer depth h and total Z plunge depth from sharp tip of a spot drill."}
+    },
+    "calc-thread": {
+      "ru": {"t": "Калькулятор метрической резьбы — диаметр сверла под метчик и раскатник, шаг P | CNCHelper", "d": "Калькулятор метрической резьбы: точный расчет диаметра отверстия под нарезание метчиком и раскатником (бесстружечным), внутреннего диаметра и глубины профиля. Поддержка стандартных рядов и нестандартных шагов."},
+      "pl": {"t": "Kalkulator gwintów metrycznych — wiertło pod gwintownik i wygniatak, skok P | CNCHelper", "d": "Kalkulator gwintów metrycznych ISO: precyzyjny dobór średnicy wiertła pod gwintownik skrawający i wygniatak, średnica rdzenia i wysokość zarysu. Obsługa gwintów zgrubnych, drobnozwojnych i własnych wymiarów."},
+      "en": {"t": "Metric Thread & Tap Drill Calculator — Cut & Form Tap Hole Sizes, Pitch P | CNCHelper", "d": "Metric thread calculator: precise hole size for cutting taps and forming / roll taps, minor diameter and thread height. Supports coarse, fine pitches and custom user-defined thread sizes."}
+    },
+    "calc-pcd": {
+      "ru": {"t": "Калькулятор отверстий по окружности (PCD) — координаты X Y и экспорт G-кода | CNCHelper", "d": "Калькулятор разметки отверстий по окружности (PCD / делительная окружность): точные координаты X и Y для каждого отверстия с любым начальным углом, копирование готовых кадров G-кода для сверлильных циклов G81/G83."},
+      "pl": {"t": "Kalkulator podziału otworów na okręgu (PCD) — współrzędne X Y i kod G | CNCHelper", "d": "Kalkulator otworów na okręgu (PCD / średnica podziałowa): precyzyjne współrzędne X i Y dla każdego otworu z dowolnym kątem początkowym oraz kopiowanie gotowych bloków kodu G do cykli wiercenia G81/G83."},
+      "en": {"t": "Bolt Circle PCD Calculator — Hole Coordinates X Y & G-code Generator | CNCHelper", "d": "Bolt hole circle (PCD) calculator: calculate precise X and Y coordinates for any number of holes and starting angle, with one-click G-code export for CNC drilling canned cycles (G81/G83)."}
     }
   }
 }

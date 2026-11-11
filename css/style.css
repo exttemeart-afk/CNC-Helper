@@ -27,6 +27,15 @@ h2{margin:1.6em 0 .6em}
 .nav a{color:var(--text);padding:8px 14px;border-radius:8px;font-weight:500}
 .nav a:hover{background:var(--surface2)}
 .nav a.active{background:var(--primary);color:var(--on-primary)}
+.nav-dropdown{position:relative;display:inline-block}
+.nav-drop-btn{display:flex;align-items:center;gap:4px;cursor:pointer}
+.drop-arrow{font-size:.7rem;transition:transform .2s;display:inline-block}
+.nav-dropdown:hover .drop-arrow{transform:rotate(180deg)}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;min-width:260px;background:var(--surface);border:1px solid var(--border);border-radius:10px;box-shadow:var(--shadow);padding:8px;z-index:60;flex-direction:column;gap:3px}
+.nav-dropdown:hover .dropdown-menu,.nav-dropdown:focus-within .dropdown-menu{display:flex}
+.dropdown-menu a{color:var(--text);padding:8px 12px;border-radius:6px;font-size:.88rem;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.dropdown-menu a:hover{background:var(--surface2);color:var(--primary)}
+.dropdown-menu a.drop-all{border-bottom:1px solid var(--border);border-radius:6px 6px 0 0;margin-bottom:4px;padding-bottom:10px;font-weight:600}
 .tools{display:flex;gap:8px;align-items:center}
 select,input{font:inherit;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 10px;width:100%}
 .tools select{width:auto}
@@ -103,9 +112,41 @@ td.ex{font-family:Consolas,monospace;font-size:.88rem;color:var(--muted)}
 .footer{margin-top:40px;padding:24px 0;border-top:1px solid var(--border);background:var(--surface);text-align:center}
 .page,.home-only{display:none}
 body[data-route=home] .page[data-page=home],body[data-route=calc] .page[data-page=calc],body[data-route=codes] .page[data-page=codes],
-body[data-route=articles] .page[data-page=articles],body[data-route=article] .page[data-page=article]{display:block}
+body[data-route=articles] .page[data-page=articles],body[data-route=article] .page[data-page=article],
+body[data-route=calc-turning] .page[data-page=calc-turning],body[data-route=calc-milling] .page[data-page=calc-milling],
+body[data-route=calc-drilling] .page[data-page=calc-drilling],body[data-route=calc-thread] .page[data-page=calc-thread],
+body[data-route=calc-pcd] .page[data-page=calc-pcd]{display:block}
 body[data-route=home] .home-only{display:block}
 body[data-route=home] #layout{display:none}
+
+/* Calculators Dashboard */
+.calc-dashboard{margin-bottom:32px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+.dash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:16px}
+.dash-card{display:flex;flex-direction:column;padding:16px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;color:var(--text);transition:transform .15s,border-color .15s}
+.dash-card:hover{transform:translateY(-3px);border-color:var(--primary);text-decoration:none}
+.dash-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.dash-head h3{margin:0;font-size:1.05rem;color:var(--text)}
+.dash-ic{font-size:1.4rem}
+.dash-card p{margin:0 0 12px;color:var(--muted);font-size:.85rem;flex:1;line-height:1.45}
+.dash-link{color:var(--primary);font-weight:600;font-size:.85rem;margin-top:auto}
+
+/* Breadcrumbs & Landing Page Extras */
+.breadcrumbs{display:flex;gap:8px;align-items:center;font-size:.85rem;color:var(--muted);margin-bottom:14px;flex-wrap:wrap}
+.breadcrumbs a{color:var(--muted)}
+.breadcrumbs a:hover{color:var(--primary)}
+.breadcrumbs span.sep{color:var(--border)}
+.seo-guide{margin-top:30px;padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow)}
+.seo-guide h2{margin-top:0;font-size:1.3rem}
+.seo-guide h3{font-size:1.08rem;margin:1.4em 0 .4em}
+.seo-guide p{color:var(--text);font-size:.92rem;line-height:1.6}
+.seo-guide ul{padding-left:22px;color:var(--text);font-size:.92rem;line-height:1.6}
+.seo-guide li{margin-bottom:6px}
+.seo-guide code{background:var(--surface2);padding:2px 6px;border-radius:4px;font-family:Consolas,monospace;font-size:.88rem;color:var(--primary)}
+.other-calcs-bar{margin-top:24px;padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:12px}
+.other-calcs-bar h3{margin:0 0 10px;font-size:1.02rem}
+.other-calcs-links{display:flex;gap:10px;flex-wrap:wrap}
+.other-calcs-links a{padding:6px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;font-size:.85rem;color:var(--text)}
+.other-calcs-links a:hover{border-color:var(--primary);color:var(--primary)}
 
 /* hero */
 .hero-full{position:relative;color:#fff;background:linear-gradient(90deg,rgba(10,13,18,.96) 0%,rgba(10,13,18,.82) 45%,rgba(10,13,18,.35) 100%),url("../images/hero.jpg") center/cover no-repeat;padding:72px 0 64px;overflow:hidden}
@@ -134,6 +175,8 @@ main#main>.page[data-page=home]>h2:first-child{margin-top:28px}
 /* saved + save button */
 .btn-save{margin-top:12px;width:100%;background:transparent;color:var(--primary);border:1.5px solid var(--primary);border-radius:8px;padding:8px;font:inherit;font-weight:600;cursor:pointer}
 .btn-save:hover{background:var(--primary);color:var(--on-primary)}
+.btn-copy{margin-top:8px;width:100%;background:var(--surface2);color:var(--primary);border:1.5px solid var(--primary);border-radius:8px;padding:8px;font:inherit;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn-copy:hover{background:var(--primary);color:var(--on-primary)}
 .saved-bar{display:flex;gap:8px;justify-content:flex-end;margin-bottom:10px}
 .btn-sm{background:var(--surface2);color:var(--text);border:1px solid var(--border);border-radius:6px;padding:5px 12px;cursor:pointer;font:inherit;font-size:.85rem}
 .btn-sm:hover{border-color:var(--primary)}
@@ -157,8 +200,12 @@ main#main>.page[data-page=home]>h2:first-child{margin-top:28px}
 }
 @media(max-width:720px){
   .burger{display:block}
-  .nav{display:none;position:absolute;top:60px;left:0;right:0;background:var(--surface);flex-direction:column;padding:10px 16px;border-bottom:1px solid var(--border)}
+  .nav{display:none;position:absolute;top:60px;left:0;right:0;background:var(--surface);flex-direction:column;padding:10px 16px;border-bottom:1px solid var(--border);max-height:calc(100vh - 70px);overflow-y:auto}
   .nav.open{display:flex}
+  .nav-dropdown{width:100%}
+  .nav-drop-btn{justify-content:space-between;width:100%}
+  .dropdown-menu{position:static;display:none;box-shadow:none;border:none;padding:4px 0 4px 12px;background:var(--surface2);border-radius:6px;margin:4px 0}
+  .nav-dropdown.open .dropdown-menu{display:flex}
   .hero h1{font-size:1.8rem}
   .article{padding:18px}
   .logo{margin-right:auto}

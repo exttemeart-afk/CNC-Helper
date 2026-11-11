@@ -14,17 +14,24 @@
   function setTheme(th) {
     document.documentElement.setAttribute("data-theme", th);
     localStorage.setItem("theme", th);
-    $("#themeBtn").textContent = th === "dark" ? "☀️" : "🌙";
+    const btn = $("#themeBtn");
+    if (btn) btn.textContent = th === "dark" ? "☀️" : "🌙";
   }
-  $("#themeBtn").addEventListener("click", () =>
-    setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark"));
+  const themeBtn = $("#themeBtn");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", () =>
+      setTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark"));
+  }
 
   /* ---------- language: each language lives in its own folder (SEO) ---------- */
-  $("#lang").value = lang;
-  $("#lang").addEventListener("change", e => {
-    const q = (route === "article" && location.search) ? location.search : (location.hash || "");
-    location.href = "../" + e.target.value + "/" + file + q;
-  });
+  const langSel = $("#lang");
+  if (langSel) {
+    langSel.value = lang;
+    langSel.addEventListener("change", e => {
+      const q = (route === "article" && location.search) ? location.search : (location.hash || "");
+      location.href = "../" + e.target.value + "/" + file + q;
+    });
+  }
   $$("[data-i18n]").forEach(e => e.textContent = t(e.dataset.i18n));
   $$("[data-i18n-ph]").forEach(e => e.placeholder = t(e.dataset.i18nPh));
 
@@ -87,14 +94,55 @@
     if ($("#calcsThread")) renderCalcGrid($("#calcsThread"), t, c => c.group === "thread");
     if ($("#calcsTrig")) renderCalcGrid($("#calcsTrig"), t, c => c.group === "trig");
     if ($("#calcsTol")) renderCalcGrid($("#calcsTol"), t, c => c.group === "tol");
+
+    // Dedicated Landing Pages
+    if ($("#calcsTurning")) renderCalcGrid($("#calcsTurning"), t, c => c.id === "turn" || c.id === "tnrc" || c.id === "taper");
+    if ($("#calcsMilling")) renderCalcGrid($("#calcsMilling"), t, c => c.id === "mill" || c.id === "spindle_torque" || c.id === "ball_eff");
+    if ($("#calcsDrilling")) renderCalcGrid($("#calcsDrilling"), t, c => c.id === "drill" || c.id === "drill_depth");
+    if ($("#calcsThreadDedicated")) renderCalcGrid($("#calcsThreadDedicated"), t, c => c.id === "thread" || c.id === "thread_mill" || c.id === "thread_wires" || c.id === "thread_inch");
+    if ($("#calcsPcd")) renderCalcGrid($("#calcsPcd"), t, c => c.id === "bolt" || c.id === "hole_grid");
   }
   window.rerenderCalcs = renderCalcPages;
+
+  /* ---------- global copy handler for bolt PCD ---------- */
+  window.copyBoltGcode = function (btn) {
+    if (!btn) return;
+    const card = btn.closest(".card");
+    if (!card) return;
+    const resEls = card.querySelectorAll(".results .res b");
+    if (!resEls.length) return;
+    const lines = Array.from(resEls).map((b, i) => `N${i + 1} ${b.textContent.trim()}`).join("\n");
+    const origText = btn.textContent;
+    const onDone = () => {
+      btn.textContent = t("copied_ok");
+      setTimeout(() => { btn.textContent = origText; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(lines).then(onDone).catch(() => {
+        const ta = document.createElement("textarea");
+        ta.value = lines;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        onDone();
+      });
+    } else {
+      const ta = document.createElement("textarea");
+      ta.value = lines;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      onDone();
+    }
+  };
 
   /* ---------- hero terminal animation ---------- */
   function typeTerminal() {
     const el = $("#termCode"); if (!el) return;
     const lines = ["O0001 (CNCHELPER)", "G21 G90 G54 G17 G40 G49", "T01 M06", "S3183 M03   ; D12 Vc120", "G43 H01 Z50. M08",
-      "G00 X0 Y0", "G01 Z-5. F764   ; z4 fz0.06", "G01 X80. F764", "G02 X100. Y20. R20.", "G01 Y60.", "G00 Z100. M09", "M05", "M30"];
+      "G00 X0 Y0", "G01 Z-5. F150", "G01 X100. F764   ; z4 fz0.06", "G02 X100. Y20. R20.", "G01 Y60.", "G00 Z100. M09", "M05", "M30"];
     const full = lines.join("\n");
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = full; return; }
     let i = 0;
@@ -106,13 +154,34 @@
   }
 
   /* ---------- events ---------- */
-  $("#burger").addEventListener("click", () => $("#nav").classList.toggle("open"));
-  $$("[data-route-link]").forEach(a => a.classList.toggle("active", a.dataset.routeLink === (route === "article" ? "articles" : route)));
+  const burger = $("#burger"), nav = $("#nav");
+  if (burger && nav) {
+    burger.addEventListener("click", () => nav.classList.toggle("open"));
+  }
+  const navDrop = $(".nav-dropdown");
+  if (navDrop) {
+    const dropBtn = $(".nav-drop-btn", navDrop);
+    if (dropBtn) {
+      dropBtn.addEventListener("click", e => {
+        if (window.innerWidth <= 720) {
+          e.preventDefault();
+          navDrop.classList.toggle("open");
+        }
+      });
+    }
+  }
+
+  $$("[data-route-link]").forEach(a => {
+    const lk = a.dataset.routeLink;
+    const isAct = lk === route || (lk === "articles" && route === "article") || (lk === "calc" && (route === "calc" || route.startsWith("calc-")));
+    a.classList.toggle("active", isAct);
+  });
 
   if ($("#ctlSel")) {
     $("#ctlSel").innerHTML = Object.entries(CONTROLS).map(([k, v]) => `<option value="${k}">${t(v.k)}</option>`).join("");
     $("#ctlSel").addEventListener("change", e => { ctl = e.target.value; renderCodes(); });
-    $("#codeSearch").addEventListener("input", renderCodes);
+    const codeSearch = $("#codeSearch");
+    if (codeSearch) codeSearch.addEventListener("input", renderCodes);
     $$(".tab").forEach(b => b.addEventListener("click", () => {
       codeTab = b.dataset.tab;
       $$(".tab").forEach(x => x.classList.toggle("active", x === b));

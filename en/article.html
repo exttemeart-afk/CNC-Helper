@@ -34,7 +34,17 @@
     <a class="logo" href="index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
     <nav class="nav" id="nav">
       <a href="index.html" data-route-link="home" data-i18n="nav_home">Home</a>
-      <a href="calculators.html" data-route-link="calc" data-i18n="nav_calc">Calculators</a>
+      <div class="nav-dropdown">
+        <a href="calculators.html" data-route-link="calc" class="nav-drop-btn"><span data-i18n="nav_calc">Calculators</span> <span class="drop-arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="calculators.html" class="drop-all"><strong data-i18n="nav_all_calcs">All calculators (Dashboard)</strong></a>
+          <a href="calc-turning.html"><span>🔩</span> <span data-i18n="nav_calc_turn">Turning calculator</span></a>
+          <a href="calc-milling.html"><span>🛠</span> <span data-i18n="nav_calc_mill">Milling calculator</span></a>
+          <a href="calc-drilling.html"><span>🕳</span> <span data-i18n="nav_calc_drill">Drilling &amp; countersink</span></a>
+          <a href="calc-thread.html"><span>🔧</span> <span data-i18n="nav_calc_thread">Metric thread</span></a>
+          <a href="calc-pcd.html"><span>🎯</span> <span data-i18n="nav_calc_pcd">Bolt circle (PCD)</span></a>
+        </div>
+      </div>
       <a href="codes.html" data-route-link="codes" data-i18n="nav_codes">G &amp; M codes</a>
       <a href="articles.html" data-route-link="articles" data-i18n="nav_articles">Articles</a>
     </nav>
@@ -50,30 +60,7 @@
   </div>
 </header>
 
-<!-- HOME HERO -->
-<section class="hero-full home-only">
-  <div class="container hero-grid">
-    <div class="hero-text">
-      <span class="hero-badge" data-i18n="hero_tag">Free · No signup · Works on mobile at the machine</span>
-      <h1 data-i18n="hero_title">CNC Operator&#39;s Helper</h1>
-      <p data-i18n="hero_sub">Calculators for cutting data, surface finish, spindle power, threads and tolerances, a 260+ G and M code reference and knowledge base — all in one place, for free.</p>
-      <div class="hero-btns">
-        <a class="btn" href="calculators.html" data-i18n="hero_cta1">Open calculators</a>
-        <a class="btn btn-ghost" href="codes.html" data-i18n="hero_cta2">G &amp; M code database</a>
-      </div>
-      <div class="stats">
-        <div><b>25</b><span data-i18n="stat_calc">calculators</span></div>
-        <div><b>260+</b><span data-i18n="stat_codes">G/M codes &amp; cycles</span></div>
-        <div><b>3</b><span data-i18n="stat_lang">languages · 2 themes</span></div>
-        <div><b id="statArt">92</b><span data-i18n="stat_art">articles</span></div>
-      </div>
-    </div>
-    <div class="terminal" aria-hidden="true">
-      <div class="term-bar"><i></i><i></i><i></i><span>O0001.nc</span></div>
-      <pre id="termCode"></pre>
-    </div>
-  </div>
-</section>
+
 
 <!--
   ====== AD SLOTS ======
@@ -88,73 +75,34 @@
 <main class="container" id="main">
 
   <!-- HOME -->
-  <section class="page" data-page="home">
-    <h2 data-i18n="quick_title">Quick calculations</h2>
-    <p class="sub" data-i18n="quick_sub">The most essential calculators — right on the home page</p>
-    <div class="grid calcs" id="calcsQuick"></div>
-    <p class="more-link"><a href="calculators.html" data-i18n="all_calcs">All calculators →</a></p>
-
-    <div class="grid feat">
-      <a class="card feat-c" href="calculators.html"><div class="feat-ic">🧮</div><h3 data-i18n="feat1_t">25 calculators</h3><p data-i18n="feat1_d">Speed &amp; feed, Ra/Rz finish, ball nose scallop, spindle power &amp; torque, 3-wire threads, ISO 286 fits, hole grid, thermal expansion.</p></a>
-      <a class="card feat-c" href="codes.html"><div class="feat-ic">📟</div><h3 data-i18n="feat2_t">G/M code database</h3><p data-i18n="feat2_d">Fanuc/ISO, Haas, Siemens, Heidenhain, Mazak, Okuma: search and examples.</p></a>
-      <a class="card feat-c" href="articles.html"><div class="feat-ic">📚</div><h3 data-i18n="feat3_t">Articles</h3><p data-i18n="feat3_d">Practical material on setup and programming.</p></a>
-      <div class="card feat-c"><div class="feat-ic">🌍</div><h3 data-i18n="feat4_t">3 languages, 2 themes</h3><p data-i18n="feat4_d">Русский, Polski, English. Light and dark theme.</p></div>
-    </div>
-    <div class="ad-slot ad-inline ad-live" data-slot="inline"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
-    <h2 data-i18n="latest">Latest articles</h2>
-    <div class="grid" id="homeArticles"></div>
-    <p class="more-link"><a href="articles.html" data-i18n="all_articles">All articles →</a></p>
-  </section>
+  
 
   <div class="layout" id="layout">
     <div class="content">
-      <section class="page" data-page="calc">
-        <h1 data-i18n="calc_title">CNC Calculators</h1>
-        <p class="sub" data-i18n="calc_sub">Instant real-time calculations. All computed values are approximate guidance.</p>
-        <h2 data-i18n="group_cut">Cutting data, power &amp; tool life</h2>
-        <div class="grid calcs" id="calcsCut"></div>
-        <div class="ad-slot ad-inline ad-live" data-slot="inline-2"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5983424491"></ins></div>
-        <h2 data-i18n="group_threads">Threads, gauges &amp; thread milling</h2>
-        <div class="grid calcs" id="calcsThread"></div>
-        <h2 data-i18n="group_trig">Geometry, trigonometry &amp; coordinates</h2>
-        <div class="grid calcs" id="calcsTrig"></div>
-        <h2 data-i18n="group_tol">ISO 286 fits, roughness &amp; metrology</h2>
-        <div class="grid calcs" id="calcsTol"></div>
-        <h2 id="saved" data-i18n="saved_title">Saved calculations</h2>
-        <div class="card" id="savedList"></div>
-        <h2 data-i18n="ref_title">Material reference</h2>
-        <div class="card table-wrap"><table id="matTable"></table></div>
-        <p class="note" data-i18n="ref_note">Approximate values for carbide tooling. Always check the tool manufacturer&#39;s catalog.</p>
-      </section>
+      
 
-      <section class="page" data-page="codes">
-        <h1 data-i18n="codes_title">G and M codes</h1>
-        <p class="sub" data-i18n="codes_sub">Comprehensive reference for 6 major controls: Fanuc, Haas, Siemens, Heidenhain, Mazak and Okuma.</p>
-        <div class="codes-bar">
-          <label class="ctl-lab"><span data-i18n="ctl">CNC control</span><select id="ctlSel"></select></label>
-          <div class="tabs" id="gmTabs">
-            <button class="tab active" data-tab="G">G</button>
-            <button class="tab" data-tab="M">M</button>
-          </div>
-          <input type="search" id="codeSearch" data-i18n-ph="search_ph" placeholder="Search: G01, drilling, coolant…">
-        </div>
-        <div class="card table-wrap"><table id="codesTable"></table></div>
-        <p class="note" data-i18n="codes_note">Code syntax and availability depend on the specific machine builder and CNC system.</p>
-      </section>
+      <!-- DEDICATED CALC: TURNING -->
+      
 
-      <section class="page" data-page="articles">
-        <h1 data-i18n="articles_title">CNC articles</h1>
-        <p class="sub" data-i18n="articles_sub">Practice, tips and basics for operators and programmers.</p>
-        <div class="codes-bar">
-          <div class="tag-pills" id="artTags"></div>
-          <input type="search" id="artSearch" data-i18n-ph="art_search_ph" placeholder="Search articles…">
-        </div>
-        <div class="grid" id="articlesList"></div>
-      </section>
+      <!-- DEDICATED CALC: MILLING -->
+      
+
+      <!-- DEDICATED CALC: DRILLING -->
+      
+
+      <!-- DEDICATED CALC: THREAD -->
+      
+
+      <!-- DEDICATED CALC: PCD -->
+      
+
+      
+
+      
 
       <section class="page" data-page="article">
         <a href="articles.html" class="back" data-i18n="back">← All articles</a>
-        <article class="card article" id="articleBody"><h1>Trochoidal Milling: How to Stop Breaking End Mills</h1><p>Tired of snapping expensive end mills when cutting deep slots? It’s time to embrace trochoidal milling. The concept is simple: the tool moves in a spiral path, taking light radial cuts but using the full depth of the flute. This means the cutter doesn&#39;t get bogged down, heat leaves with the chip, and your tool life goes through the roof. Sure, your G-code will look like a bowl of spaghetti, but modern CAM software handles it in a couple of clicks.</p><h2>Latest articles</h2><div class="grid"><a class="card art-card" href="article.html?id=coolant-care"><span class="tag">Maintenance</span><h3>Coolant Selection and Care: It’s Not Just Water</h3><p>Coolant is the lifeblood of your CNC machine. But if it smells like a swamp on a Monday morning, you’ve got a problem.</p><span class="more">Read →</span></a><a class="card art-card" href="article.html?id=titanium-machining"><span class="tag">Materials</span><h3>Taming Titanium: Machining Secrets</h3><p>Titanium is beautiful, strong, and incredibly stubborn. The biggest rookie mistake is running it at typical steel speeds.</p><span class="more">Read →</span></a><a class="card art-card" href="article.html?id=chatter-vibrations"><span class="tag">Milling</span><h3>Chatter Vibrations and How to Fight Them</h3><p>Hear that screeching noise when milling? That’s chatter, and it’s busy destroying your end mill and spindle bearings.</p><span class="more">Read →</span></a></div></article>
+        <article class="card article" id="articleBody"><h1>Trochoidal Milling: How to Stop Breaking End Mills</h1><p>Tired of snapping expensive end mills when cutting deep slots? It’s time to embrace trochoidal milling. The concept is simple: the tool moves in a spiral path, taking light radial cuts but using the full depth of the flute. This means the cutter doesn&#39;t get bogged down, heat leaves with the chip, and your tool life goes through the roof. Sure, your G-code will look like a bowl of spaghetti, but modern CAM software handles it in a couple of clicks.</p><h2>Latest articles</h2><div class="grid"><a class="card art-card" href="article.html?id=coolant-care"><span class="tag">Maintenance</span><h3>Coolant Selection and Care: It’s Not Just Water</h3><p>Coolant is the lifeblood of your CNC machine. But if it smells like a swamp on a Monday morning, you’ve got a problem. Many machinists just top it up with...</p><span class="more">Read →</span></a><a class="card art-card" href="article.html?id=titanium-machining"><span class="tag">Materials</span><h3>Taming Titanium: Machining Secrets</h3><p>Titanium is beautiful, strong, and incredibly stubborn. The biggest rookie mistake is running it at typical steel speeds. Titanium is a poor conductor of heat,...</p><span class="more">Read →</span></a><a class="card art-card" href="article.html?id=chatter-vibrations"><span class="tag">Milling</span><h3>Chatter Vibrations and How to Fight Them</h3><p>Hear that screeching noise when milling? That’s chatter, and it’s busy destroying your end mill and spindle bearings. Your instinct might tell you to slow the...</p><span class="more">Read →</span></a></div></article>
         <div class="ad-slot ad-inline ad-live" data-slot="article-bottom"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
       </section>
     </div>

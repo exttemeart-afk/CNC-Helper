@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- GENERATED SOURCE: edit this template, then run build.ps1 to regenerate ru/ pl/ en/ pages, sitemap.xml and robots.txt -->
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kalkulator parametrów skrawania tokarka / toczenie — Vc, posuw, chropowatość Ra/Rz | CNCHelper</title>
+<meta name="description" content="Kalkulator toczenia CNC: obliczanie prędkości skrawania Vc, obrotów n, posuwu F, teoretycznej chropowatości powierzchni Ra i Rz na podstawie promienia płytki r oraz czasu obróbki i kompensacji promienia ostrza (TNRC).">
+<link rel="canonical" href="https://cnc-helper.pro/pl/calc-turning.html">
+<link rel="alternate" hreflang="ru" href="https://cnc-helper.pro/ru/calc-turning.html">
+<link rel="alternate" hreflang="pl" href="https://cnc-helper.pro/pl/calc-turning.html">
+<link rel="alternate" hreflang="en" href="https://cnc-helper.pro/en/calc-turning.html">
+<link rel="alternate" hreflang="x-default" href="https://cnc-helper.pro/en/calc-turning.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kalkulator parametrów skrawania tokarka / toczenie — Vc, posuw, chropowatość Ra/Rz | CNCHelper">
+<meta property="og:description" content="Kalkulator toczenia CNC: obliczanie prędkości skrawania Vc, obrotów n, posuwu F, teoretycznej chropowatości powierzchni Ra i Rz na podstawie promienia płytki r oraz czasu obróbki i kompensacji promienia ostrza (TNRC).">
+<meta property="og:url" content="https://cnc-helper.pro/pl/calc-turning.html">
+<meta property="og:image" content="https://cnc-helper.pro/images/hero.jpg">
+<meta property="og:locale" content="pl_PL">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","inLanguage":"pl","url":"https://cnc-helper.pro/pl/calc-turning.html","name":"Kalkulator parametrów skrawania tokarka / toczenie — Vc, posuw, chropowatość Ra/Rz | CNCHelper","description":"Kalkulator toczenia CNC: obliczanie prędkości skrawania Vc, obrotów n, posuwu F, teoretycznej chropowatości powierzchni Ra i Rz na podstawie promienia płytki r oraz czasu obróbki i kompensacji promienia ostrza (TNRC)."}</script>
+<script>
+  (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);localStorage.setItem('lang','pl');})();
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1775700331598232"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body data-route="calc-turning" data-article="" data-file="calc-turning.html">
+
+<header class="header">
+  <div class="container header-in">
+    <a class="logo" href="index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-route-link="home" data-i18n="nav_home">Strona główna</a>
+      <div class="nav-dropdown">
+        <a href="calculators.html" data-route-link="calc" class="nav-drop-btn"><span data-i18n="nav_calc">Kalkulatory</span> <span class="drop-arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="calculators.html" class="drop-all"><strong data-i18n="nav_all_calcs">Wszystkie kalkulatory (Pulpit)</strong></a>
+          <a href="calc-turning.html"><span>🔩</span> <span data-i18n="nav_calc_turn">Kalkulator toczenia</span></a>
+          <a href="calc-milling.html"><span>🛠</span> <span data-i18n="nav_calc_mill">Kalkulator frezowania</span></a>
+          <a href="calc-drilling.html"><span>🕳</span> <span data-i18n="nav_calc_drill">Wiercenie i pogłębianie</span></a>
+          <a href="calc-thread.html"><span>🔧</span> <span data-i18n="nav_calc_thread">Gwint metryczny</span></a>
+          <a href="calc-pcd.html"><span>🎯</span> <span data-i18n="nav_calc_pcd">Otwory na okręgu (PCD)</span></a>
+        </div>
+      </div>
+      <a href="codes.html" data-route-link="codes" data-i18n="nav_codes">Kody G i M</a>
+      <a href="articles.html" data-route-link="articles" data-i18n="nav_articles">Artykuły</a>
+    </nav>
+    <div class="tools">
+      <select id="lang" aria-label="Language">
+        <option value="ru">RU</option>
+        <option value="pl" selected>PL</option>
+        <option value="en">EN</option>
+      </select>
+      <button id="themeBtn" class="icon-btn" aria-label="Theme">🌙</button>
+      <button id="burger" class="icon-btn burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+
+
+<!--
+  ====== AD SLOTS ======
+  Each .ad-slot is a placeholder. To activate: replace the inner <div class="ad-ph"> with your ad code
+  (e.g. Google AdSense <ins class="adsbygoogle">). Slots: top, side, inline, footer.
+  Sizes: top 728x90 / 320x100, side 300x600 / 300x250, inline 336x280 / responsive, footer 728x90.
+-->
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="top">
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="6618895499"></ins>
+</div></div>
+
+<main class="container" id="main">
+
+  <!-- HOME -->
+  
+
+  <div class="layout" id="layout">
+    <div class="content">
+      
+
+      <!-- DEDICATED CALC: TURNING -->
+      <section class="page" data-page="calc-turning">
+        <div class="breadcrumbs">
+          <a href="index.html" data-i18n="nav_home">Strona główna</a>
+          <span class="sep">/</span>
+          <a href="calculators.html" data-i18n="nav_calc">Kalkulatory</a>
+          <span class="sep">/</span>
+          <span data-i18n="nav_calc_turn">Kalkulator toczenia</span>
+        </div>
+        <h1 data-i18n="seo_turn_h1">Kalkulator parametrów skrawania dla toczenia CNC</h1>
+        <p class="sub" data-i18n="seo_turn_sub">Obliczanie prędkości skrawania Vc, obrotów n, posuwu F, chropowatości Ra/Rz oraz kompensacji promienia naroża (TNRC)</p>
+        <div class="grid calcs" id="calcsTurning"><div class="card calc"><h3><span>🔩</span>Toczenie</h3><div class="field"><label>Średnica przedmiotu, mm</label><input type="number" step="any" inputmode="decimal" value="50"></div><div class="field"><label>Prędkość skrawania Vc, m/min</label><input type="number" step="any" inputmode="decimal" value="200"></div><div class="field"><label>Posuw na obrót f, mm/obr</label><input type="number" step="any" inputmode="decimal" value="0.2"></div><div class="field"><label>Długość obróbki, mm</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="field"><label>Promień naroża płytki, mm</label><input type="number" step="any" inputmode="decimal" value="0.8"></div><div class="results"><div class="res"><span>Obroty wrzeciona n</span><b>1 273 obr/min</b></div><div class="res"><span>Posuw minutowy F</span><b>255 mm/min</b></div><div class="res"><span>Czas obróbki</span><b>0,39 min</b></div><div class="res"><span>Chropowatość powierzchni (Ra / Rz)</span><b>Ra: 1.60 µm | Rz: 6.25 µm</b></div></div><button class="btn-save">💾 Zapisz obliczenie</button></div>
+<div class="card calc"><h3><span>🔻</span>Stożek (toczenie)</h3><div class="field"><label>Większa średnica D1, mm</label><input type="number" step="any" inputmode="decimal" value="40"></div><div class="field"><label>Mniejsza średnica D2, mm</label><input type="number" step="any" inputmode="decimal" value="30"></div><div class="field"><label>Długość, mm</label><input type="number" step="any" inputmode="decimal" value="50"></div><div class="results"><div class="res"><span>Kąt pochylenia (połowa)</span><b>5,7106 °</b></div><div class="res"><span>Pełny kąt stożka</span><b>11,4212 °</b></div><div class="res"><span>Zbieżność C</span><b>0,2</b></div><div class="res"><span>Zbieżność 1 :</span><b>5</b></div></div><button class="btn-save">💾 Zapisz obliczenie</button></div>
+<div class="card calc"><h3><span>📐</span>Kompensacja promienia płytki (TNRC ręcznie)</h3><div class="field"><label>Promień płytki R, mm</label><input type="number" step="any" inputmode="decimal" value="0.8"></div><div class="field"><label>Kąt do osi Z α, °</label><input type="number" step="any" inputmode="decimal" value="45"></div><div class="field"><label>Wymiar fazy wzdłuż Z (C), mm</label><input type="number" step="any" inputmode="decimal" value="2"></div><div class="field"><label>Średnica przedmiotu, mm</label><input type="number" step="any" inputmode="decimal" value="40"></div><div class="results"><div class="res"><span>Korekcja Z (ΔZ)</span><b>0,469 mm</b></div><div class="res"><span>Korekcja X na średnicę (ΔX)</span><b>0,937 mm</b></div><div class="res"><span>Punkt startu (X, Z)</span><b>X35.063  Z0.000</b></div><div class="res"><span>Punkt końca (X, Z)</span><b>X40.000  Z-2.469</b></div><div class="res"><span>Blok kodu G</span><b>G01 X35.063 Z0. ; G01 X40.000 Z-2.469</b></div></div><button class="btn-save">💾 Zapisz obliczenie</button></div></div>
+        <div class="seo-guide" id="seoGuideTurning"><h2>Teoria i wzory parametrów toczenia CNC</h2>
+<h3>1. Prędkość skrawania Vc i obroty wrzeciona n</h3>
+<p>Prędkość skrawania <code>Vc</code> (m/min) określa prędkość liniową na obwodzie toczonego detalu:</p>
+<p><code>Vc = (π × Dw × n) / 1000</code> [m/min] &nbsp;|&nbsp; <code>n = (1000 × Vc) / (π × Dw)</code> [obr/min]</p>
+<p>Na tokarkach CNC zaleca się stosowanie stałej prędkości skrawania <code>G96 S...</code> z bezwzględnym ograniczeniem maksymalnych obrotów wrzeciona <code>G50 S...</code> (Fanuc/Haas) lub <code>LIMS=...</code> (Siemens), aby uniknąć utraty siły mocowania uchwytu przy obróbce w osi detalu (X = 0).</p>
+
+<h3>2. Teoretyczna chropowatość powierzchni Ra i Rz</h3>
+<p>Chropowatość powierzchni po toczeniu zależy od posuwu na obrót <code>f</code> (mm/obr) oraz promienia naroża płytki <code>r</code> (mm):</p>
+<ul>
+  <li><b>Wysokość nierówności (Rz):</b> <code>Rz = (f² / (8 × r)) × 1000</code> [µm]</li>
+  <li><b>Średnie arytmetyczne odchylenie (Ra):</b> <code>Ra = (f² / (31.2 × r)) × 1000</code> [µm]</li>
+</ul>
+<p><b>Wskazówka:</b> Dla płytki r = 0.8 mm i posuwu f = 0.2 mm/obr teoretyczna chropowatość wynosi Ra ≈ 1.6 µm (Rz ≈ 6.25 µm). Zmniejszenie posuwu do f = 0.1 mm/obr pozwala osiągnąć Ra ≈ 0.4 µm.</p>
+
+<h3>3. Ręczna kompensacja promienia naroża płytki (TNRC)</h3>
+<p>W przypadku braku aktywnej kompensacji G41/G42 promień naroża płytki powoduje zniekształcenie wymiarów faz i stożków. Dla fazy pod kątem 45° naddatki wynoszą:</p>
+<ul>
+  <li>Korekcja w osi Z: <code>ΔZ = r × (1 - tg(22.5°)) ≈ 0.414 × r</code></li>
+  <li>Korekcja średnicowa w osi X: <code>ΔX = 2 × r × (1 - tg(22.5°)) ≈ 0.828 × r</code></li>
+</ul></div>
+        <div class="other-calcs-bar">
+          <h3 data-i18n="other_calcs_title">Inne dedykowane kalkulatory CNC</h3>
+          <div class="other-calcs-links">
+            <a href="calculators.html" data-i18n="nav_all_calcs">Wszystkie kalkulatory (Pulpit)</a>
+            <a href="calc-milling.html">🛠 <span data-i18n="nav_calc_mill">Kalkulator frezowania</span></a>
+            <a href="calc-drilling.html">🕳 <span data-i18n="nav_calc_drill">Wiercenie i pogłębianie</span></a>
+            <a href="calc-thread.html">🔧 <span data-i18n="nav_calc_thread">Gwint metryczny</span></a>
+            <a href="calc-pcd.html">🎯 <span data-i18n="nav_calc_pcd">Otwory na okręgu (PCD)</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEDICATED CALC: MILLING -->
+      
+
+      <!-- DEDICATED CALC: DRILLING -->
+      
+
+      <!-- DEDICATED CALC: THREAD -->
+      
+
+      <!-- DEDICATED CALC: PCD -->
+      
+
+      
+
+      
+
+      
+    </div>
+    <aside class="side">
+      <div class="ad-slot ad-side ad-live" data-slot="side"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="3745767258"></ins></div>
+    </aside>
+  </div>
+</main>
+
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="footer"><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="7573331629"></ins></div></div>
+
+<footer class="footer">
+  <div class="container">
+    <p data-i18n="footer_text">© CNCHelper — narzędzie dla operatorów CNC</p>
+    <p class="note" data-i18n="footer_disc">Obliczenia mają charakter pomocniczy. Odpowiedzialność za parametry i bezpieczeństwo ponosi operator.</p>
+    <p class="note"><a href="#" id="cookieSettings"></a></p>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/articles.js"></script>
+<script src="../js/calculators.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/consent.js"></script>
+</body>
+</html>

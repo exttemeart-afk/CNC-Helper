@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- GENERATED SOURCE: edit this template, then run build.ps1 to regenerate ru/ pl/ en/ pages, sitemap.xml and robots.txt -->
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор режимов резания для точения — скорость, подача, шероховатость Ra/Rz | CNCHelper</title>
+<meta name="description" content="Онлайн-калькулятор режимов точения: расчет скорости резания Vc, частоты вращения шпинделя n, минутной подачи F, теоретической шероховатости Ra и Rz по радиусу пластины, времени обработки и коррекции радиуса резца (TNRC).">
+<link rel="canonical" href="https://cnc-helper.pro/ru/calc-turning.html">
+<link rel="alternate" hreflang="ru" href="https://cnc-helper.pro/ru/calc-turning.html">
+<link rel="alternate" hreflang="pl" href="https://cnc-helper.pro/pl/calc-turning.html">
+<link rel="alternate" hreflang="en" href="https://cnc-helper.pro/en/calc-turning.html">
+<link rel="alternate" hreflang="x-default" href="https://cnc-helper.pro/en/calc-turning.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Калькулятор режимов резания для точения — скорость, подача, шероховатость Ra/Rz | CNCHelper">
+<meta property="og:description" content="Онлайн-калькулятор режимов точения: расчет скорости резания Vc, частоты вращения шпинделя n, минутной подачи F, теоретической шероховатости Ra и Rz по радиусу пластины, времени обработки и коррекции радиуса резца (TNRC).">
+<meta property="og:url" content="https://cnc-helper.pro/ru/calc-turning.html">
+<meta property="og:image" content="https://cnc-helper.pro/images/hero.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","inLanguage":"ru","url":"https://cnc-helper.pro/ru/calc-turning.html","name":"Калькулятор режимов резания для точения — скорость, подача, шероховатость Ra/Rz | CNCHelper","description":"Онлайн-калькулятор режимов точения: расчет скорости резания Vc, частоты вращения шпинделя n, минутной подачи F, теоретической шероховатости Ra и Rz по радиусу пластины, времени обработки и коррекции радиуса резца (TNRC)."}</script>
+<script>
+  (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);localStorage.setItem('lang','ru');})();
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1775700331598232"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body data-route="calc-turning" data-article="" data-file="calc-turning.html">
+
+<header class="header">
+  <div class="container header-in">
+    <a class="logo" href="index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-route-link="home" data-i18n="nav_home">Главная</a>
+      <div class="nav-dropdown">
+        <a href="calculators.html" data-route-link="calc" class="nav-drop-btn"><span data-i18n="nav_calc">Калькуляторы</span> <span class="drop-arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="calculators.html" class="drop-all"><strong data-i18n="nav_all_calcs">Все калькуляторы (Дашборд)</strong></a>
+          <a href="calc-turning.html"><span>🔩</span> <span data-i18n="nav_calc_turn">Токарный калькулятор</span></a>
+          <a href="calc-milling.html"><span>🛠</span> <span data-i18n="nav_calc_mill">Фрезерный калькулятор</span></a>
+          <a href="calc-drilling.html"><span>🕳</span> <span data-i18n="nav_calc_drill">Сверление и зенковка</span></a>
+          <a href="calc-thread.html"><span>🔧</span> <span data-i18n="nav_calc_thread">Метрическая резьба</span></a>
+          <a href="calc-pcd.html"><span>🎯</span> <span data-i18n="nav_calc_pcd">Отверстия по окружности (PCD)</span></a>
+        </div>
+      </div>
+      <a href="codes.html" data-route-link="codes" data-i18n="nav_codes">G и M коды</a>
+      <a href="articles.html" data-route-link="articles" data-i18n="nav_articles">Статьи</a>
+    </nav>
+    <div class="tools">
+      <select id="lang" aria-label="Language">
+        <option value="ru" selected>RU</option>
+        <option value="pl">PL</option>
+        <option value="en">EN</option>
+      </select>
+      <button id="themeBtn" class="icon-btn" aria-label="Theme">🌙</button>
+      <button id="burger" class="icon-btn burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+
+
+<!--
+  ====== AD SLOTS ======
+  Each .ad-slot is a placeholder. To activate: replace the inner <div class="ad-ph"> with your ad code
+  (e.g. Google AdSense <ins class="adsbygoogle">). Slots: top, side, inline, footer.
+  Sizes: top 728x90 / 320x100, side 300x600 / 300x250, inline 336x280 / responsive, footer 728x90.
+-->
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="top">
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="6618895499"></ins>
+</div></div>
+
+<main class="container" id="main">
+
+  <!-- HOME -->
+  
+
+  <div class="layout" id="layout">
+    <div class="content">
+      
+
+      <!-- DEDICATED CALC: TURNING -->
+      <section class="page" data-page="calc-turning">
+        <div class="breadcrumbs">
+          <a href="index.html" data-i18n="nav_home">Главная</a>
+          <span class="sep">/</span>
+          <a href="calculators.html" data-i18n="nav_calc">Калькуляторы</a>
+          <span class="sep">/</span>
+          <span data-i18n="nav_calc_turn">Токарный калькулятор</span>
+        </div>
+        <h1 data-i18n="seo_turn_h1">Калькулятор режимов резания для точения на станках с ЧПУ</h1>
+        <p class="sub" data-i18n="seo_turn_sub">Расчёт скорости резания Vc, частоты вращения n, подачи F, шероховатости Ra/Rz и коррекции резца (TNRC)</p>
+        <div class="grid calcs" id="calcsTurning"><div class="card calc"><h3><span>🔩</span>Токарная обработка</h3><div class="field"><label>Диаметр детали, мм</label><input type="number" step="any" inputmode="decimal" value="50"></div><div class="field"><label>Скорость резания Vc, м/мин</label><input type="number" step="any" inputmode="decimal" value="200"></div><div class="field"><label>Подача на оборот f, мм/об</label><input type="number" step="any" inputmode="decimal" value="0.2"></div><div class="field"><label>Длина обработки, мм</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="field"><label>Радиус при вершине резца, мм</label><input type="number" step="any" inputmode="decimal" value="0.8"></div><div class="results"><div class="res"><span>Обороты шпинделя n</span><b>1 273 об/мин</b></div><div class="res"><span>Минутная подача F</span><b>255 мм/мин</b></div><div class="res"><span>Основное время</span><b>0,39 мин</b></div><div class="res"><span>Чистота поверхности (Ra / Rz)</span><b>Ra: 1.60 µm | Rz: 6.25 µm</b></div></div><button class="btn-save">💾 Сохранить расчёт</button></div>
+<div class="card calc"><h3><span>🔻</span>Конус (токарная обработка)</h3><div class="field"><label>Больший диаметр D1, мм</label><input type="number" step="any" inputmode="decimal" value="40"></div><div class="field"><label>Меньший диаметр D2, мм</label><input type="number" step="any" inputmode="decimal" value="30"></div><div class="field"><label>Длина, мм</label><input type="number" step="any" inputmode="decimal" value="50"></div><div class="results"><div class="res"><span>Угол уклона (половина)</span><b>5,7106 °</b></div><div class="res"><span>Полный угол конуса</span><b>11,4212 °</b></div><div class="res"><span>Конусность C</span><b>0,2</b></div><div class="res"><span>Конусность 1 :</span><b>5</b></div></div><button class="btn-save">💾 Сохранить расчёт</button></div>
+<div class="card calc"><h3><span>📐</span>Компенсация радиуса резца (TNRC вручную)</h3><div class="field"><label>Радиус при вершине R, мм</label><input type="number" step="any" inputmode="decimal" value="0.8"></div><div class="field"><label>Угол к оси Z α, °</label><input type="number" step="any" inputmode="decimal" value="45"></div><div class="field"><label>Размер фаски вдоль Z (C), мм</label><input type="number" step="any" inputmode="decimal" value="2"></div><div class="field"><label>Диаметр детали, мм</label><input type="number" step="any" inputmode="decimal" value="40"></div><div class="results"><div class="res"><span>Поправка по Z (ΔZ)</span><b>0,469 mm</b></div><div class="res"><span>Поправка по X на диаметр (ΔX)</span><b>0,937 mm</b></div><div class="res"><span>Точка старта (X, Z)</span><b>X35.063  Z0.000</b></div><div class="res"><span>Точка конца (X, Z)</span><b>X40.000  Z-2.469</b></div><div class="res"><span>Кадр перемещения</span><b>G01 X35.063 Z0. ; G01 X40.000 Z-2.469</b></div></div><button class="btn-save">💾 Сохранить расчёт</button></div></div>
+        <div class="seo-guide" id="seoGuideTurning"><h2>Теория и формулы токарной обработки ЧПУ</h2>
+<h3>1. Скорость резания Vc и частота вращения шпинделя n</h3>
+<p>Скорость резания <code>Vc</code> (м/мин) определяет линейную скорость поверхности заготовки относительно режущей кромки резца:</p>
+<p><code>Vc = (π × Dw × n) / 1000</code> [м/мин] &nbsp;|&nbsp; <code>n = (1000 × Vc) / (π × Dw)</code> [об/мин]</p>
+<p>На токарных станках с ЧПУ рекомендуется использовать режим постоянной скорости резания (CSS) через команду <code>G96 S...</code> (м/мин) с обязательным ограничением максимальных оборотов шпинделя <code>G50 S...</code> (Fanuc/Haas) или <code>LIMS=...</code> (Siemens), чтобы исключить центробежный срыв заготовки при приближении резца к центру детали (X = 0).</p>
+
+<h3>2. Теоретическая шероховатость поверхности Ra и Rz</h3>
+<p>При точении чистовым резцом с радиусной пластиной чистота поверхности зависит исключительно от подачи на оборот <code>f</code> (мм/об) и радиуса при вершине <code>r</code> (мм):</p>
+<ul>
+  <li><b>Высота неровностей профиля (Rz):</b> <code>Rz = (f² / (8 × r)) × 1000</code> [мкм]</li>
+  <li><b>Среднее арифметическое отклонение (Ra):</b> <code>Ra = (f² / (31.2 × r)) × 1000</code> [мкм]</li>
+</ul>
+<p><b>Практическое правило:</b> Для пластины с радиусом r = 0.8 мм подача f = 0.2 мм/об даёт теоретическую чистоту Ra ≈ 1.6 мкм (Rz ≈ 6.25 мкм). При f = 0.1 мм/об чистота возрастает до Ra ≈ 0.4 мкм. Для пластины r = 0.4 мм при f = 0.2 мм/об шероховатость возрастает в два раза (Ra ≈ 3.2 мкм).</p>
+
+<h3>3. Ручная компенсация радиуса резца (TNRC)</h3>
+<p>Если станок не поддерживает автоматическую компенсацию G41/G42 или точение выполняется в ручном режиме, радиус при вершине резца искажает геометрию фасок и конусов. Для фаски под углом 45° поправки на координаты составляют:</p>
+<ul>
+  <li>Смещение по оси Z: <code>ΔZ = r × (1 - tg(22.5°)) ≈ 0.414 × r</code></li>
+  <li>Диаметральное смещение по оси X: <code>ΔX = 2 × r × (1 - tg(22.5°)) ≈ 0.828 × r</code></li>
+</ul></div>
+        <div class="other-calcs-bar">
+          <h3 data-i18n="other_calcs_title">Другие инструментальные калькуляторы ЧПУ</h3>
+          <div class="other-calcs-links">
+            <a href="calculators.html" data-i18n="nav_all_calcs">Все калькуляторы (Дашборд)</a>
+            <a href="calc-milling.html">🛠 <span data-i18n="nav_calc_mill">Фрезерный калькулятор</span></a>
+            <a href="calc-drilling.html">🕳 <span data-i18n="nav_calc_drill">Сверление и зенковка</span></a>
+            <a href="calc-thread.html">🔧 <span data-i18n="nav_calc_thread">Метрическая резьба</span></a>
+            <a href="calc-pcd.html">🎯 <span data-i18n="nav_calc_pcd">Отверстия по окружности (PCD)</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEDICATED CALC: MILLING -->
+      
+
+      <!-- DEDICATED CALC: DRILLING -->
+      
+
+      <!-- DEDICATED CALC: THREAD -->
+      
+
+      <!-- DEDICATED CALC: PCD -->
+      
+
+      
+
+      
+
+      
+    </div>
+    <aside class="side">
+      <div class="ad-slot ad-side ad-live" data-slot="side"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="3745767258"></ins></div>
+    </aside>
+  </div>
+</main>
+
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="footer"><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="7573331629"></ins></div></div>
+
+<footer class="footer">
+  <div class="container">
+    <p data-i18n="footer_text">© CNCHelper — инструмент для операторов ЧПУ</p>
+    <p class="note" data-i18n="footer_disc">Расчёты носят справочный характер. Ответственность за режимы и безопасность остаётся за оператором.</p>
+    <p class="note"><a href="#" id="cookieSettings"></a></p>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/articles.js"></script>
+<script src="../js/calculators.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/consent.js"></script>
+</body>
+</html>

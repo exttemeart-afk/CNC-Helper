@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!-- GENERATED SOURCE: edit this template, then run build.ps1 to regenerate ru/ pl/ en/ pages, sitemap.xml and robots.txt -->
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор отверстий по окружности (PCD) — координаты X Y и экспорт G-кода | CNCHelper</title>
+<meta name="description" content="Калькулятор разметки отверстий по окружности (PCD / делительная окружность): точные координаты X и Y для каждого отверстия с любым начальным углом, копирование готовых кадров G-кода для сверлильных циклов G81/G83.">
+<link rel="canonical" href="https://cnc-helper.pro/ru/calc-pcd.html">
+<link rel="alternate" hreflang="ru" href="https://cnc-helper.pro/ru/calc-pcd.html">
+<link rel="alternate" hreflang="pl" href="https://cnc-helper.pro/pl/calc-pcd.html">
+<link rel="alternate" hreflang="en" href="https://cnc-helper.pro/en/calc-pcd.html">
+<link rel="alternate" hreflang="x-default" href="https://cnc-helper.pro/en/calc-pcd.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Калькулятор отверстий по окружности (PCD) — координаты X Y и экспорт G-кода | CNCHelper">
+<meta property="og:description" content="Калькулятор разметки отверстий по окружности (PCD / делительная окружность): точные координаты X и Y для каждого отверстия с любым начальным углом, копирование готовых кадров G-кода для сверлильных циклов G81/G83.">
+<meta property="og:url" content="https://cnc-helper.pro/ru/calc-pcd.html">
+<meta property="og:image" content="https://cnc-helper.pro/images/hero.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","inLanguage":"ru","url":"https://cnc-helper.pro/ru/calc-pcd.html","name":"Калькулятор отверстий по окружности (PCD) — координаты X Y и экспорт G-кода | CNCHelper","description":"Калькулятор разметки отверстий по окружности (PCD / делительная окружность): точные координаты X и Y для каждого отверстия с любым начальным углом, копирование готовых кадров G-кода для сверлильных циклов G81/G83."}</script>
+<script>
+  (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);localStorage.setItem('lang','ru');})();
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1775700331598232"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body data-route="calc-pcd" data-article="" data-file="calc-pcd.html">
+
+<header class="header">
+  <div class="container header-in">
+    <a class="logo" href="index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-route-link="home" data-i18n="nav_home">Главная</a>
+      <div class="nav-dropdown">
+        <a href="calculators.html" data-route-link="calc" class="nav-drop-btn"><span data-i18n="nav_calc">Калькуляторы</span> <span class="drop-arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="calculators.html" class="drop-all"><strong data-i18n="nav_all_calcs">Все калькуляторы (Дашборд)</strong></a>
+          <a href="calc-turning.html"><span>🔩</span> <span data-i18n="nav_calc_turn">Токарный калькулятор</span></a>
+          <a href="calc-milling.html"><span>🛠</span> <span data-i18n="nav_calc_mill">Фрезерный калькулятор</span></a>
+          <a href="calc-drilling.html"><span>🕳</span> <span data-i18n="nav_calc_drill">Сверление и зенковка</span></a>
+          <a href="calc-thread.html"><span>🔧</span> <span data-i18n="nav_calc_thread">Метрическая резьба</span></a>
+          <a href="calc-pcd.html"><span>🎯</span> <span data-i18n="nav_calc_pcd">Отверстия по окружности (PCD)</span></a>
+        </div>
+      </div>
+      <a href="codes.html" data-route-link="codes" data-i18n="nav_codes">G и M коды</a>
+      <a href="articles.html" data-route-link="articles" data-i18n="nav_articles">Статьи</a>
+    </nav>
+    <div class="tools">
+      <select id="lang" aria-label="Language">
+        <option value="ru" selected>RU</option>
+        <option value="pl">PL</option>
+        <option value="en">EN</option>
+      </select>
+      <button id="themeBtn" class="icon-btn" aria-label="Theme">🌙</button>
+      <button id="burger" class="icon-btn burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+
+
+<!--
+  ====== AD SLOTS ======
+  Each .ad-slot is a placeholder. To activate: replace the inner <div class="ad-ph"> with your ad code
+  (e.g. Google AdSense <ins class="adsbygoogle">). Slots: top, side, inline, footer.
+  Sizes: top 728x90 / 320x100, side 300x600 / 300x250, inline 336x280 / responsive, footer 728x90.
+-->
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="top">
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="6618895499"></ins>
+</div></div>
+
+<main class="container" id="main">
+
+  <!-- HOME -->
+  
+
+  <div class="layout" id="layout">
+    <div class="content">
+      
+
+      <!-- DEDICATED CALC: TURNING -->
+      
+
+      <!-- DEDICATED CALC: MILLING -->
+      
+
+      <!-- DEDICATED CALC: DRILLING -->
+      
+
+      <!-- DEDICATED CALC: THREAD -->
+      
+
+      <!-- DEDICATED CALC: PCD -->
+      <section class="page" data-page="calc-pcd">
+        <div class="breadcrumbs">
+          <a href="index.html" data-i18n="nav_home">Главная</a>
+          <span class="sep">/</span>
+          <a href="calculators.html" data-i18n="nav_calc">Калькуляторы</a>
+          <span class="sep">/</span>
+          <span data-i18n="nav_calc_pcd">Отверстия по окружности (PCD)</span>
+        </div>
+        <h1 data-i18n="seo_pcd_h1">Калькулятор отверстий по окружности (PCD) с экспортом G-кода</h1>
+        <p class="sub" data-i18n="seo_pcd_sub">Расчёт полярных координат X и Y для фланцев и матриц, генерация и копирование кадров G-кода в буфер</p>
+        <div class="grid calcs" id="calcsPcd"><div class="card calc"><h3><span>🎯</span>Отверстия по окружности (PCD)</h3><div class="field"><label>Число отверстий</label><input type="number" step="any" inputmode="decimal" value="6"></div><div class="field"><label>Диаметр окружности PCD, мм</label><input type="number" step="any" inputmode="decimal" value="80"></div><div class="field"><label>Начальный угол, °</label><input type="number" step="any" inputmode="decimal" value="0"></div><div class="field"><label>Центр X, мм</label><input type="number" step="any" inputmode="decimal" value="0"></div><div class="field"><label>Центр Y, мм</label><input type="number" step="any" inputmode="decimal" value="0"></div><div class="results"><div class="res"><span>#1</span><b>X40.000  Y0.000</b></div><div class="res"><span>#2</span><b>X20.000  Y34.641</b></div><div class="res"><span>#3</span><b>X-20.000  Y34.641</b></div><div class="res"><span>#4</span><b>X-40.000  Y0.000</b></div><div class="res"><span>#5</span><b>X-20.000  Y-34.641</b></div><div class="res"><span>#6</span><b>X20.000  Y-34.641</b></div></div><button class="btn-save">💾 Сохранить расчёт</button><button type="button" class="btn-copy">📋 Скопировать G-код</button></div>
+<div class="card calc"><h3><span>⊞</span>Сетка отверстий и прямая линия (G-код)</h3><div class="field"><label>Тип массива</label><select><option value="line" selected>Отверстия в одну линию</option><option value="grid">Прямоугольная сетка (матрица)</option></select></div><div class="field"><label>Базовый X0, мм</label><input type="number" step="any" inputmode="decimal" value="10"></div><div class="field"><label>Базовый Y0, мм</label><input type="number" step="any" inputmode="decimal" value="10"></div><div class="field"><label>Шаг по линии dL, мм</label><input type="number" step="any" inputmode="decimal" value="25"></div><div class="field"><label>Угол наклона / поворота, °</label><input type="number" step="any" inputmode="decimal" value="30"></div><div class="field"><label>Количество отверстий N</label><input type="number" step="any" inputmode="decimal" value="5"></div><div class="field" hidden><label>Число по оси X (Nx)</label><input type="number" step="any" inputmode="decimal" value="4"></div><div class="field" hidden><label>Шаг по X (dX), мм</label><input type="number" step="any" inputmode="decimal" value="20"></div><div class="field" hidden><label>Число по оси Y (Ny)</label><input type="number" step="any" inputmode="decimal" value="3"></div><div class="field" hidden><label>Шаг по Y (dY), мм</label><input type="number" step="any" inputmode="decimal" value="15"></div><div class="results"><div class="res"><span>Всего отверстий в массиве</span><b>5 отверстий</b></div><div class="res"><span>Координаты отверстий (X, Y)</span><b>#1: X10.000 Y10.000 | #2: X31.651 Y22.500 | #3: X53.301 Y35.000 | #4: X74.952 Y47.500 | #5: X96.603 Y60.000</b></div><div class="res"><span>G-код для сверления (G81)</span><b>N1 X10.000 Y10.000 ; N2 X31.651 Y22.500 ; N3 X53.301 Y35.000 ; N4 X74.952 Y47.500 ; N5 X96.603 Y60.000</b></div></div><button class="btn-save">💾 Сохранить расчёт</button></div></div>
+        <div class="seo-guide" id="seoGuidePcd"><h2>Расчёт координат PCD и применение в G-коде</h2>
+<h3>1. Формулы декартовых координат отверстий</h3>
+<p>Для окружности центров отверстий диаметром <code>PCD</code> с количеством отверстий <code>N</code> и начальным углом <code>α0</code> координаты каждого i-го отверстия (i = 0 ... N - 1) рассчитываются по формулам:</p>
+<p><code>Xi = Xc + (PCD / 2) × cos(α0 + i × (360° / N))</code></p>
+<p><code>Yi = Yc + (PCD / 2) × sin(α0 + i × (360° / N))</code></p>
+
+<h3>2. Использование в циклах сверления ЧПУ</h3>
+<p>Рассчитанные координаты можно скопировать одной кнопкой и вставить непосредственно в программу обработки после вызова сверлильного цикла <code>G81</code> (простое сверление) или <code>G83</code> (глубокое сверление с прерыванием стружки):</p>
+<pre>G90 G54 G00 X0. Y0. S2800 M03
+G43 H01 Z50. M08
+G98 G81 Z-18. R2. F350
+; вставьте скопированные координаты:
+N1 X40.000 Y0.000
+N2 X20.000 Y34.641
+N3 X-20.000 Y34.641
+N4 X-40.000 Y0.000
+N5 X-20.000 Y-34.641
+N6 X20.000 Y-34.641
+G80 G00 Z100. M09
+M30</pre></div>
+        <div class="other-calcs-bar">
+          <h3 data-i18n="other_calcs_title">Другие инструментальные калькуляторы ЧПУ</h3>
+          <div class="other-calcs-links">
+            <a href="calculators.html" data-i18n="nav_all_calcs">Все калькуляторы (Дашборд)</a>
+            <a href="calc-turning.html">🔩 <span data-i18n="nav_calc_turn">Токарный калькулятор</span></a>
+            <a href="calc-milling.html">🛠 <span data-i18n="nav_calc_mill">Фрезерный калькулятор</span></a>
+            <a href="calc-drilling.html">🕳 <span data-i18n="nav_calc_drill">Сверление и зенковка</span></a>
+            <a href="calc-thread.html">🔧 <span data-i18n="nav_calc_thread">Метрическая резьба</span></a>
+          </div>
+        </div>
+      </section>
+
+      
+
+      
+
+      
+    </div>
+    <aside class="side">
+      <div class="ad-slot ad-side ad-live" data-slot="side"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="3745767258"></ins></div>
+    </aside>
+  </div>
+</main>
+
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="footer"><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="7573331629"></ins></div></div>
+
+<footer class="footer">
+  <div class="container">
+    <p data-i18n="footer_text">© CNCHelper — инструмент для операторов ЧПУ</p>
+    <p class="note" data-i18n="footer_disc">Расчёты носят справочный характер. Ответственность за режимы и безопасность остаётся за оператором.</p>
+    <p class="note"><a href="#" id="cookieSettings"></a></p>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/articles.js"></script>
+<script src="../js/calculators.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/consent.js"></script>
+</body>
+</html>

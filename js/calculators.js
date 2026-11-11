@@ -19,7 +19,8 @@ const CALCS = [
     {id:"z", k:"f_z", def:4},
     {id:"vc", k:"f_vc", def:150},
     {id:"fz", k:"f_fz", def:0.05},
-    {id:"L", k:"f_L", def:100}
+    {id:"L", k:"f_mill_l", def:100},
+    {id:"ae", k:"f_mill_ae", def:0}
    ],
    calc:v=>{
     if (!valid(v.D, v.z, v.vc, v.fz)) return null;
@@ -30,6 +31,15 @@ const CALCS = [
       {k:"r_F", v:F, u:"u_mmmin", d:0}
     ];
     if (v.L > 0) r.push({k:"r_t", v:v.L / F, u:"u_min", d:2});
+    if (v.ae > 0 && v.ae < 0.5 * v.D) {
+      const ratio = v.ae / v.D;
+      const fz_adj = v.fz / (2 * Math.sqrt(ratio * (1 - ratio)));
+      const F_adj = n * fz_adj * v.z;
+      r.push(
+        {k:"r_fz_adj", v:fz_adj, raw:"mm", d:3},
+        {k:"r_f_adj", v:F_adj, u:"u_mmmin", d:0}
+      );
+    }
     return r;
    }},
 
@@ -51,7 +61,11 @@ const CALCS = [
       {k:"r_F", v:F, u:"u_mmmin", d:0}
     ];
     if (v.L > 0) r.push({k:"r_t", v:v.L / F, u:"u_min", d:2});
-    if (v.r > 0) r.push({k:"r_Ra", v:v.f * v.f / (8 * v.r) * 1000, u:"u_um", d:2});
+    if (v.r > 0) {
+      const Rz = (v.f * v.f) / (8 * v.r) * 1000;
+      const Ra = (v.f * v.f) / (31.2 * v.r) * 1000;
+      r.push({k:"r_surf_finish", s:`Ra: ${Ra.toFixed(2)} µm | Rz: ${Rz.toFixed(2)} µm`});
+    }
     return r;
    }},
 
@@ -160,12 +174,14 @@ const CALCS = [
     if (!valid(v.rpm, v.ap, v.ae, v.vf, v.eff) || v.eff > 1) return null;
     const kc = MATERIALS[v.mat].kc;
     const Q = (v.ap * v.ae * v.vf) / 1000; // cm3/min
-    const Pc = (Q * kc) / (60 * 1000 * v.eff); // kW
+    const Pc = (v.ap * v.ae * v.vf * kc) / (60 * 1e6); // kW net cutting power
+    const Pm = Pc / v.eff; // kW motor power
     const Mc = (9550 * Pc) / v.rpm; // N*m
     return [
       {k:"r_mrr_val", v:Q, u:"u_cm3min", d:2},
-      {k:"r_st_power", v:Pc, u:"u_kw", d:2},
-      {k:"r_st_torque", s:`${Mc.toFixed(2)} Н·м (${(Mc * 0.73756).toFixed(2)} ft·lb)`}
+      {k:"r_pc_net", v:Pc, u:"u_kw", d:2},
+      {k:"r_pm_motor", v:Pm, u:"u_kw", d:2},
+      {k:"r_st_torque", s:`${Mc.toFixed(2)} N·m (${(Mc * 0.73756).toFixed(2)} ft·lb)`}
     ];
    }},
 
@@ -229,9 +245,26 @@ const CALCS = [
 
   // 9. Metric Thread & Tap Drill
   {id:"thread", t:"c_thread", ic:"🔧", group:"thread",
-   fields:[{id:"th", k:"f_thread", type:"select", def:5, options:THREADS.map((t,i)=>({v:i,label:t[0]+" × "+t[2]}))}],
+   fields:[
+    {id:"th", k:"f_thread", type:"select", def:5, options:[
+      ...THREADS.map((t,i)=>({v:i,label:t[0]+" × "+t[2]})),
+      {v:"custom", k:"opt_custom_th"}
+    ]},
+    {id:"custD", k:"f_cust_d", def:10, showIf:v=>v.th==="custom"},
+    {id:"custP", k:"f_cust_p", def:1.25, showIf:v=>v.th==="custom"}
+   ],
    calc:v=>{
-    const [,D,P]=THREADS[v.th];
+    let D, P;
+    if (v.th === "custom") {
+      if (!valid(v.custD, v.custP)) return null;
+      D = v.custD;
+      P = v.custP;
+    } else {
+      const row = THREADS[v.th];
+      if (!row) return null;
+      D = row[1];
+      P = row[2];
+    }
     return [
       {k:"r_pitch", v:P, u:"", d:2},
       {k:"r_drill", v:D-P, u:"", d:2, raw:"mm"},
@@ -460,15 +493,23 @@ const CALCS = [
     const totalZ = v.cyl + coneL;
 
     let csinkFeed = 0;
-    if (v.csinkD > v.D && v.csinkAng > 0 && v.csinkAng < 180) {
+    let zSpot = 0;
+    if (v.csinkD > 0 && v.csinkAng > 0 && v.csinkAng < 180) {
       const halfCsink = rad(v.csinkAng / 2);
-      csinkFeed = ((v.csinkD - v.D) / 2) / Math.tan(halfCsink);
+      if (v.csinkD > v.D) {
+        csinkFeed = ((v.csinkD - v.D) / 2) / Math.tan(halfCsink);
+      }
+      zSpot = (v.csinkD / 2) / Math.tan(halfCsink);
     }
-    return [
+    const r = [
       {k:"r_dd_cone_l", v:coneL, raw:"mm", d:3},
-      {k:"r_dd_total_z", s:`Z -${totalZ.toFixed(3)} mm (для глухого отв. ${v.cyl} mm)`},
-      {k:"r_dd_csink_depth", s:csinkFeed > 0 ? `${csinkFeed.toFixed(3)} mm (от верха)` : "—"}
+      {k:"r_dd_total_z", s:`Z -${totalZ.toFixed(3)} mm (L = ${v.cyl} mm)`},
+      {k:"r_dd_csink_depth", s:csinkFeed > 0 ? `${csinkFeed.toFixed(3)} mm` : "—"}
     ];
+    if (zSpot > 0) {
+      r.push({k:"r_z_spot", s:`Z -${zSpot.toFixed(3)} mm`});
+    }
+    return r;
    }},
 
   // 19. Arc from Chord and Height
@@ -780,12 +821,51 @@ function renderCalcGrid(root, t, filter) {
     const res = document.createElement("div"); res.className = "results"; card.appendChild(res);
     const saveBtn = document.createElement("button"); saveBtn.className = "btn-save"; saveBtn.textContent = t("save"); card.appendChild(saveBtn);
 
+    let copyBtn = null;
+    if (c.id === "bolt") {
+      copyBtn = document.createElement("button");
+      copyBtn.type = "button";
+      copyBtn.className = "btn-copy";
+      copyBtn.textContent = t("copy_gcode");
+      card.appendChild(copyBtn);
+    }
+
     let lastRows = null;
+    if (copyBtn) {
+      copyBtn.addEventListener("click", () => {
+        if (!lastRows || !lastRows.length) return;
+        const gcode = lastRows.map((r, i) => `N${i + 1} ${r.text}`).join("\n");
+        const onDone = () => {
+          copyBtn.textContent = t("copied_ok");
+          setTimeout(() => { copyBtn.textContent = t("copy_gcode"); }, 1500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(gcode).then(onDone).catch(() => {
+            const ta = document.createElement("textarea");
+            ta.value = gcode;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+            onDone();
+          });
+        } else {
+          const ta = document.createElement("textarea");
+          ta.value = gcode;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          onDone();
+        }
+      });
+    }
+
     const update = () => {
       const v = {};
       c.fields.forEach(f => {
         const raw = fieldEls[f.id].input.value;
-        v[f.id] = f.type === "select" ? (typeof f.options[0].v === "number" ? +raw : raw) : parseFloat(raw);
+        v[f.id] = f.type === "select" ? (raw === "custom" || isNaN(+raw) || raw === "" ? raw : +raw) : parseFloat(raw);
         st[f.id] = raw;
       });
       c.fields.forEach(f => { if (f.showIf) fieldEls[f.id].w.hidden = !f.showIf(v); });

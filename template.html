@@ -31,7 +31,17 @@
     <a class="logo" href="index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
     <nav class="nav" id="nav">
       <a href="index.html" data-route-link="home" data-i18n="nav_home">Home</a>
-      <a href="calculators.html" data-route-link="calc" data-i18n="nav_calc">Calculators</a>
+      <div class="nav-dropdown">
+        <a href="calculators.html" data-route-link="calc" class="nav-drop-btn"><span data-i18n="nav_calc">Calculators</span> <span class="drop-arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="calculators.html" class="drop-all"><strong data-i18n="nav_all_calcs">All calculators (Dashboard)</strong></a>
+          <a href="calc-turning.html"><span>🔩</span> <span data-i18n="nav_calc_turn">Turning</span></a>
+          <a href="calc-milling.html"><span>🛠</span> <span data-i18n="nav_calc_mill">Milling</span></a>
+          <a href="calc-drilling.html"><span>🕳</span> <span data-i18n="nav_calc_drill">Drilling</span></a>
+          <a href="calc-thread.html"><span>🔧</span> <span data-i18n="nav_calc_thread">Metric thread</span></a>
+          <a href="calc-pcd.html"><span>🎯</span> <span data-i18n="nav_calc_pcd">Bolt circle (PCD)</span></a>
+        </div>
+      </div>
       <a href="codes.html" data-route-link="codes" data-i18n="nav_codes">G &amp; M codes</a>
       <a href="articles.html" data-route-link="articles" data-i18n="nav_articles">Articles</a>
     </nav>
@@ -108,6 +118,41 @@
       <section class="page" data-page="calc">
         <h1 data-i18n="calc_title"></h1>
         <p class="sub" data-i18n="calc_sub"></p>
+
+        <!-- DASHBOARD OF DEDICATED CALCULATORS -->
+        <div class="calc-dashboard">
+          <h2 data-i18n="dash_title"></h2>
+          <p class="sub" data-i18n="dash_sub"></p>
+          <div class="dash-grid">
+            <a href="calc-turning.html" class="dash-card">
+              <div class="dash-head"><span class="dash-ic">🔩</span><h3 data-i18n="dash_turn_t"></h3></div>
+              <p data-i18n="dash_turn_d"></p>
+              <span class="dash-link" data-i18n="open_calc"></span>
+            </a>
+            <a href="calc-milling.html" class="dash-card">
+              <div class="dash-head"><span class="dash-ic">🛠</span><h3 data-i18n="dash_mill_t"></h3></div>
+              <p data-i18n="dash_mill_d"></p>
+              <span class="dash-link" data-i18n="open_calc"></span>
+            </a>
+            <a href="calc-drilling.html" class="dash-card">
+              <div class="dash-head"><span class="dash-ic">🕳</span><h3 data-i18n="dash_drill_t"></h3></div>
+              <p data-i18n="dash_drill_d"></p>
+              <span class="dash-link" data-i18n="open_calc"></span>
+            </a>
+            <a href="calc-thread.html" class="dash-card">
+              <div class="dash-head"><span class="dash-ic">🔧</span><h3 data-i18n="dash_thread_t"></h3></div>
+              <p data-i18n="dash_thread_d"></p>
+              <span class="dash-link" data-i18n="open_calc"></span>
+            </a>
+            <a href="calc-pcd.html" class="dash-card">
+              <div class="dash-head"><span class="dash-ic">🎯</span><h3 data-i18n="dash_pcd_t"></h3></div>
+              <p data-i18n="dash_pcd_d"></p>
+              <span class="dash-link" data-i18n="open_calc"></span>
+            </a>
+          </div>
+        </div>
+
+        <h2 data-i18n="all_tools_title"></h2>
         <h2 data-i18n="group_cut"></h2>
         <div class="grid calcs" id="calcsCut"></div>
         <div class="ad-slot ad-inline ad-live" data-slot="inline-2"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5983424491"></ins></div>
@@ -122,6 +167,131 @@
         <h2 data-i18n="ref_title"></h2>
         <div class="card table-wrap"><table id="matTable"></table></div>
         <p class="note" data-i18n="ref_note"></p>
+      </section>
+
+      <!-- DEDICATED CALC: TURNING -->
+      <section class="page" data-page="calc-turning">
+        <div class="breadcrumbs">
+          <a href="index.html" data-i18n="nav_home"></a>
+          <span class="sep">/</span>
+          <a href="calculators.html" data-i18n="nav_calc"></a>
+          <span class="sep">/</span>
+          <span data-i18n="nav_calc_turn"></span>
+        </div>
+        <h1 data-i18n="seo_turn_h1"></h1>
+        <p class="sub" data-i18n="seo_turn_sub"></p>
+        <div class="grid calcs" id="calcsTurning"></div>
+        <div class="seo-guide" id="seoGuideTurning"></div>
+        <div class="other-calcs-bar">
+          <h3 data-i18n="other_calcs_title"></h3>
+          <div class="other-calcs-links">
+            <a href="calculators.html" data-i18n="nav_all_calcs"></a>
+            <a href="calc-milling.html">🛠 <span data-i18n="nav_calc_mill"></span></a>
+            <a href="calc-drilling.html">🕳 <span data-i18n="nav_calc_drill"></span></a>
+            <a href="calc-thread.html">🔧 <span data-i18n="nav_calc_thread"></span></a>
+            <a href="calc-pcd.html">🎯 <span data-i18n="nav_calc_pcd"></span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEDICATED CALC: MILLING -->
+      <section class="page" data-page="calc-milling">
+        <div class="breadcrumbs">
+          <a href="index.html" data-i18n="nav_home"></a>
+          <span class="sep">/</span>
+          <a href="calculators.html" data-i18n="nav_calc"></a>
+          <span class="sep">/</span>
+          <span data-i18n="nav_calc_mill"></span>
+        </div>
+        <h1 data-i18n="seo_mill_h1"></h1>
+        <p class="sub" data-i18n="seo_mill_sub"></p>
+        <div class="grid calcs" id="calcsMilling"></div>
+        <div class="seo-guide" id="seoGuideMilling"></div>
+        <div class="other-calcs-bar">
+          <h3 data-i18n="other_calcs_title"></h3>
+          <div class="other-calcs-links">
+            <a href="calculators.html" data-i18n="nav_all_calcs"></a>
+            <a href="calc-turning.html">🔩 <span data-i18n="nav_calc_turn"></span></a>
+            <a href="calc-drilling.html">🕳 <span data-i18n="nav_calc_drill"></span></a>
+            <a href="calc-thread.html">🔧 <span data-i18n="nav_calc_thread"></span></a>
+            <a href="calc-pcd.html">🎯 <span data-i18n="nav_calc_pcd"></span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEDICATED CALC: DRILLING -->
+      <section class="page" data-page="calc-drilling">
+        <div class="breadcrumbs">
+          <a href="index.html" data-i18n="nav_home"></a>
+          <span class="sep">/</span>
+          <a href="calculators.html" data-i18n="nav_calc"></a>
+          <span class="sep">/</span>
+          <span data-i18n="nav_calc_drill"></span>
+        </div>
+        <h1 data-i18n="seo_drill_h1"></h1>
+        <p class="sub" data-i18n="seo_drill_sub"></p>
+        <div class="grid calcs" id="calcsDrilling"></div>
+        <div class="seo-guide" id="seoGuideDrilling"></div>
+        <div class="other-calcs-bar">
+          <h3 data-i18n="other_calcs_title"></h3>
+          <div class="other-calcs-links">
+            <a href="calculators.html" data-i18n="nav_all_calcs"></a>
+            <a href="calc-turning.html">🔩 <span data-i18n="nav_calc_turn"></span></a>
+            <a href="calc-milling.html">🛠 <span data-i18n="nav_calc_mill"></span></a>
+            <a href="calc-thread.html">🔧 <span data-i18n="nav_calc_thread"></span></a>
+            <a href="calc-pcd.html">🎯 <span data-i18n="nav_calc_pcd"></span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEDICATED CALC: THREAD -->
+      <section class="page" data-page="calc-thread">
+        <div class="breadcrumbs">
+          <a href="index.html" data-i18n="nav_home"></a>
+          <span class="sep">/</span>
+          <a href="calculators.html" data-i18n="nav_calc"></a>
+          <span class="sep">/</span>
+          <span data-i18n="nav_calc_thread"></span>
+        </div>
+        <h1 data-i18n="seo_thread_h1"></h1>
+        <p class="sub" data-i18n="seo_thread_sub"></p>
+        <div class="grid calcs" id="calcsThreadDedicated"></div>
+        <div class="seo-guide" id="seoGuideThread"></div>
+        <div class="other-calcs-bar">
+          <h3 data-i18n="other_calcs_title"></h3>
+          <div class="other-calcs-links">
+            <a href="calculators.html" data-i18n="nav_all_calcs"></a>
+            <a href="calc-turning.html">🔩 <span data-i18n="nav_calc_turn"></span></a>
+            <a href="calc-milling.html">🛠 <span data-i18n="nav_calc_mill"></span></a>
+            <a href="calc-drilling.html">🕳 <span data-i18n="nav_calc_drill"></span></a>
+            <a href="calc-pcd.html">🎯 <span data-i18n="nav_calc_pcd"></span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEDICATED CALC: PCD -->
+      <section class="page" data-page="calc-pcd">
+        <div class="breadcrumbs">
+          <a href="index.html" data-i18n="nav_home"></a>
+          <span class="sep">/</span>
+          <a href="calculators.html" data-i18n="nav_calc"></a>
+          <span class="sep">/</span>
+          <span data-i18n="nav_calc_pcd"></span>
+        </div>
+        <h1 data-i18n="seo_pcd_h1"></h1>
+        <p class="sub" data-i18n="seo_pcd_sub"></p>
+        <div class="grid calcs" id="calcsPcd"></div>
+        <div class="seo-guide" id="seoGuidePcd"></div>
+        <div class="other-calcs-bar">
+          <h3 data-i18n="other_calcs_title"></h3>
+          <div class="other-calcs-links">
+            <a href="calculators.html" data-i18n="nav_all_calcs"></a>
+            <a href="calc-turning.html">🔩 <span data-i18n="nav_calc_turn"></span></a>
+            <a href="calc-milling.html">🛠 <span data-i18n="nav_calc_mill"></span></a>
+            <a href="calc-drilling.html">🕳 <span data-i18n="nav_calc_drill"></span></a>
+            <a href="calc-thread.html">🔧 <span data-i18n="nav_calc_thread"></span></a>
+          </div>
+        </div>
       </section>
 
       <section class="page" data-page="codes">

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- GENERATED SOURCE: edit this template, then run build.ps1 to regenerate ru/ pl/ en/ pages, sitemap.xml and robots.txt -->
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CNC Turning Speeds and Feeds Calculator — Vc, Feed, Surface Roughness Ra/Rz | CNCHelper</title>
+<meta name="description" content="Free CNC lathe speeds and feeds calculator: calculate cutting speed Vc, spindle RPM n, table feed F, theoretical Ra and Rz surface roughness based on tool nose radius r, machining time and manual TNRC.">
+<link rel="canonical" href="https://cnc-helper.pro/en/calc-turning.html">
+<link rel="alternate" hreflang="ru" href="https://cnc-helper.pro/ru/calc-turning.html">
+<link rel="alternate" hreflang="pl" href="https://cnc-helper.pro/pl/calc-turning.html">
+<link rel="alternate" hreflang="en" href="https://cnc-helper.pro/en/calc-turning.html">
+<link rel="alternate" hreflang="x-default" href="https://cnc-helper.pro/en/calc-turning.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CNC Turning Speeds and Feeds Calculator — Vc, Feed, Surface Roughness Ra/Rz | CNCHelper">
+<meta property="og:description" content="Free CNC lathe speeds and feeds calculator: calculate cutting speed Vc, spindle RPM n, table feed F, theoretical Ra and Rz surface roughness based on tool nose radius r, machining time and manual TNRC.">
+<meta property="og:url" content="https://cnc-helper.pro/en/calc-turning.html">
+<meta property="og:image" content="https://cnc-helper.pro/images/hero.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","inLanguage":"en","url":"https://cnc-helper.pro/en/calc-turning.html","name":"CNC Turning Speeds and Feeds Calculator — Vc, Feed, Surface Roughness Ra/Rz | CNCHelper","description":"Free CNC lathe speeds and feeds calculator: calculate cutting speed Vc, spindle RPM n, table feed F, theoretical Ra and Rz surface roughness based on tool nose radius r, machining time and manual TNRC."}</script>
+<script>
+  (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);localStorage.setItem('lang','en');})();
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1775700331598232"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body data-route="calc-turning" data-article="" data-file="calc-turning.html">
+
+<header class="header">
+  <div class="container header-in">
+    <a class="logo" href="index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-route-link="home" data-i18n="nav_home">Home</a>
+      <div class="nav-dropdown">
+        <a href="calculators.html" data-route-link="calc" class="nav-drop-btn"><span data-i18n="nav_calc">Calculators</span> <span class="drop-arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="calculators.html" class="drop-all"><strong data-i18n="nav_all_calcs">All calculators (Dashboard)</strong></a>
+          <a href="calc-turning.html"><span>🔩</span> <span data-i18n="nav_calc_turn">Turning calculator</span></a>
+          <a href="calc-milling.html"><span>🛠</span> <span data-i18n="nav_calc_mill">Milling calculator</span></a>
+          <a href="calc-drilling.html"><span>🕳</span> <span data-i18n="nav_calc_drill">Drilling &amp; countersink</span></a>
+          <a href="calc-thread.html"><span>🔧</span> <span data-i18n="nav_calc_thread">Metric thread</span></a>
+          <a href="calc-pcd.html"><span>🎯</span> <span data-i18n="nav_calc_pcd">Bolt circle (PCD)</span></a>
+        </div>
+      </div>
+      <a href="codes.html" data-route-link="codes" data-i18n="nav_codes">G &amp; M codes</a>
+      <a href="articles.html" data-route-link="articles" data-i18n="nav_articles">Articles</a>
+    </nav>
+    <div class="tools">
+      <select id="lang" aria-label="Language">
+        <option value="ru">RU</option>
+        <option value="pl">PL</option>
+        <option value="en" selected>EN</option>
+      </select>
+      <button id="themeBtn" class="icon-btn" aria-label="Theme">🌙</button>
+      <button id="burger" class="icon-btn burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+
+
+<!--
+  ====== AD SLOTS ======
+  Each .ad-slot is a placeholder. To activate: replace the inner <div class="ad-ph"> with your ad code
+  (e.g. Google AdSense <ins class="adsbygoogle">). Slots: top, side, inline, footer.
+  Sizes: top 728x90 / 320x100, side 300x600 / 300x250, inline 336x280 / responsive, footer 728x90.
+-->
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="top">
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="6618895499"></ins>
+</div></div>
+
+<main class="container" id="main">
+
+  <!-- HOME -->
+  
+
+  <div class="layout" id="layout">
+    <div class="content">
+      
+
+      <!-- DEDICATED CALC: TURNING -->
+      <section class="page" data-page="calc-turning">
+        <div class="breadcrumbs">
+          <a href="index.html" data-i18n="nav_home">Home</a>
+          <span class="sep">/</span>
+          <a href="calculators.html" data-i18n="nav_calc">Calculators</a>
+          <span class="sep">/</span>
+          <span data-i18n="nav_calc_turn">Turning calculator</span>
+        </div>
+        <h1 data-i18n="seo_turn_h1">CNC Lathe Turning Speeds and Feeds Calculator</h1>
+        <p class="sub" data-i18n="seo_turn_sub">Calculate cutting speed Vc, spindle RPM n, table feed F, surface finish Ra/Rz, and tool nose radius compensation (TNRC)</p>
+        <div class="grid calcs" id="calcsTurning"><div class="card calc"><h3><span>🔩</span>Turning</h3><div class="field"><label>Workpiece diameter, mm</label><input type="number" step="any" inputmode="decimal" value="50"></div><div class="field"><label>Cutting speed Vc, m/min</label><input type="number" step="any" inputmode="decimal" value="200"></div><div class="field"><label>Feed per rev f, mm/rev</label><input type="number" step="any" inputmode="decimal" value="0.2"></div><div class="field"><label>Length of cut, mm</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="field"><label>Insert corner radius, mm</label><input type="number" step="any" inputmode="decimal" value="0.8"></div><div class="results"><div class="res"><span>Spindle speed n</span><b>1 273 RPM</b></div><div class="res"><span>Feed rate F</span><b>255 mm/min</b></div><div class="res"><span>Cutting time</span><b>0,39 min</b></div><div class="res"><span>Surface finish (Ra / Rz)</span><b>Ra: 1.60 µm | Rz: 6.25 µm</b></div></div><button class="btn-save">💾 Save calculation</button></div>
+<div class="card calc"><h3><span>🔻</span>Taper (turning)</h3><div class="field"><label>Major diameter D1, mm</label><input type="number" step="any" inputmode="decimal" value="40"></div><div class="field"><label>Minor diameter D2, mm</label><input type="number" step="any" inputmode="decimal" value="30"></div><div class="field"><label>Length, mm</label><input type="number" step="any" inputmode="decimal" value="50"></div><div class="results"><div class="res"><span>Taper half-angle</span><b>5,7106 °</b></div><div class="res"><span>Full taper angle</span><b>11,4212 °</b></div><div class="res"><span>Taper ratio C</span><b>0,2</b></div><div class="res"><span>Taper 1 :</span><b>5</b></div></div><button class="btn-save">💾 Save calculation</button></div>
+<div class="card calc"><h3><span>📐</span>Tool nose radius compensation (manual TNRC)</h3><div class="field"><label>Insert nose radius R, mm</label><input type="number" step="any" inputmode="decimal" value="0.8"></div><div class="field"><label>Angle to Z-axis α, °</label><input type="number" step="any" inputmode="decimal" value="45"></div><div class="field"><label>Chamfer size along Z (C), mm</label><input type="number" step="any" inputmode="decimal" value="2"></div><div class="field"><label>Workpiece diameter, mm</label><input type="number" step="any" inputmode="decimal" value="40"></div><div class="results"><div class="res"><span>Z compensation (ΔZ)</span><b>0,469 mm</b></div><div class="res"><span>X diameter compensation (ΔX)</span><b>0,937 mm</b></div><div class="res"><span>Start coordinate (X, Z)</span><b>X35.063  Z0.000</b></div><div class="res"><span>End coordinate (X, Z)</span><b>X40.000  Z-2.469</b></div><div class="res"><span>CNC motion block</span><b>G01 X35.063 Z0. ; G01 X40.000 Z-2.469</b></div></div><button class="btn-save">💾 Save calculation</button></div></div>
+        <div class="seo-guide" id="seoGuideTurning"><h2>CNC Lathe Turning Speeds, Feeds & Tool Nose Theory</h2>
+<h3>1. Cutting Speed Vc and Spindle RPM n</h3>
+<p>Surface cutting speed <code>Vc</code> (m/min) represents the peripheral speed of the rotating workpiece:</p>
+<p><code>Vc = (π × Dw × n) / 1000</code> [m/min] &nbsp;|&nbsp; <code>n = (1000 × Vc) / (π × Dw)</code> [RPM]</p>
+<p>CNC lathes typically run in Constant Surface Speed (CSS) mode using <code>G96 S...</code>, paired with a maximum spindle speed clamp <code>G50 S...</code> (Fanuc/Haas) or <code>LIMS=...</code> (Siemens) to prevent centrifugal jaw gripping force loss when facing toward center (X = 0).</p>
+
+<h3>2. Theoretical Ra and Rz Surface Finish</h3>
+<p>Theoretical finish is governed by feed per revolution <code>f</code> (mm/rev) and insert corner radius <code>r</code> (mm):</p>
+<ul>
+  <li><b>Peak-to-valley profile height (Rz):</b> <code>Rz = (f² / (8 × r)) × 1000</code> [µm]</li>
+  <li><b>Centerline average roughness (Ra):</b> <code>Ra = (f² / (31.2 × r)) × 1000</code> [µm]</li>
+</ul>
+<p><b>Machinist Rule of Thumb:</b> For an r = 0.8 mm insert at f = 0.2 mm/rev, theoretical roughness is Ra ≈ 1.6 µm (Rz ≈ 6.25 µm). Halving feed to 0.1 mm/rev drops Ra to ≈ 0.4 µm.</p>
+
+<h3>3. Manual Tool Nose Radius Compensation (TNRC)</h3>
+<p>When turning tapers or 45° chamfers without CNC radius compensation (G41/G42), the insert tool nose radius shifts the actual cutting edge. For a 45° chamfer:</p>
+<ul>
+  <li>Z-axis shift: <code>ΔZ = r × (1 - tan(22.5°)) ≈ 0.414 × r</code></li>
+  <li>X-axis diameter shift: <code>ΔX = 2 × r × (1 - tan(22.5°)) ≈ 0.828 × r</code></li>
+</ul></div>
+        <div class="other-calcs-bar">
+          <h3 data-i18n="other_calcs_title">Other CNC Tooling Calculators</h3>
+          <div class="other-calcs-links">
+            <a href="calculators.html" data-i18n="nav_all_calcs">All calculators (Dashboard)</a>
+            <a href="calc-milling.html">🛠 <span data-i18n="nav_calc_mill">Milling calculator</span></a>
+            <a href="calc-drilling.html">🕳 <span data-i18n="nav_calc_drill">Drilling &amp; countersink</span></a>
+            <a href="calc-thread.html">🔧 <span data-i18n="nav_calc_thread">Metric thread</span></a>
+            <a href="calc-pcd.html">🎯 <span data-i18n="nav_calc_pcd">Bolt circle (PCD)</span></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEDICATED CALC: MILLING -->
+      
+
+      <!-- DEDICATED CALC: DRILLING -->
+      
+
+      <!-- DEDICATED CALC: THREAD -->
+      
+
+      <!-- DEDICATED CALC: PCD -->
+      
+
+      
+
+      
+
+      
+    </div>
+    <aside class="side">
+      <div class="ad-slot ad-side ad-live" data-slot="side"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="3745767258"></ins></div>
+    </aside>
+  </div>
+</main>
+
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="footer"><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="7573331629"></ins></div></div>
+
+<footer class="footer">
+  <div class="container">
+    <p data-i18n="footer_text">© CNCHelper — CNC machinist toolkit</p>
+    <p class="note" data-i18n="footer_disc">Calculations are for reference only. Cutting conditions and safety remain the operator&#39;s responsibility.</p>
+    <p class="note"><a href="#" id="cookieSettings"></a></p>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/articles.js"></script>
+<script src="../js/calculators.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/consent.js"></script>
+</body>
+</html>

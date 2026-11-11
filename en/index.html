@@ -34,7 +34,17 @@
     <a class="logo" href="index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
     <nav class="nav" id="nav">
       <a href="index.html" data-route-link="home" data-i18n="nav_home">Home</a>
-      <a href="calculators.html" data-route-link="calc" data-i18n="nav_calc">Calculators</a>
+      <div class="nav-dropdown">
+        <a href="calculators.html" data-route-link="calc" class="nav-drop-btn"><span data-i18n="nav_calc">Calculators</span> <span class="drop-arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="calculators.html" class="drop-all"><strong data-i18n="nav_all_calcs">All calculators (Dashboard)</strong></a>
+          <a href="calc-turning.html"><span>🔩</span> <span data-i18n="nav_calc_turn">Turning calculator</span></a>
+          <a href="calc-milling.html"><span>🛠</span> <span data-i18n="nav_calc_mill">Milling calculator</span></a>
+          <a href="calc-drilling.html"><span>🕳</span> <span data-i18n="nav_calc_drill">Drilling &amp; countersink</span></a>
+          <a href="calc-thread.html"><span>🔧</span> <span data-i18n="nav_calc_thread">Metric thread</span></a>
+          <a href="calc-pcd.html"><span>🎯</span> <span data-i18n="nav_calc_pcd">Bolt circle (PCD)</span></a>
+        </div>
+      </div>
       <a href="codes.html" data-route-link="codes" data-i18n="nav_codes">G &amp; M codes</a>
       <a href="articles.html" data-route-link="articles" data-i18n="nav_articles">Articles</a>
     </nav>
@@ -91,8 +101,8 @@
   <section class="page" data-page="home">
     <h2 data-i18n="quick_title">Quick calculations</h2>
     <p class="sub" data-i18n="quick_sub">The most essential calculators — right on the home page</p>
-    <div class="grid calcs" id="calcsQuick"><div class="card calc"><h3><span>🛠</span>Milling: speed and feed</h3><div class="field"><label>Tool diameter, mm</label><input type="number" step="any" inputmode="decimal" value="12"></div><div class="field"><label>Number of teeth</label><input type="number" step="any" inputmode="decimal" value="4"></div><div class="field"><label>Cutting speed Vc, m/min</label><input type="number" step="any" inputmode="decimal" value="150"></div><div class="field"><label>Feed per tooth fz, mm</label><input type="number" step="any" inputmode="decimal" value="0.05"></div><div class="field"><label>Length of cut, mm</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="results"><div class="res"><span>Spindle speed n</span><b>3 979 RPM</b></div><div class="res"><span>Feed rate F</span><b>796 mm/min</b></div><div class="res"><span>Cutting time</span><b>0,13 min</b></div></div><button class="btn-save">💾 Save calculation</button></div>
-<div class="card calc"><h3><span>🔩</span>Turning</h3><div class="field"><label>Workpiece diameter, mm</label><input type="number" step="any" inputmode="decimal" value="50"></div><div class="field"><label>Cutting speed Vc, m/min</label><input type="number" step="any" inputmode="decimal" value="200"></div><div class="field"><label>Feed per rev f, mm/rev</label><input type="number" step="any" inputmode="decimal" value="0.2"></div><div class="field"><label>Length of cut, mm</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="field"><label>Insert corner radius, mm</label><input type="number" step="any" inputmode="decimal" value="0.8"></div><div class="results"><div class="res"><span>Spindle speed n</span><b>1 273 RPM</b></div><div class="res"><span>Feed rate F</span><b>255 mm/min</b></div><div class="res"><span>Cutting time</span><b>0,39 min</b></div><div class="res"><span>Theor. roughness Ra</span><b>6,25 µm</b></div></div><button class="btn-save">💾 Save calculation</button></div>
+    <div class="grid calcs" id="calcsQuick"><div class="card calc"><h3><span>🛠</span>Milling: speed and feed</h3><div class="field"><label>Tool diameter, mm</label><input type="number" step="any" inputmode="decimal" value="12"></div><div class="field"><label>Number of teeth</label><input type="number" step="any" inputmode="decimal" value="4"></div><div class="field"><label>Cutting speed Vc, m/min</label><input type="number" step="any" inputmode="decimal" value="150"></div><div class="field"><label>Feed per tooth fz, mm</label><input type="number" step="any" inputmode="decimal" value="0.05"></div><div class="field"><label>Toolpath length (L), mm</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="field"><label>Radial width ae, mm (for RCT)</label><input type="number" step="any" inputmode="decimal" value="0"></div><div class="results"><div class="res"><span>Spindle speed n</span><b>3 979 RPM</b></div><div class="res"><span>Feed rate F</span><b>796 mm/min</b></div><div class="res"><span>Cutting time</span><b>0,13 min</b></div></div><button class="btn-save">💾 Save calculation</button></div>
+<div class="card calc"><h3><span>🔩</span>Turning</h3><div class="field"><label>Workpiece diameter, mm</label><input type="number" step="any" inputmode="decimal" value="50"></div><div class="field"><label>Cutting speed Vc, m/min</label><input type="number" step="any" inputmode="decimal" value="200"></div><div class="field"><label>Feed per rev f, mm/rev</label><input type="number" step="any" inputmode="decimal" value="0.2"></div><div class="field"><label>Length of cut, mm</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="field"><label>Insert corner radius, mm</label><input type="number" step="any" inputmode="decimal" value="0.8"></div><div class="results"><div class="res"><span>Spindle speed n</span><b>1 273 RPM</b></div><div class="res"><span>Feed rate F</span><b>255 mm/min</b></div><div class="res"><span>Cutting time</span><b>0,39 min</b></div><div class="res"><span>Surface finish (Ra / Rz)</span><b>Ra: 1.60 µm | Rz: 6.25 µm</b></div></div><button class="btn-save">💾 Save calculation</button></div>
 <div class="card calc"><h3><span>⚖</span>Stock mass</h3><div class="field"><label>Shape</label><select><option value="plate" selected>Plate / sheet</option><option value="round">Round bar</option><option value="tube">Tube / pipe</option><option value="hex">Hexagon</option></select></div><div class="field"><label>Material</label><select><option value="0" selected>Carbon steel</option><option value="1">Stainless steel</option><option value="2">Aluminum</option><option value="3">Brass</option><option value="4">Copper</option><option value="5">Titanium</option><option value="6">Cast iron</option><option value="7">Bronze</option><option value="8">POM plastic</option></select></div><div class="field"><label>Width, mm</label><input type="number" step="any" inputmode="decimal" value="100"></div><div class="field"><label>Thickness, mm</label><input type="number" step="any" inputmode="decimal" value="20"></div><div class="field" hidden><label>Outer diameter, mm</label><input type="number" step="any" inputmode="decimal" value="50"></div><div class="field" hidden><label>Wall thickness, mm</label><input type="number" step="any" inputmode="decimal" value="5"></div><div class="field" hidden><label>Hex width, mm</label><input type="number" step="any" inputmode="decimal" value="30"></div><div class="field"><label>Length, mm</label><input type="number" step="any" inputmode="decimal" value="200"></div><div class="field"><label>Quantity, pcs</label><input type="number" step="any" inputmode="decimal" value="1"></div><div class="results"><div class="res"><span>Volume 1 pc</span><b>400 cm³</b></div><div class="res"><span>Mass 1 pc</span><b>3,14 kg</b></div></div><button class="btn-save">💾 Save calculation</button></div></div>
     <p class="more-link"><a href="calculators.html" data-i18n="all_calcs">All calculators →</a></p>
 
@@ -104,71 +114,16 @@
     </div>
     <div class="ad-slot ad-inline ad-live" data-slot="inline"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
     <h2 data-i18n="latest">Latest articles</h2>
-    <div class="grid" id="homeArticles"><a class="card art-card" href="article.html?id=trochoidal-milling"><span class="tag">Milling</span><h3>Trochoidal Milling: How to Stop Breaking End Mills</h3><p>Tired of snapping expensive end mills when cutting deep slots? It’s time to embrace trochoidal milling.</p><span class="more">Read →</span></a>
-<a class="card art-card" href="article.html?id=coolant-care"><span class="tag">Maintenance</span><h3>Coolant Selection and Care: It’s Not Just Water</h3><p>Coolant is the lifeblood of your CNC machine. But if it smells like a swamp on a Monday morning, you’ve got a problem.</p><span class="more">Read →</span></a>
-<a class="card art-card" href="article.html?id=titanium-machining"><span class="tag">Materials</span><h3>Taming Titanium: Machining Secrets</h3><p>Titanium is beautiful, strong, and incredibly stubborn. The biggest rookie mistake is running it at typical steel speeds.</p><span class="more">Read →</span></a>
-<a class="card art-card" href="article.html?id=chatter-vibrations"><span class="tag">Milling</span><h3>Chatter Vibrations and How to Fight Them</h3><p>Hear that screeching noise when milling? That’s chatter, and it’s busy destroying your end mill and spindle bearings.</p><span class="more">Read →</span></a>
-<a class="card art-card" href="article.html?id=mql-lubrication"><span class="tag">Cooling</span><h3>Minimum Quantity Lubrication (MQL): Forget Puddles Around the Machine</h3><p>We’re all used to massive floods of coolant washing over the workpiece.</p><span class="more">Read →</span></a>
-<a class="card art-card" href="article.html?id=climb-vs-conventional"><span class="tag">Milling</span><h3>Climb vs. Conventional Milling</h3><p>Climb milling or conventional milling? On a modern CNC machine, the answer is climb milling 99% of the time.</p><span class="more">Read →</span></a></div>
+    <div class="grid" id="homeArticles"><a class="card art-card" href="article.html?id=trochoidal-milling"><span class="tag">Milling</span><h3>Trochoidal Milling: How to Stop Breaking End Mills</h3><p>Tired of snapping expensive end mills when cutting deep slots? It’s time to embrace trochoidal milling. The concept is simple: the tool moves in a spiral path,...</p><span class="more">Read →</span></a>
+<a class="card art-card" href="article.html?id=coolant-care"><span class="tag">Maintenance</span><h3>Coolant Selection and Care: It’s Not Just Water</h3><p>Coolant is the lifeblood of your CNC machine. But if it smells like a swamp on a Monday morning, you’ve got a problem. Many machinists just top it up with...</p><span class="more">Read →</span></a>
+<a class="card art-card" href="article.html?id=titanium-machining"><span class="tag">Materials</span><h3>Taming Titanium: Machining Secrets</h3><p>Titanium is beautiful, strong, and incredibly stubborn. The biggest rookie mistake is running it at typical steel speeds. Titanium is a poor conductor of heat,...</p><span class="more">Read →</span></a>
+<a class="card art-card" href="article.html?id=chatter-vibrations"><span class="tag">Milling</span><h3>Chatter Vibrations and How to Fight Them</h3><p>Hear that screeching noise when milling? That’s chatter, and it’s busy destroying your end mill and spindle bearings. Your instinct might tell you to slow the...</p><span class="more">Read →</span></a>
+<a class="card art-card" href="article.html?id=mql-lubrication"><span class="tag">Cooling</span><h3>Minimum Quantity Lubrication (MQL): Forget Puddles Around the Machine</h3><p>We’re all used to massive floods of coolant washing over the workpiece. But what if I told you that in 70% of cases, it’s completely unnecessary? MQL (Minimum...</p><span class="more">Read →</span></a>
+<a class="card art-card" href="article.html?id=climb-vs-conventional"><span class="tag">Milling</span><h3>Climb vs. Conventional Milling</h3><p>Climb milling or conventional milling? On a modern CNC machine, the answer is climb milling 99% of the time. The cutting tooth engages the material...</p><span class="more">Read →</span></a></div>
     <p class="more-link"><a href="articles.html" data-i18n="all_articles">All articles →</a></p>
   </section>
 
-  <div class="layout" id="layout">
-    <div class="content">
-      <section class="page" data-page="calc">
-        <h1 data-i18n="calc_title">CNC Calculators</h1>
-        <p class="sub" data-i18n="calc_sub">Instant real-time calculations. All computed values are approximate guidance.</p>
-        <h2 data-i18n="group_cut">Cutting data, power &amp; tool life</h2>
-        <div class="grid calcs" id="calcsCut"></div>
-        <div class="ad-slot ad-inline ad-live" data-slot="inline-2"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5983424491"></ins></div>
-        <h2 data-i18n="group_threads">Threads, gauges &amp; thread milling</h2>
-        <div class="grid calcs" id="calcsThread"></div>
-        <h2 data-i18n="group_trig">Geometry, trigonometry &amp; coordinates</h2>
-        <div class="grid calcs" id="calcsTrig"></div>
-        <h2 data-i18n="group_tol">ISO 286 fits, roughness &amp; metrology</h2>
-        <div class="grid calcs" id="calcsTol"></div>
-        <h2 id="saved" data-i18n="saved_title">Saved calculations</h2>
-        <div class="card" id="savedList"></div>
-        <h2 data-i18n="ref_title">Material reference</h2>
-        <div class="card table-wrap"><table id="matTable"></table></div>
-        <p class="note" data-i18n="ref_note">Approximate values for carbide tooling. Always check the tool manufacturer&#39;s catalog.</p>
-      </section>
-
-      <section class="page" data-page="codes">
-        <h1 data-i18n="codes_title">G and M codes</h1>
-        <p class="sub" data-i18n="codes_sub">Comprehensive reference for 6 major controls: Fanuc, Haas, Siemens, Heidenhain, Mazak and Okuma.</p>
-        <div class="codes-bar">
-          <label class="ctl-lab"><span data-i18n="ctl">CNC control</span><select id="ctlSel"></select></label>
-          <div class="tabs" id="gmTabs">
-            <button class="tab active" data-tab="G">G</button>
-            <button class="tab" data-tab="M">M</button>
-          </div>
-          <input type="search" id="codeSearch" data-i18n-ph="search_ph" placeholder="Search: G01, drilling, coolant…">
-        </div>
-        <div class="card table-wrap"><table id="codesTable"></table></div>
-        <p class="note" data-i18n="codes_note">Code syntax and availability depend on the specific machine builder and CNC system.</p>
-      </section>
-
-      <section class="page" data-page="articles">
-        <h1 data-i18n="articles_title">CNC articles</h1>
-        <p class="sub" data-i18n="articles_sub">Practice, tips and basics for operators and programmers.</p>
-        <div class="codes-bar">
-          <div class="tag-pills" id="artTags"></div>
-          <input type="search" id="artSearch" data-i18n-ph="art_search_ph" placeholder="Search articles…">
-        </div>
-        <div class="grid" id="articlesList"></div>
-      </section>
-
-      <section class="page" data-page="article">
-        <a href="articles.html" class="back" data-i18n="back">← All articles</a>
-        <article class="card article" id="articleBody"></article>
-        <div class="ad-slot ad-inline ad-live" data-slot="article-bottom"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
-      </section>
-    </div>
-    <aside class="side">
-      <div class="ad-slot ad-side ad-live" data-slot="side"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="3745767258"></ins></div>
-    </aside>
-  </div>
+  
 </main>
 
 <div class="container"><div class="ad-slot ad-top ad-live" data-slot="footer"><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="7573331629"></ins></div></div>
