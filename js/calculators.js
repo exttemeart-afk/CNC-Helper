@@ -5,7 +5,7 @@ const matOptions = () => MATERIALS.map((m, i) => ({v: i, k: m.k}));
 const valid = (...a) => a.every(x => isFinite(x) && x > 0);
 
 const CALCS = [
- {id:"mill", t:"c_mill", ic:"🛠",
+ {id:"mill", t:"c_mill", ic:"🛠", group:"cut",
   fields:[
    {id:"D",k:"f_D",def:12},{id:"z",k:"f_z",def:4},{id:"vc",k:"f_vc",def:150},{id:"fz",k:"f_fz",def:0.05},{id:"L",k:"f_L",def:100}],
   calc:v=>{
@@ -14,7 +14,7 @@ const CALCS = [
    if(v.L>0) r.push({k:"r_t",v:v.L/F,u:"u_min",d:2});
    return r;}},
 
- {id:"turn", t:"c_turn", ic:"🔩",
+ {id:"turn", t:"c_turn", ic:"🔩", group:"cut",
   fields:[
    {id:"D",k:"f_Dw",def:50},{id:"vc",k:"f_vc",def:200},{id:"f",k:"f_f",def:0.2},{id:"L",k:"f_L",def:100},{id:"r",k:"f_r",def:0.8}],
   calc:v=>{
@@ -24,7 +24,7 @@ const CALCS = [
    if(v.r>0) r.push({k:"r_Ra",v:v.f*v.f/(8*v.r)*1000,u:"u_um",d:2});
    return r;}},
 
- {id:"drill", t:"c_drill", ic:"🕳",
+ {id:"drill", t:"c_drill", ic:"🕳", group:"cut",
   fields:[
    {id:"D",k:"f_D",def:8},{id:"vc",k:"f_vc",def:80},{id:"f",k:"f_f",def:0.15},{id:"depth",k:"f_depth",def:30}],
   calc:v=>{
@@ -33,7 +33,7 @@ const CALCS = [
    if(v.depth>0) r.push({k:"r_t",v:(v.depth+0.3*v.D)/F,u:"u_min",d:2}); // + drill point allowance
    return r;}},
 
- {id:"mass", t:"c_mass", ic:"⚖",
+ {id:"mass", t:"c_mass", ic:"⚖", group:"cut",
   fields:[
    {id:"shape",k:"f_shape",type:"select",def:"plate",options:[{v:"plate",k:"sh_plate"},{v:"round",k:"sh_round"},{v:"tube",k:"sh_tube"},{v:"hex",k:"sh_hex"}]},
    {id:"mat",k:"f_mat",type:"select",def:0,options:matOptions()},
@@ -55,7 +55,7 @@ const CALCS = [
    if(q>1) r.push({k:"r_total",v:m*q,u:"u_kg",d:3});
    return r;}},
 
- {id:"power", t:"c_power", ic:"⚡",
+ {id:"power", t:"c_power", ic:"⚡", group:"cut",
   fields:[
    {id:"mat",k:"f_mat",type:"select",def:0,options:matOptions()},
    {id:"ap",k:"f_ap",def:3},{id:"ae",k:"f_ae",def:6},{id:"F",k:"f_F",def:800},{id:"eff",k:"f_eff",def:0.8}],
@@ -64,14 +64,7 @@ const CALCS = [
    const q=v.ap*v.ae*v.F/1000, pc=v.ap*v.ae*v.F*MATERIALS[v.mat].kc/(6e7*v.eff);
    return [{k:"r_mrr",v:q,u:"u_cm3min",d:2},{k:"r_pc",v:pc,u:"u_kw",d:2}];}},
 
- {id:"thread", t:"c_thread", ic:"🔧",
-  fields:[{id:"th",k:"f_thread",type:"select",def:5,options:THREADS.map((t,i)=>({v:i,label:t[0]+" × "+t[2]}))}],
-  calc:v=>{
-   const [,D,P]=THREADS[v.th];
-   return [{k:"r_pitch",v:P,u:"",d:2},{k:"r_drill",v:D-P,u:"",d:2,raw:"mm"},{k:"r_drillF",v:D-P/2*0.9,u:"",d:2,raw:"mm"},
-           {k:"r_minor",v:D-1.0825*P,u:"",d:3,raw:"mm"},{k:"r_tdepth",v:0.6134*P,u:"",d:3,raw:"mm"}];}},
-
- {id:"conv", t:"c_conv", ic:"🔁",
+ {id:"conv", t:"c_conv", ic:"🔁", group:"cut",
   fields:[{id:"mm",k:"f_mm",def:25.4},{id:"in",k:"f_in",def:1},{id:"mpm",k:"f_mpm",def:100},{id:"sfm",k:"f_sfm",def:300},{id:"fmm",k:"f_fmm",def:500},{id:"ipm",k:"f_ipm",def:20}],
   calc:v=>[
    {k:"r_in",v:v.mm/25.4,u:"",d:4,raw:"in"},{k:"r_mm",v:v.in*25.4,u:"",d:3,raw:"mm"},
@@ -79,10 +72,71 @@ const CALCS = [
    {k:"r_fipm",v:v.fmm/25.4,u:"",d:2,raw:"IPM"},{k:"r_fmm",v:v.ipm*25.4,u:"",d:1,raw:"mm/min"}]}
 ];
 
+/* ---------- Threads & Threading ---------- */
+CALCS.push(
+ {id:"thread", t:"c_thread", ic:"🔧", group:"thread",
+  fields:[{id:"th",k:"f_thread",type:"select",def:5,options:THREADS.map((t,i)=>({v:i,label:t[0]+" × "+t[2]}))}],
+  calc:v=>{
+   const [,D,P]=THREADS[v.th];
+   return [{k:"r_pitch",v:P,u:"",d:2},{k:"r_drill",v:D-P,u:"",d:2,raw:"mm"},{k:"r_drillF",v:D-P/2*0.9,u:"",d:2,raw:"mm"},
+           {k:"r_minor",v:D-1.0825*P,u:"",d:3,raw:"mm"},{k:"r_tdepth",v:0.6134*P,u:"",d:3,raw:"mm"}];}},
+
+ {id:"thread_inch", t:"c_thread_inch", ic:"🔩", group:"thread",
+  fields:[
+   {id:"idx", k:"f_thread_inch", type:"select", def:3, options:INCH_PIPE_THREADS.map((t,i)=>({v:i, label:`[${t.cat}] ${t.name}`}))}
+  ],
+  calc:v=>{
+   const t = INCH_PIPE_THREADS[v.idx];
+   if (!t) return null;
+   const profileStr = `${t.ang}° (${t.type === "taper" ? "Taper 1:16" : "Cylindrical"})`;
+   return [
+    {k:"r_th_maj", s:`${t.dMm.toFixed(3)} mm (${t.dIn.toFixed(3)}")`},
+    {k:"r_tpi_pitch", s:`${t.tpi} TPI (P = ${t.pitch.toFixed(3)} mm)`},
+    {k:"r_drill", s:`${t.drill.toFixed(2)} mm (${(t.drill/25.4).toFixed(3)}")`},
+    {k:"r_minor", s:`${t.dMin.toFixed(3)} mm`},
+    {k:"r_profile", s:profileStr}
+   ];
+  }},
+
+ {id:"thread_mill", t:"c_thread_mill", ic:"🌀", group:"thread",
+  fields:[
+   {id:"type", k:"f_th_type", type:"select", def:"int", options:[{v:"int", k:"opt_th_int"}, {v:"ext", k:"opt_th_ext"}]},
+   {id:"dTh", k:"f_th_d", def:20},
+   {id:"P", k:"f_th_p", def:2.5},
+   {id:"dCut", k:"f_cut_d", def:14},
+   {id:"z", k:"f_z_flutes", def:3},
+   {id:"vc", k:"f_vc", def:120},
+   {id:"fz", k:"f_fz", def:0.05}
+  ],
+  calc:v=>{
+   const isInt = v.type === "int";
+   if (!valid(v.dTh, v.P, v.dCut, v.z, v.vc, v.fz)) return null;
+   if (isInt && v.dCut >= v.dTh) return null;
+   const n = 1000 * v.vc / (PI * v.dCut);
+   const F_edge = n * v.fz * v.z;
+   const D_center = isInt ? (v.dTh - v.dCut) : (v.dTh + v.dCut);
+   const factor = D_center / v.dTh;
+   const F_center = F_edge * factor;
+   const L_center = PI * D_center;
+   const t_sec = (L_center / F_center) * 60;
+   const I_val = (D_center / 2).toFixed(3);
+   const gcode = isInt
+     ? `G91 G03 I-${I_val} Z${v.P.toFixed(3)} F${Math.round(F_center)}`
+     : `G91 G02 I${I_val} Z-${v.P.toFixed(3)} F${Math.round(F_center)}`;
+   return [
+    {k:"r_n", v:n, u:"u_rpm", d:0},
+    {k:"r_f_edge", v:F_edge, u:"u_mmmin", d:0},
+    {k:"r_f_prog", v:F_center, u:"u_mmmin", d:0},
+    {k:"r_f_factor", s:`${(factor * 100).toFixed(1)}%`},
+    {k:"r_orbit_d", v:D_center, raw:"mm", d:3},
+    {k:"r_t_rev", v:t_sec, raw:"s", d:1},
+    {k:"r_gcode", s:gcode}
+   ];
+  }}
+);
 
 /* ---------- Trigonometry & geometry ---------- */
 const rad = d => d * PI / 180, deg = r => r * 180 / PI;
-CALCS.forEach(c => c.group = "cut");
 CALCS.push(
  {id:"tri", t:"c_tri", ic:"📐", group:"trig",
   fields:[{id:"a",k:"f_a",def:30},{id:"b",k:"f_b",def:40}],
@@ -97,6 +151,33 @@ CALCS.push(
    if(!valid(v.D1,v.L)||!(v.D2>=0)||v.D1<=v.D2) return null;
    const dd=v.D1-v.D2, half=deg(Math.atan(dd/(2*v.L)));
    return [{k:"r_half",v:half,raw:"°",d:4},{k:"r_full",v:2*half,raw:"°",d:4},{k:"r_ratio",v:dd/v.L,raw:"",d:5},{k:"r_ratio1",v:v.L/dd,raw:"",d:3}];}},
+
+ {id:"tnrc", t:"c_tnrc", ic:"📐", group:"trig",
+  fields:[
+   {id:"R", k:"f_tool_r", def:0.8},
+   {id:"ang", k:"f_chamfer_ang", def:45},
+   {id:"C", k:"f_chamfer_c", def:2},
+   {id:"D", k:"f_Dw", def:40}
+  ],
+  calc:v=>{
+   if (!valid(v.R, v.ang, v.C, v.D) || v.ang >= 90) return null;
+   const a = rad(v.ang);
+   const tanA = Math.tan(a);
+   const dZ = v.R * (1 - Math.tan(a / 2));
+   const dX_rad = v.R * (1 - Math.tan((PI / 2 - a) / 2));
+   const dX_dia = 2 * dX_rad;
+   const nomXstart = v.D - 2 * v.C * tanA;
+   const progXstart = nomXstart - dX_dia;
+   const progZend = -v.C - dZ;
+   const gcode = `G01 X${progXstart.toFixed(3)} Z0. ; G01 X${v.D.toFixed(3)} Z${progZend.toFixed(3)}`;
+   return [
+    {k:"r_dz", v:dZ, raw:"mm", d:3},
+    {k:"r_dx", v:dX_dia, raw:"mm", d:3},
+    {k:"r_pt_start", s:`X${progXstart.toFixed(3)}  Z0.000`},
+    {k:"r_pt_end", s:`X${v.D.toFixed(3)}  Z${progZend.toFixed(3)}`},
+    {k:"r_gcode", s:gcode}
+   ];
+  }},
 
  {id:"bolt", t:"c_bolt", ic:"🎯", group:"trig",
   fields:[{id:"n",k:"f_n",def:6},{id:"pcd",k:"f_pcd",def:80},{id:"a0",k:"f_a0",def:0},{id:"cx",k:"f_cx",def:0},{id:"cy",k:"f_cy",def:0}],
@@ -120,7 +201,79 @@ CALCS.push(
   fields:[{id:"c",k:"f_chord",def:60},{id:"h",k:"f_h",def:10}],
   calc:v=>{ if(!valid(v.c,v.h)) return null;
    const R=(v.c*v.c/4+v.h*v.h)/(2*v.h);
-   return [{k:"r_R",v:R,raw:"mm",d:4},{k:"r_ca",v:deg(2*Math.atan2(v.c/2,R-v.h)),raw:"°",d:3}]; }}
+   return [{k:"r_R",v:R,raw:"mm",d:4},{k:"r_ca",v:deg(2*Math.atan2(v.c/2,R-v.h)),raw:"°",d:3}]; }},
+
+ /* ---------- ISO 286 Fits & Tolerances ---------- */
+ {id:"iso_fits", t:"c_iso_fits", ic:"🎯", group:"tol",
+  fields:[
+   {id:"D", k:"f_Dw", def:20},
+   {id:"mode", k:"f_fit_mode", type:"select", def:"pair", options:[
+     {v:"pair", k:"opt_pair"},
+     {v:"hole", k:"opt_hole"},
+     {v:"shaft", k:"opt_shaft"}
+   ]},
+   {id:"hole", k:"f_hole_tol", type:"select", def:"H7", showIf:v=>v.mode==="pair"||v.mode==="hole",
+    options:["H7","H6","H8","H9","H11","JS7","G7","F8","D10","P7","N7"].map(g=>({v:g, label:g}))},
+   {id:"shaft", k:"f_shaft_tol", type:"select", def:"g6", showIf:v=>v.mode==="pair"||v.mode==="shaft",
+    options:["g6","h6","h7","h8","h9","f7","e8","d9","js6","k6","m6","n6","p6","s6"].map(g=>({v:g, label:g}))}
+  ],
+  calc:v=>{
+   if (!valid(v.D) || v.D < 1 || v.D > 500) return null;
+   const D = v.D;
+   const fmtDev = val => (val > 0 ? "+" : "") + (val / 1000).toFixed(3);
+   if (v.mode === "hole") {
+     const H = calcIsoTol(D, v.hole);
+     if (!H) return null;
+     return [
+       {k:"r_hole_tol", s:`Ø${D} ${H.grade} (${fmtDev(H.es)} / ${fmtDev(H.ei)} mm)`},
+       {k:"r_es", s:`${(H.es > 0 ? "+" : "") + H.es} µm (${fmtDev(H.es)} mm)`},
+       {k:"r_ei", s:`${(H.ei > 0 ? "+" : "") + H.ei} µm (${fmtDev(H.ei)} mm)`},
+       {k:"r_max_d", s:`${H.max.toFixed(3)} mm`},
+       {k:"r_min_d", s:`${H.min.toFixed(3)} mm`},
+       {k:"r_it", s:`${H.it} µm (${(H.it / 1000).toFixed(3)} mm)`}
+     ];
+   }
+   if (v.mode === "shaft") {
+     const S = calcIsoTol(D, v.shaft);
+     if (!S) return null;
+     return [
+       {k:"r_shaft_tol", s:`Ø${D} ${S.grade} (${fmtDev(S.es)} / ${fmtDev(S.ei)} mm)`},
+       {k:"r_es", s:`${(S.es > 0 ? "+" : "") + S.es} µm (${fmtDev(S.es)} mm)`},
+       {k:"r_ei", s:`${(S.ei > 0 ? "+" : "") + S.ei} µm (${fmtDev(S.ei)} mm)`},
+       {k:"r_max_d", s:`${S.max.toFixed(3)} mm`},
+       {k:"r_min_d", s:`${S.min.toFixed(3)} mm`},
+       {k:"r_it", s:`${S.it} µm (${(S.it / 1000).toFixed(3)} mm)`}
+     ];
+   }
+   // Pair mode
+   const H = calcIsoTol(D, v.hole);
+   const S = calcIsoTol(D, v.shaft);
+   if (!H || !S) return null;
+   const Smax = +(H.max - S.min).toFixed(4);
+   const Smin = +(H.min - S.max).toFixed(4);
+   let fitKey, fitVal;
+   if (Smin >= 0) {
+     fitKey = "fit_clearance";
+     fitVal = `+${Math.round(Smin * 1000)} … +${Math.round(Smax * 1000)} µm (+${Smin.toFixed(3)} … +${Smax.toFixed(3)} mm)`;
+   } else if (Smax <= 0) {
+     fitKey = "fit_interference";
+     const Nmax = Math.abs(Smin);
+     const Nmin = Math.abs(Smax);
+     fitVal = `${Math.round(Nmin * 1000)} … ${Math.round(Nmax * 1000)} µm (${Nmin.toFixed(3)} … ${Nmax.toFixed(3)} mm)`;
+   } else {
+     fitKey = "fit_transition";
+     const Nmax = Math.abs(Smin);
+     fitVal = `+${Math.round(Smax * 1000)} µm / -${Math.round(Nmax * 1000)} µm`;
+   }
+   return [
+     {k:"r_hole_tol", s:`Ø${D} ${H.grade} (${fmtDev(H.es)} / ${fmtDev(H.ei)} mm)`},
+     {k:"r_hole_lim", s:`${H.min.toFixed(3)} … ${H.max.toFixed(3)} mm`},
+     {k:"r_shaft_tol", s:`Ø${D} ${S.grade} (${fmtDev(S.es)} / ${fmtDev(S.ei)} mm)`},
+     {k:"r_shaft_lim", s:`${S.min.toFixed(3)} … ${S.max.toFixed(3)} mm`},
+     {k:"r_fit_type", s:fitKey},
+     {k:"r_fit_val", s:fitVal}
+   ];
+  }}
 );
 
 /* ---------- Rendering ---------- */
@@ -169,7 +322,7 @@ function renderCalcGrid(root, t, filter) {
       const out = c.calc(v);
       if (!out) { lastRows = null; res.innerHTML = `<span>${t("invalid")}</span>`; return; }
       lastRows = out.map(o => {
-        if (o.s) return {label: o.label, text: o.s};
+        if (o.s) return {label: o.label || (o.k ? t(o.k) : ""), text: (typeof o.s === "string" && o.s.startsWith("fit_") ? t(o.s) : o.s)};
         const unit = o.raw != null ? o.raw : (o.u ? t(o.u) : "");
         return {label: t(o.k), text: (fmtNum(o.v, o.d) + " " + unit).trim()};
       });

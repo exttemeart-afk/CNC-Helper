@@ -79,7 +79,9 @@
   function renderCalcPages() {
     if (route === "home" && $("#calcsQuick")) renderCalcGrid($("#calcsQuick"), t, c => c.id === "mill" || c.id === "mass" || c.id === "turn");
     if ($("#calcsCut")) renderCalcGrid($("#calcsCut"), t, c => c.group === "cut");
+    if ($("#calcsThread")) renderCalcGrid($("#calcsThread"), t, c => c.group === "thread");
     if ($("#calcsTrig")) renderCalcGrid($("#calcsTrig"), t, c => c.group === "trig");
+    if ($("#calcsTol")) renderCalcGrid($("#calcsTol"), t, c => c.group === "tol");
   }
   window.rerenderCalcs = renderCalcPages;
 

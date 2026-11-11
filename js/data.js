@@ -186,3 +186,120 @@ const CONTROLS = {
   siemens: {k:"ctl_siemens", list:SIEMENSCODES},
   heid: {k:"ctl_heid", list:HEIDENHAINCODES}
 };
+
+/* ---------- ISO 286 Fits & Tolerances Data ---------- */
+const ISO_BANDS = [3, 6, 10, 18, 30, 50, 80, 120, 180, 250, 315, 400, 500];
+const ISO_IT = {
+  5:  [4, 5, 6, 8, 9, 11, 13, 15, 18, 20, 23, 25, 27],
+  6:  [6, 8, 9, 11, 13, 16, 19, 22, 25, 29, 32, 36, 40],
+  7:  [10, 12, 15, 18, 21, 25, 30, 35, 40, 46, 52, 57, 63],
+  8:  [14, 18, 22, 27, 33, 39, 46, 54, 63, 72, 81, 89, 97],
+  9:  [25, 30, 36, 43, 52, 62, 74, 87, 100, 115, 130, 140, 155],
+  10: [40, 48, 58, 70, 84, 100, 120, 140, 160, 185, 210, 230, 250],
+  11: [60, 75, 90, 110, 130, 160, 190, 220, 250, 290, 320, 360, 400]
+};
+const ISO_DEV_FUND = {
+  g: [-2, -4, -5, -6, -7, -9, -10, -12, -14, -15, -17, -18, -20],
+  f: [-6, -10, -13, -16, -20, -25, -30, -36, -43, -50, -56, -62, -68],
+  e: [-14, -20, -25, -32, -40, -50, -60, -72, -85, -100, -110, -125, -135],
+  d: [-20, -30, -40, -50, -65, -80, -100, -120, -145, -170, -190, -210, -230],
+  k: [0, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 4, 5],
+  m: [2, 4, 6, 7, 8, 9, 11, 13, 15, 17, 20, 21, 23],
+  n: [4, 8, 10, 12, 15, 17, 20, 23, 27, 31, 34, 37, 40],
+  p: [6, 12, 15, 18, 22, 26, 32, 37, 43, 50, 56, 62, 68],
+  s: [14, 19, 23, 28, 35, 43, 53, 59, 79, 98, 114, 133, 151]
+};
+
+function getIsoBand(d) {
+  for (let i = 0; i < ISO_BANDS.length; i++) if (d <= ISO_BANDS[i]) return i;
+  return ISO_BANDS.length - 1;
+}
+
+function calcIsoTol(d, gradeStr) {
+  if (d < 1 || d > 500) return null;
+  const b = getIsoBand(d);
+  const isHole = /^[A-Z]/.test(gradeStr);
+  const letter = gradeStr.replace(/[0-9]/g, "");
+  const itNum = parseInt(gradeStr.replace(/[^0-9]/g, ""), 10) || 7;
+  const it = (ISO_IT[itNum] && ISO_IT[itNum][b]) || (10 * b + 10);
+
+  let upper = 0, lower = 0;
+  if (isHole) {
+    if (letter === "H") { lower = 0; upper = it; }
+    else if (letter === "JS") { upper = Math.round(it / 2); lower = -upper; }
+    else if (ISO_DEV_FUND[letter.toLowerCase()]) {
+      const fund = ISO_DEV_FUND[letter.toLowerCase()][b];
+      if (["G", "F", "E", "D"].includes(letter)) { lower = -fund; upper = lower + it; }
+      else { upper = -fund; lower = upper - it; }
+    }
+  } else {
+    const l = letter.toLowerCase();
+    if (l === "h") { upper = 0; lower = -it; }
+    else if (l === "js") { upper = Math.round(it / 2); lower = -upper; }
+    else if (ISO_DEV_FUND[l]) {
+      const fund = ISO_DEV_FUND[l][b];
+      if (["g", "f", "e", "d"].includes(l)) { upper = fund; lower = upper - it; }
+      else { lower = fund; upper = lower + it; }
+    }
+  }
+  return {
+    d, grade: gradeStr, it,
+    es: upper, ei: lower,
+    max: +(d + upper / 1000).toFixed(4),
+    min: +(d + lower / 1000).toFixed(4)
+  };
+}
+
+/* ---------- Inch & Pipe Threads Data ---------- */
+const INCH_PIPE_THREADS = [
+  // G / BSPP (ISO 228) - 55 deg cylindrical
+  {cat:"G", name:'G 1/8"', dMm:9.728, dIn:0.383, tpi:28, pitch:0.907, drill:8.80, dMin:8.566, type:"cyl", ang:55},
+  {cat:"G", name:'G 1/4"', dMm:13.157, dIn:0.518, tpi:19, pitch:1.337, drill:11.80, dMin:11.445, type:"cyl", ang:55},
+  {cat:"G", name:'G 3/8"', dMm:16.662, dIn:0.656, tpi:19, pitch:1.337, drill:15.25, dMin:14.950, type:"cyl", ang:55},
+  {cat:"G", name:'G 1/2"', dMm:20.955, dIn:0.825, tpi:14, pitch:1.814, drill:19.00, dMin:18.631, type:"cyl", ang:55},
+  {cat:"G", name:'G 5/8"', dMm:22.911, dIn:0.902, tpi:14, pitch:1.814, drill:21.00, dMin:20.587, type:"cyl", ang:55},
+  {cat:"G", name:'G 3/4"', dMm:26.441, dIn:1.041, tpi:14, pitch:1.814, drill:24.50, dMin:24.117, type:"cyl", ang:55},
+  {cat:"G", name:'G 7/8"', dMm:30.201, dIn:1.189, tpi:14, pitch:1.814, drill:28.25, dMin:27.877, type:"cyl", ang:55},
+  {cat:"G", name:'G 1"', dMm:33.249, dIn:1.309, tpi:11, pitch:2.309, drill:30.75, dMin:30.291, type:"cyl", ang:55},
+  {cat:"G", name:'G 1 1/4"', dMm:41.910, dIn:1.650, tpi:11, pitch:2.309, drill:39.50, dMin:38.952, type:"cyl", ang:55},
+  {cat:"G", name:'G 1 1/2"', dMm:47.803, dIn:1.882, tpi:11, pitch:2.309, drill:45.00, dMin:44.845, type:"cyl", ang:55},
+  {cat:"G", name:'G 2"', dMm:59.614, dIn:2.347, tpi:11, pitch:2.309, drill:57.00, dMin:56.656, type:"cyl", ang:55},
+
+  // NPT (ANSI/ASME B1.20.1) - 60 deg taper 1:16
+  {cat:"NPT", name:'1/8"-27 NPT', dMm:10.242, dIn:0.403, tpi:27, pitch:0.941, drill:8.50, dMin:8.480, type:"taper", ang:60},
+  {cat:"NPT", name:'1/4"-18 NPT', dMm:13.616, dIn:0.536, tpi:18, pitch:1.411, drill:11.10, dMin:11.110, type:"taper", ang:60},
+  {cat:"NPT", name:'3/8"-18 NPT', dMm:17.055, dIn:0.671, tpi:18, pitch:1.411, drill:14.50, dMin:14.550, type:"taper", ang:60},
+  {cat:"NPT", name:'1/2"-14 NPT', dMm:21.223, dIn:0.836, tpi:14, pitch:1.814, drill:17.90, dMin:17.930, type:"taper", ang:60},
+  {cat:"NPT", name:'3/4"-14 NPT', dMm:26.568, dIn:1.046, tpi:14, pitch:1.814, drill:23.20, dMin:23.280, type:"taper", ang:60},
+  {cat:"NPT", name:'1"-11.5 NPT', dMm:33.228, dIn:1.308, tpi:11.5, pitch:2.209, drill:29.00, dMin:29.280, type:"taper", ang:60},
+  {cat:"NPT", name:'1 1/4"-11.5 NPT', dMm:42.164, dIn:1.660, tpi:11.5, pitch:2.209, drill:37.70, dMin:38.010, type:"taper", ang:60},
+  {cat:"NPT", name:'1 1/2"-11.5 NPT', dMm:48.054, dIn:1.892, tpi:11.5, pitch:2.209, drill:44.00, dMin:44.110, type:"taper", ang:60},
+  {cat:"NPT", name:'2"-11.5 NPT', dMm:60.092, dIn:2.366, tpi:11.5, pitch:2.209, drill:56.00, dMin:56.140, type:"taper", ang:60},
+
+  // UNC (ANSI/ASME B1.1) - 60 deg coarse
+  {cat:"UNC", name:'#4-40 UNC', dMm:2.845, dIn:0.112, tpi:40, pitch:0.635, drill:2.35, dMin:2.156, type:"cyl", ang:60},
+  {cat:"UNC", name:'#6-32 UNC', dMm:3.505, dIn:0.138, tpi:32, pitch:0.794, drill:2.85, dMin:2.642, type:"cyl", ang:60},
+  {cat:"UNC", name:'#8-32 UNC', dMm:4.166, dIn:0.164, tpi:32, pitch:0.794, drill:3.50, dMin:3.302, type:"cyl", ang:60},
+  {cat:"UNC", name:'#10-24 UNC', dMm:4.826, dIn:0.190, tpi:24, pitch:1.058, drill:3.90, dMin:3.683, type:"cyl", ang:60},
+  {cat:"UNC", name:'1/4"-20 UNC', dMm:6.350, dIn:0.250, tpi:20, pitch:1.270, drill:5.10, dMin:4.978, type:"cyl", ang:60},
+  {cat:"UNC", name:'5/16"-18 UNC', dMm:7.938, dIn:0.312, tpi:18, pitch:1.411, drill:6.60, dMin:6.401, type:"cyl", ang:60},
+  {cat:"UNC", name:'3/8"-16 UNC', dMm:9.525, dIn:0.375, tpi:16, pitch:1.588, drill:8.00, dMin:7.823, type:"cyl", ang:60},
+  {cat:"UNC", name:'7/16"-14 UNC', dMm:11.112, dIn:0.438, tpi:14, pitch:1.814, drill:9.40, dMin:9.169, type:"cyl", ang:60},
+  {cat:"UNC", name:'1/2"-13 UNC', dMm:12.700, dIn:0.500, tpi:13, pitch:1.954, drill:10.80, dMin:10.592, type:"cyl", ang:60},
+  {cat:"UNC", name:'9/16"-12 UNC', dMm:14.288, dIn:0.562, tpi:12, pitch:2.117, drill:12.20, dMin:11.996, type:"cyl", ang:60},
+  {cat:"UNC", name:'5/8"-11 UNC', dMm:15.875, dIn:0.625, tpi:11, pitch:2.309, drill:13.50, dMin:13.386, type:"cyl", ang:60},
+  {cat:"UNC", name:'3/4"-10 UNC', dMm:19.050, dIn:0.750, tpi:10, pitch:2.540, drill:16.50, dMin:16.307, type:"cyl", ang:60},
+  {cat:"UNC", name:'7/8"-9 UNC', dMm:22.225, dIn:0.875, tpi:9, pitch:2.822, drill:19.50, dMin:19.177, type:"cyl", ang:60},
+  {cat:"UNC", name:'1"-8 UNC', dMm:25.400, dIn:1.000, tpi:8, pitch:3.175, drill:22.25, dMin:21.971, type:"cyl", ang:60},
+
+  // UNF (ANSI/ASME B1.1) - 60 deg fine
+  {cat:"UNF", name:'#10-32 UNF', dMm:4.826, dIn:0.190, tpi:32, pitch:0.794, drill:4.10, dMin:3.962, type:"cyl", ang:60},
+  {cat:"UNF", name:'1/4"-28 UNF', dMm:6.350, dIn:0.250, tpi:28, pitch:0.907, drill:5.50, dMin:5.359, type:"cyl", ang:60},
+  {cat:"UNF", name:'5/16"-24 UNF', dMm:7.938, dIn:0.312, tpi:24, pitch:1.058, drill:6.90, dMin:6.782, type:"cyl", ang:60},
+  {cat:"UNF", name:'3/8"-24 UNF', dMm:9.525, dIn:0.375, tpi:24, pitch:1.058, drill:8.50, dMin:8.382, type:"cyl", ang:60},
+  {cat:"UNF", name:'7/16"-20 UNF', dMm:11.112, dIn:0.438, tpi:20, pitch:1.270, drill:9.90, dMin:9.728, type:"cyl", ang:60},
+  {cat:"UNF", name:'1/2"-20 UNF', dMm:12.700, dIn:0.500, tpi:20, pitch:1.270, drill:11.50, dMin:11.328, type:"cyl", ang:60},
+  {cat:"UNF", name:'5/8"-18 UNF', dMm:15.875, dIn:0.625, tpi:18, pitch:1.411, drill:14.50, dMin:14.351, type:"cyl", ang:60},
+  {cat:"UNF", name:'3/4"-16 UNF', dMm:19.050, dIn:0.750, tpi:16, pitch:1.588, drill:17.50, dMin:17.348, type:"cyl", ang:60},
+  {cat:"UNF", name:'1"-12 UNF', dMm:25.400, dIn:1.000, tpi:12, pitch:2.117, drill:23.25, dMin:23.114, type:"cyl", ang:60}
+];
