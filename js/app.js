@@ -21,12 +21,15 @@
 
   /* ---------- language: each language lives in its own folder (SEO) ---------- */
   $("#lang").value = lang;
-  $("#lang").addEventListener("change", e => { location.href = "../" + e.target.value + "/" + file + location.hash; });
+  $("#lang").addEventListener("change", e => {
+    const q = (route === "article" && location.search) ? location.search : (location.hash || "");
+    location.href = "../" + e.target.value + "/" + file + q;
+  });
   $$("[data-i18n]").forEach(e => e.textContent = t(e.dataset.i18n));
   $$("[data-i18n-ph]").forEach(e => e.placeholder = t(e.dataset.i18nPh));
 
   /* ---------- renderers ---------- */
-  const articleCard = a => `<a class="card art-card" href="article-${a.id}.html"><span class="tag">${esc(li(a.tag))}</span>
+  const articleCard = a => `<a class="card art-card" href="article.html?id=${a.id}"><span class="tag">${esc(li(a.tag))}</span>
       <h3>${esc(li(a.title))}</h3><p>${esc(li(a.summary))}</p><span class="more">${t("read_more")}</span></a>`;
 
   let activeTag = "";
@@ -51,8 +54,10 @@
     }
     if ($("#homeArticles")) $("#homeArticles").innerHTML = ARTICLES.slice(0, 6).map(articleCard).join("");
     if (route === "article") {
-      const a = ARTICLES.find(x => x.id === articleId);
+      const qId = new URLSearchParams(location.search).get("id") || (location.hash ? location.hash.replace("#", "") : "") || articleId;
+      const a = ARTICLES.find(x => x.id === qId) || ARTICLES[0];
       if (a) {
+        document.title = li(a.title) + " | CNCHelper";
         $("#articleBody").innerHTML = `<h1>${esc(li(a.title))}</h1>${li(a.body)}`;
         const others = ARTICLES.filter(x => x.id !== a.id).slice(0, 3);
         $("#articleBody").insertAdjacentHTML("beforeend", `<h2>${t("latest")}</h2><div class="grid">${others.map(articleCard).join("")}</div>`);

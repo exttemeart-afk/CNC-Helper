@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<title>CNCHelper</title>
+<script>
+var path = location.pathname;
+var m = path.match(/\/(ru|pl|en)\/article-([^/]+)\.html/);
+if (m) {
+  location.replace('/' + m[1] + '/article.html?id=' + m[2]);
+} else {
+  location.replace('/en/index.html');
+}
+</script>
+<noscript><meta http-equiv="refresh" content="0; url=/en/index.html"></noscript>
+</head><body><p>Redirecting to <a href="/en/index.html">CNCHelper</a>...</p></body></html>

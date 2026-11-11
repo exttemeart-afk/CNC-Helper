@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!-- GENERATED SOURCE: edit this template, then run build.ps1 to regenerate ru/ pl/ en/ pages, sitemap.xml and robots.txt -->
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Статьи и руководства по ЧПУ | CNCHelper</title>
+<meta name="description" content="Практические статьи и руководства по ЧПУ обработке, режимам резания, стойкам Fanuc, Haas, Siemens, Heidenhain, Mazak и Okuma.">
+<link rel="canonical" href="https://cnc-helper.pro/ru/article.html">
+<link rel="alternate" hreflang="ru" href="https://cnc-helper.pro/ru/article.html">
+<link rel="alternate" hreflang="pl" href="https://cnc-helper.pro/pl/article.html">
+<link rel="alternate" hreflang="en" href="https://cnc-helper.pro/en/article.html">
+<link rel="alternate" hreflang="x-default" href="https://cnc-helper.pro/en/article.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Статьи и руководства по ЧПУ | CNCHelper">
+<meta property="og:description" content="Практические статьи и руководства по ЧПУ обработке, режимам резания, стойкам Fanuc, Haas, Siemens, Heidenhain, Mazak и Okuma.">
+<meta property="og:url" content="https://cnc-helper.pro/ru/article.html">
+<meta property="og:image" content="https://cnc-helper.pro/images/hero.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","inLanguage":"ru","url":"https://cnc-helper.pro/ru/article.html","headline":"Статьи и руководства по ЧПУ","description":"Практические статьи и руководства по ЧПУ обработке, режимам резания, стойкам Fanuc, Haas, Siemens, Heidenhain, Mazak и Okuma.","image":"https://cnc-helper.pro/images/hero.jpg"}</script>
+<script>
+  (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);localStorage.setItem('lang','ru');})();
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1775700331598232"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body data-route="article" data-article="" data-file="article.html">
+
+<header class="header">
+  <div class="container header-in">
+    <a class="logo" href="index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-route-link="home" data-i18n="nav_home">Главная</a>
+      <a href="calculators.html" data-route-link="calc" data-i18n="nav_calc">Калькуляторы</a>
+      <a href="codes.html" data-route-link="codes" data-i18n="nav_codes">G и M коды</a>
+      <a href="articles.html" data-route-link="articles" data-i18n="nav_articles">Статьи</a>
+    </nav>
+    <div class="tools">
+      <select id="lang" aria-label="Language">
+        <option value="ru" selected>RU</option>
+        <option value="pl">PL</option>
+        <option value="en">EN</option>
+      </select>
+      <button id="themeBtn" class="icon-btn" aria-label="Theme">🌙</button>
+      <button id="burger" class="icon-btn burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HOME HERO -->
+<section class="hero-full home-only">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="hero-badge" data-i18n="hero_tag">Бесплатно · Без регистрации · Удобно с телефона у станка</span>
+      <h1 data-i18n="hero_title">Помощник оператора ЧПУ</h1>
+      <p data-i18n="hero_sub">Калькуляторы режимов резания, шероховатости, мощности, резьб и допусков, справочник 260+ G и M кодов и база знаний — всё в одном месте, бесплатно.</p>
+      <div class="hero-btns">
+        <a class="btn" href="calculators.html" data-i18n="hero_cta1">Открыть калькуляторы</a>
+        <a class="btn btn-ghost" href="codes.html" data-i18n="hero_cta2">База G и M кодов</a>
+      </div>
+      <div class="stats">
+        <div><b>25</b><span data-i18n="stat_calc">калькуляторов</span></div>
+        <div><b>260+</b><span data-i18n="stat_codes">G/M-кодов и циклов</span></div>
+        <div><b>3</b><span data-i18n="stat_lang">языка · 2 темы</span></div>
+        <div><b id="statArt">92</b><span data-i18n="stat_art">статей</span></div>
+      </div>
+    </div>
+    <div class="terminal" aria-hidden="true">
+      <div class="term-bar"><i></i><i></i><i></i><span>O0001.nc</span></div>
+      <pre id="termCode"></pre>
+    </div>
+  </div>
+</section>
+
+<!--
+  ====== AD SLOTS ======
+  Each .ad-slot is a placeholder. To activate: replace the inner <div class="ad-ph"> with your ad code
+  (e.g. Google AdSense <ins class="adsbygoogle">). Slots: top, side, inline, footer.
+  Sizes: top 728x90 / 320x100, side 300x600 / 300x250, inline 336x280 / responsive, footer 728x90.
+-->
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="top">
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="6618895499"></ins>
+</div></div>
+
+<main class="container" id="main">
+
+  <!-- HOME -->
+  <section class="page" data-page="home">
+    <h2 data-i18n="quick_title">Быстрый расчёт</h2>
+    <p class="sub" data-i18n="quick_sub">Самые нужные калькуляторы — прямо на главной</p>
+    <div class="grid calcs" id="calcsQuick"></div>
+    <p class="more-link"><a href="calculators.html" data-i18n="all_calcs">Все калькуляторы →</a></p>
+
+    <div class="grid feat">
+      <a class="card feat-c" href="calculators.html"><div class="feat-ic">🧮</div><h3 data-i18n="feat1_t">25 калькуляторов</h3><p data-i18n="feat1_d">Обороты, подача, шероховатость Ra/Rz, гребешок, мощность и момент шпинделя, 3 проволочки, ISO 286, сетка отверстий, терморасширение.</p></a>
+      <a class="card feat-c" href="codes.html"><div class="feat-ic">📟</div><h3 data-i18n="feat2_t">База G/M кодов</h3><p data-i18n="feat2_d">Fanuc/ISO, Haas, Siemens, Heidenhain, Mazak, Okuma: поиск и примеры.</p></a>
+      <a class="card feat-c" href="articles.html"><div class="feat-ic">📚</div><h3 data-i18n="feat3_t">Статьи</h3><p data-i18n="feat3_d">Практические материалы по настройке и программированию.</p></a>
+      <div class="card feat-c"><div class="feat-ic">🌍</div><h3 data-i18n="feat4_t">3 языка и 2 темы</h3><p data-i18n="feat4_d">Русский, Polski, English. Светлая и тёмная тема.</p></div>
+    </div>
+    <div class="ad-slot ad-inline ad-live" data-slot="inline"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
+    <h2 data-i18n="latest">Новые статьи</h2>
+    <div class="grid" id="homeArticles"></div>
+    <p class="more-link"><a href="articles.html" data-i18n="all_articles">Все статьи →</a></p>
+  </section>
+
+  <div class="layout" id="layout">
+    <div class="content">
+      <section class="page" data-page="calc">
+        <h1 data-i18n="calc_title">Калькуляторы ЧПУ</h1>
+        <p class="sub" data-i18n="calc_sub">Мгновенный расчёт без перезагрузки страницы. Все результаты носят ориентировочный характер.</p>
+        <h2 data-i18n="group_cut">Режимы резания, мощность и стойкость</h2>
+        <div class="grid calcs" id="calcsCut"></div>
+        <div class="ad-slot ad-inline ad-live" data-slot="inline-2"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5983424491"></ins></div>
+        <h2 data-i18n="group_threads">Резьбы, калибры и резьбофрезерование</h2>
+        <div class="grid calcs" id="calcsThread"></div>
+        <h2 data-i18n="group_trig">Геометрия, тригонометрия и координаты</h2>
+        <div class="grid calcs" id="calcsTrig"></div>
+        <h2 data-i18n="group_tol">Допуски ISO 286, шероховатость и метрология</h2>
+        <div class="grid calcs" id="calcsTol"></div>
+        <h2 id="saved" data-i18n="saved_title">Сохранённые расчёты</h2>
+        <div class="card" id="savedList"></div>
+        <h2 data-i18n="ref_title">Справочник материалов</h2>
+        <div class="card table-wrap"><table id="matTable"></table></div>
+        <p class="note" data-i18n="ref_note">Ориентировочные значения для твердосплавного инструмента. Всегда сверяйтесь с каталогом производителя инструмента.</p>
+      </section>
+
+      <section class="page" data-page="codes">
+        <h1 data-i18n="codes_title">G и M коды</h1>
+        <p class="sub" data-i18n="codes_sub">Справочник по 6 популярным системам ЧПУ: Fanuc, Haas, Siemens, Heidenhain, Mazak и Okuma.</p>
+        <div class="codes-bar">
+          <label class="ctl-lab"><span data-i18n="ctl">Система ЧПУ</span><select id="ctlSel"></select></label>
+          <div class="tabs" id="gmTabs">
+            <button class="tab active" data-tab="G">G</button>
+            <button class="tab" data-tab="M">M</button>
+          </div>
+          <input type="search" id="codeSearch" data-i18n-ph="search_ph" placeholder="Поиск: G01, сверление, резьба…">
+        </div>
+        <div class="card table-wrap"><table id="codesTable"></table></div>
+        <p class="note" data-i18n="codes_note">Набор кодов и их синтаксис зависят от конкретной стойки ЧПУ и кинематики станка.</p>
+      </section>
+
+      <section class="page" data-page="articles">
+        <h1 data-i18n="articles_title">Статьи о ЧПУ</h1>
+        <p class="sub" data-i18n="articles_sub">Практика, советы и основы для операторов и программистов.</p>
+        <div class="codes-bar">
+          <div class="tag-pills" id="artTags"></div>
+          <input type="search" id="artSearch" data-i18n-ph="art_search_ph" placeholder="Поиск по статьям…">
+        </div>
+        <div class="grid" id="articlesList"></div>
+      </section>
+
+      <section class="page" data-page="article">
+        <a href="articles.html" class="back" data-i18n="back">← Все статьи</a>
+        <article class="card article" id="articleBody"><h1>Трохоидальное фрезерование: Как перестать ломать фрезы</h1><p>Устали ломать дорогие фрезы при обработке глубоких пазов? Пора вспомнить про трохоидальное фрезерование. Суть проста: фреза двигается по спирали, снимая металл тонкой стружкой, но используя всю длину режущей кромки (High Efficiency Milling). В итоге инструмент не &quot;задыхается&quot; в материале, излишки тепла уходят со стружкой, а срок службы фрезы вырастает в разы. Да, программа выглядит как спагетти из G-кода, но современные CAM-системы генерируют эту траекторию за пару кликов.</p><h2>Новые статьи</h2><div class="grid"><a class="card art-card" href="article.html?id=coolant-care"><span class="tag">Обслуживание</span><h3>Выбор и уход за СОЖ: Это вам не просто вода</h3><p>СОЖ (смазочно-охлаждающая жидкость) — это кровь вашего станка. Но если в понедельник утром из бака пахнет как из болота, у вас проблемы.</p><span class="more">Читать →</span></a><a class="card art-card" href="article.html?id=titanium-machining"><span class="tag">Материалы</span><h3>Укрощение титана: Секреты обработки</h3><p>Титан — металл красивый, прочный и жутко капризный. Главная ошибка новичков — пытаться резать его на тех же режимах, что и обычную сталь.</p><span class="more">Читать →</span></a><a class="card art-card" href="article.html?id=chatter-vibrations"><span class="tag">Фрезерование</span><h3>Вибрации (Chatter) и как с ними бороться</h3><p>Слышите этот жуткий визг при фрезеровании? Это &quot;chatter&quot; (автоколебания), и он прямо сейчас убивает вашу фрезу и подшипники шпинделя.</p><span class="more">Читать →</span></a></div></article>
+        <div class="ad-slot ad-inline ad-live" data-slot="article-bottom"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
+      </section>
+    </div>
+    <aside class="side">
+      <div class="ad-slot ad-side ad-live" data-slot="side"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="3745767258"></ins></div>
+    </aside>
+  </div>
+</main>
+
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="footer"><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="7573331629"></ins></div></div>
+
+<footer class="footer">
+  <div class="container">
+    <p data-i18n="footer_text">© CNCHelper — инструмент для операторов ЧПУ</p>
+    <p class="note" data-i18n="footer_disc">Расчёты носят справочный характер. Ответственность за режимы и безопасность остаётся за оператором.</p>
+    <p class="note"><a href="#" id="cookieSettings"></a></p>
+  </div>
+</footer>
+
+<script src="../js/i18n.js"></script>
+<script src="../js/data.js"></script>
+<script src="../js/articles.js"></script>
+<script src="../js/calculators.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/consent.js"></script>
+</body>
+</html>

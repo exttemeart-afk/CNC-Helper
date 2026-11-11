@@ -1,25 +1,26 @@
-/* Interface translations. Add a new language: copy a block, translate, add <option> in index.html. */
+/* Interface translations. RU, PL, EN */
 const I18N = {
 ru: {
   nav_home:"Главная", nav_calc:"Калькуляторы", nav_codes:"G и M коды", nav_articles:"Статьи",
-  hero_title:"Помощник оператора ЧПУ", hero_sub:"Калькуляторы режимов резания и массы заготовки, справочник G и M кодов и полезные статьи — всё в одном месте, бесплатно.",
+  hero_title:"Помощник оператора ЧПУ", hero_sub:"Калькуляторы режимов резания, шероховатости, мощности, резьб и допусков, справочник 260+ G и M кодов и база знаний — всё в одном месте, бесплатно.",
   hero_cta1:"Открыть калькуляторы", hero_cta2:"База G и M кодов",
-  feat1_t:"17 калькуляторов", feat1_d:"Обороты, подача, масса, мощность, резьбы (метрические, дюймовые, трубные), резьбофрезерование, допуски ISO 286, конусы, TNRC.",
-  feat2_t:"База G/M кодов", feat2_d:"ISO/Fanuc, Haas, Siemens, Heidenhain: поиск и примеры.",
+  feat1_t:"25 калькуляторов", feat1_d:"Обороты, подача, шероховатость Ra/Rz, гребешок, мощность и момент шпинделя, 3 проволочки, ISO 286, сетка отверстий, терморасширение.",
+  feat2_t:"База G/M кодов", feat2_d:"Fanuc/ISO, Haas, Siemens, Heidenhain, Mazak, Okuma: поиск и примеры.",
   feat3_t:"Статьи", feat3_d:"Практические материалы по настройке и программированию.",
   feat4_t:"3 языка и 2 темы", feat4_d:"Русский, Polski, English. Светлая и тёмная тема.",
   latest:"Новые статьи", read_more:"Читать →", back:"← Все статьи",
-  calc_title:"Калькуляторы", calc_sub:"Результаты считаются мгновенно при вводе. Значения — ориентировочные.",
-  codes_title:"G и M коды", codes_sub:"Справочник по стандарту ISO / Fanuc. На конкретной стойке (Siemens, Heidenhain, Haas, Mazak) уточняйте по руководству.",
-  codes_note:"Набор кодов и их поведение зависят от производителя станка и стойки ЧПУ.",
-  search_ph:"Поиск: G01, сверление, охлаждение…", col_code:"Код", col_desc:"Описание", col_ex:"Пример", no_results:"Ничего не найдено",
+  calc_title:"Калькуляторы ЧПУ", calc_sub:"Мгновенный расчёт без перезагрузки страницы. Все результаты носят ориентировочный характер.",
+  codes_title:"G и M коды", codes_sub:"Справочник по 6 популярным системам ЧПУ: Fanuc, Haas, Siemens, Heidenhain, Mazak и Okuma.",
+  codes_note:"Набор кодов и их синтаксис зависят от конкретной стойки ЧПУ и кинематики станка.",
+  search_ph:"Поиск: G01, сверление, резьба…", col_code:"Код", col_desc:"Описание", col_ex:"Пример", no_results:"Ничего не найдено",
   articles_title:"Статьи о ЧПУ", articles_sub:"Практика, советы и основы для операторов и программистов.",
   tag_all:"Все", art_search_ph:"Поиск по статьям…",
   ref_title:"Справочник материалов", ref_note:"Ориентировочные значения для твердосплавного инструмента. Всегда сверяйтесь с каталогом производителя инструмента.",
   col_mat:"Материал", col_vc:"Vc фрезер., м/мин", col_den:"Плотность, кг/м³", col_kc:"kc, Н/мм²",
   ad_label:"Рекламный блок", footer_text:"© CNCHelper — инструмент для операторов ЧПУ",
   footer_disc:"Расчёты носят справочный характер. Ответственность за режимы и безопасность остаётся за оператором.",
-  // calculators
+
+  // Base calculators
   c_mill:"Фрезерование: обороты и подача", c_turn:"Токарная обработка", c_drill:"Сверление", c_mass:"Масса заготовки",
   c_power:"Съём металла и мощность", c_thread:"Метрическая резьба / сверло под метчик", c_conv:"Конвертер единиц",
   f_D:"Диаметр инструмента, мм", f_Dw:"Диаметр детали, мм", f_z:"Число зубьев", f_vc:"Скорость резания Vc, м/мин", f_fz:"Подача на зуб fz, мм",
@@ -37,16 +38,17 @@ ru: {
   hero_tag:"Бесплатно · Без регистрации · Удобно с телефона у станка", stat_calc:"калькуляторов", stat_codes:"G/M-кодов и циклов", stat_lang:"языка · 2 темы", stat_art:"статей",
   cookie_text:"Мы используем файлы cookie для показа рекламы (Google AdSense). Нажимая «Принять», вы соглашаетесь на их использование. Калькулятор, тема и язык работают без cookie рекламы.", cookie_accept:"Принять", cookie_decline:"Отклонить", cookie_settings:"Настройки cookie",
   quick_title:"Быстрый расчёт", quick_sub:"Самые нужные калькуляторы — прямо на главной", all_calcs:"Все калькуляторы →", all_codes:"Вся база кодов →", all_articles:"Все статьи →",
-  group_cut:"Режимы резания и мощность", group_threads:"Резьбы и нарезание", group_trig:"Тригонометрия, конусы и фаски", group_tol:"Допуски и посадки ISO 286", ctl:"Система ЧПУ",
-  ctl_iso:"ISO / Fanuc", ctl_haas:"Haas", ctl_siemens:"Siemens SINUMERIK", ctl_heid:"Heidenhain TNC",
+  group_cut:"Режимы резания, мощность и стойкость", group_threads:"Резьбы, калибры и резьбофрезерование", group_trig:"Геометрия, тригонометрия и координаты", group_tol:"Допуски ISO 286, шероховатость и метрология", ctl:"Система ЧПУ",
+  ctl_iso:"ISO / Fanuc", ctl_haas:"Haas", ctl_siemens:"Siemens SINUMERIK", ctl_heid:"Heidenhain TNC", ctl_mazak:"Mazak (Mazatrol / EIA-ISO)", ctl_okuma:"Okuma OSP",
   save:"💾 Сохранить расчёт", saved_ok:"Сохранено ✓", saved_title:"Сохранённые расчёты", saved_empty:"Пока ничего не сохранено. Нажмите «Сохранить расчёт» в любом калькуляторе.",
   clear_all:"Очистить всё", export_csv:"Экспорт CSV", del:"Удалить", load:"Загрузить", saved_note:"Хранится в вашем браузере (localStorage), на сервер ничего не отправляется.",
+
   c_tri:"Прямоугольный треугольник", c_taper:"Конус (токарная обработка)", c_bolt:"Отверстия по окружности (PCD)", c_sine:"Синусная линейка", c_csink:"Зенковка / фаска по углу", c_arc:"Дуга по хорде и стреле",
   f_a:"Катет a, мм", f_b:"Катет b, мм", f_D1:"Больший диаметр D1, мм", f_D2:"Меньший диаметр D2, мм", f_n:"Число отверстий", f_pcd:"Диаметр окружности PCD, мм", f_a0:"Начальный угол, °", f_cx:"Центр X, мм", f_cy:"Центр Y, мм",
   f_bar:"Длина синусной линейки, мм", f_ang:"Угол, °", f_tip:"Угол при вершине, °", f_dtop:"Диаметр сверху, мм", f_dhole:"Диаметр отверстия, мм", f_chord:"Хорда c, мм", f_h:"Стрела h, мм",
   r_c:"Гипотенуза c", r_alpha:"Угол α (напротив a)", r_beta:"Угол β (напротив b)", r_half:"Угол уклона (половина)", r_full:"Полный угол конуса", r_ratio:"Конусность C", r_ratio1:"Конусность 1 :",
   r_hg:"Высота мерных плиток h", r_cd:"Глубина", r_R:"Радиус R", r_ca:"Центральный угол",
-  // new calculators: threads, TNRC, ISO fits
+
   c_thread_inch:"Дюймовые и трубные резьбы (G, NPT, UNC, UNF)", f_thread_inch:"Резьба",
   r_th_maj:"Наружный диаметр D", r_tpi_pitch:"TPI и шаг P", r_profile:"Профиль и тип",
   c_thread_mill:"Параметры резьбофрезерования", f_th_type:"Тип резьбы", opt_th_int:"Внутренняя (в отверстии)", opt_th_ext:"Наружная (на бобышке)",
@@ -59,20 +61,72 @@ ru: {
   r_hole_tol:"Допуск отверстия", r_hole_lim:"Пределы отверстия", r_shaft_tol:"Допуск вала", r_shaft_lim:"Пределы вала",
   r_fit_type:"Характер посадки", r_fit_val:"Величина зазора / натяга",
   r_es:"Верхнее отклонение (ES / es)", r_ei:"Нижнее отклонение (EI / ei)", r_max_d:"Наибольший предельный размер", r_min_d:"Наименьший предельный размер", r_it:"Поле допуска IT",
-  fit_clearance:"Посадка с зазором", fit_interference:"Посадка с натягом", fit_transition:"Переходная посадка"
+  fit_clearance:"Посадка с зазором", fit_interference:"Посадка с натягом", fit_transition:"Переходная посадка",
+
+  // New Calculators (12 additions/upgrades)
+  c_roughness:"Шероховатость Ra/Rz и гребешок", f_surf_mode:"Тип обработки", opt_surf_turn:"Точение (радиус резца)", opt_surf_ball:"Шаровая фреза (гребешок)",
+  f_surf_f:"Подача f, мм/об", f_surf_re:"Радиус вершины резца rε, мм", f_ball_r:"Радиус шаровой фрезы R, мм", f_ball_ae:"Боковой шаг ae, мм",
+  r_rz_th:"Теоретическая шероховатость Rz", r_ra_th:"Теоретическая шероховатость Ra", r_scallop_h:"Высота гребешка h (scallop)", r_rec_class:"Ориентировочный класс чистоты",
+
+  c_mrr_time:"MRR (съём металла) и время резания", f_mrr_mode:"Тип операции", opt_mrr_mill:"Фрезерование", opt_mrr_turn:"Точение",
+  f_mrr_ap:"Глубина резания ap, мм", f_mrr_ae:"Ширина резания ae, мм", f_mrr_vf:"Минутная подача Vf, мм/мин", f_mrr_l:"Длина обработки L, мм",
+  f_mrr_d1:"Начальный диаметр D1, мм", f_mrr_d2:"Конечный диаметр D2, мм", f_mrr_f:"Подача f, мм/об", f_mrr_vc:"Скорость Vc, м/мин",
+  r_mrr_val:"Объемный съём Q", r_cut_time:"Машинное время T",
+
+  c_ball_eff:"Шаровая фреза: Deff и утонение стружки", f_be_d:"Номинальный диаметр фрезы D, мм", f_be_ap:"Осевая глубина ap, мм", f_be_ae:"Радиальная ширина ae, мм",
+  f_be_vc:"Скорость резания Vc, м/мин", f_be_fz:"Подача на зуб fz (или hm), мм", f_be_z:"Число зубьев z",
+  r_be_deff:"Эффективный рабочий диаметр Deff", r_be_rpm:"Рекомендуемые обороты n (Deff)", r_be_fz_mod:"Скорректированная подача fz (утонение)", r_be_vf:"Минутная подача станка Vf",
+
+  c_thread_wires:"Замер резьбы по 3 проволочкам", f_tw_type:"Стандарт профиля", opt_tw_m60:"Метрическая / UN / UNC / UNF (60°)", opt_tw_w55:"Витворт / Трубная G / BSW (55°)",
+  f_tw_nom_d:"Номинальный наружный диаметр d, мм", f_tw_pitch:"Шаг резьбы P, мм", f_tw_wire:"Диаметр проволочки dw, мм",
+  r_tw_opt:"Оптимальный диаметр проволочки dw", r_tw_d2:"Номинальный средний диаметр d2", r_tw_m:"Размер по проволочкам M (микрометр)",
+
+  c_sine_bar:"Синусная линейка и расчет блоков КМД", f_sb_len:"База синусной линейки L, мм", f_sb_deg:"Угол: Градусы (°)", f_sb_min:"Угол: Минуты (')", f_sb_sec:"Угол: Секунды ('')",
+  r_sb_h:"Высота пакета концевых мер H", r_sb_rad:"Угол в радианах",
+
+  c_drill_depth:"Вершина сверла и глубина зенковки", f_dd_d:"Диаметр сверла D, мм", f_dd_ang:"Угол при вершине сверла σ, °", f_dd_cyl:"Глубина цилиндра отверстия Hcyl, мм",
+  f_dd_csink_d:"Целевой диаметр фаски Dфаски, мм", f_dd_csink_ang:"Угол зенкера / фаски, °",
+  r_dd_cone_l:"Длина конуса вершины lp", r_dd_total_z:"Полная глубина по оси Z", r_dd_csink_depth:"Глубина подачи зенкера h",
+
+  c_spindle_torque:"Мощность и крутящий момент шпинделя", f_st_mat:"Материал детали", f_st_rpm:"Обороты шпинделя n, об/мин", f_st_ap:"Глубина ap, мм", f_st_ae:"Ширина ae, мм", f_st_vf:"Подача Vf, мм/мин", f_st_eff:"КПД привода η (0.8)",
+  r_st_power:"Потребная мощность резания Pc", r_st_torque:"Крутящий момент на шпинделе Mc",
+
+  c_hardness:"Перевод твёрдости металлов (HRC / HB / HV)", f_hd_scale:"Исходная шкала", f_hd_val:"Значение твёрдости",
+  opt_hd_hrc:"HRC (Роквелл C)", opt_hd_hb:"HBW (Бринелль)", opt_hd_hv:"HV (Виккерс)", opt_hd_rm:"Rm (Предел прочности, МПа)",
+  r_hd_hrc:"Роквелл HRC", r_hd_hb:"Бринелль HBW", r_hd_hv:"Виккерс HV", r_hd_rm:"Предел прочности Rm (МПа)",
+
+  c_unit_conv:"Перевод единиц станочника", f_uc_cat:"Категория", opt_uc_len:"Длина (мм ↔ дюймы)", opt_uc_spd:"Скорость резания (м/мин ↔ SFM)", opt_uc_feed:"Подача (мм/мин ↔ IPM)", opt_uc_frot:"Подача на оборот (мм/об ↔ IPR)", opt_uc_tq:"Крутящий момент (Н·м ↔ ft·lb)", opt_uc_prs:"Давление СОЖ (bar ↔ PSI)",
+  f_uc_val:"Значение для перевода", r_uc_res1:"Метрическая величина", r_uc_res2:"Дюймовая / альтернативная величина",
+
+  c_thermal_exp:"Тепловое расширение детали", f_te_len:"Номинальный размер детали L, мм", f_te_temp:"Фактическая температура детали, °C", f_te_mat:"Материал заготовки",
+  r_te_dtemp:"Разница с нормой 20°C (ΔT)", r_te_dl:"Линейное изменение длины ΔL", r_te_act_len:"Фактический размер при нагреве/охлаждении",
+
+  c_taylor:"Стойкость инструмента по формуле Тейлора", f_ty_vc1:"Базовая скорость Vc1, м/мин", f_ty_t1:"Текущая стойкость T1, мин", f_ty_vc2:"Новая скорость Vc2, м/мин", f_ty_mat:"Материал инструмента (показатель m)",
+  r_ty_t2:"Ожидаемая стойкость T2", r_ty_ratio:"Изменение ресурса инструмента", r_ty_c:"Постоянная Тейлора C",
+
+  c_hole_grid:"Сетка отверстий и прямая линия (G-код)", f_hg_mode:"Тип массива", opt_hg_line:"Отверстия в одну линию", opt_hg_grid:"Прямоугольная сетка (матрица)",
+  f_hg_x0:"Базовый X0, мм", f_hg_y0:"Базовый Y0, мм", f_hg_step_l:"Шаг по линии dL, мм", f_hg_ang:"Угол наклона / поворота, °", f_hg_n:"Количество отверстий N",
+  f_hg_nx:"Число по оси X (Nx)", f_hg_dx:"Шаг по X (dX), мм", f_hg_ny:"Число по оси Y (Ny)", f_hg_dy:"Шаг по Y (dY), мм",
+  r_hg_total:"Всего отверстий в массиве", r_hg_points:"Координаты отверстий (X, Y)", r_hg_gcode:"G-код для сверления (G81)",
+
+  // Materials & Tooling
+  mat_steel_carbon:"Углеродистая сталь (α = 11.5)", mat_steel_tool:"Инструментальная сталь (α = 12.0)", mat_inox_304:"Нержавеющая сталь (α = 16.5)",
+  mat_alu_alloys:"Алюминиевые сплавы (α = 23.4)", mat_brass_cu:"Латунь / медь (α = 18.0)", mat_cast_iron:"Чугун серый (α = 10.5)",
+  mat_titanium:"Титан и сплавы (α = 8.6)", mat_carbide_vhm:"Твёрдый сплав ВК / ТК (α = 5.0)", mat_invar:"Инвар (α = 1.2)",
+  tool_carbide:"Твёрдый сплав (Carbide, m ≈ 0.25)", tool_hss:"Быстрорез (HSS, m ≈ 0.125)", tool_cbn_ceramic:"Керамика / КНБ (m ≈ 0.40)", tool_pcd:"Алмаз (PCD, m ≈ 0.33)"
 },
 pl: {
-  nav_home:"Start", nav_calc:"Kalkulatory", nav_codes:"Kody G i M", nav_articles:"Artykuły",
-  hero_title:"Pomocnik operatora CNC", hero_sub:"Kalkulatory parametrów skrawania i masy materiału, baza kodów G i M oraz przydatne artykuły — wszystko w jednym miejscu, za darmo.",
+  nav_home:"Strona główna", nav_calc:"Kalkulatory", nav_codes:"Kody G i M", nav_articles:"Artykuły",
+  hero_title:"Pomocnik operatora CNC", hero_sub:"Kalkulatory parametrów skrawania, chropowatości, mocy, gwintów i tolerancji, baza ponad 260 kodów G i M oraz artykuły — wszystko w jednym miejscu, za darmo.",
   hero_cta1:"Otwórz kalkulatory", hero_cta2:"Baza kodów G i M",
-  feat1_t:"17 kalkulatorów", feat1_d:"Obroty, posuw, masa, moc, gwinty (metryczne, calowe, rurowe), frezowanie gwintów, pasowania ISO 286, stożki, TNRC.",
-  feat2_t:"Baza kodów G/M", feat2_d:"ISO/Fanuc, Haas, Siemens, Heidenhain: wyszukiwarka i przykłady.",
+  feat1_t:"25 kalkulatorów", feat1_d:"Obroty, posuw, chropowatość Ra/Rz, grzebień frezu kulistego, moc i moment wrzeciona, 3 wałeczki, ISO 286, siatka otworów, rozszerzalność cieplna.",
+  feat2_t:"Baza kodów G/M", feat2_d:"Fanuc/ISO, Haas, Siemens, Heidenhain, Mazak, Okuma: wyszukiwarka i przykłady.",
   feat3_t:"Artykuły", feat3_d:"Praktyczne materiały o ustawianiu i programowaniu.",
   feat4_t:"3 języki i 2 motywy", feat4_d:"Русский, Polski, English. Motyw jasny i ciemny.",
   latest:"Najnowsze artykuły", read_more:"Czytaj →", back:"← Wszystkie artykuły",
-  calc_title:"Kalkulatory", calc_sub:"Wyniki liczone na bieżąco podczas wpisywania. Wartości orientacyjne.",
-  codes_title:"Kody G i M", codes_sub:"Zestawienie wg standardu ISO / Fanuc. Dla konkretnego sterowania (Siemens, Heidenhain, Haas, Mazak) sprawdź instrukcję.",
-  codes_note:"Zestaw kodów i ich działanie zależą od producenta maszyny i sterowania CNC.",
+  calc_title:"Kalkulatory CNC", calc_sub:"Wyniki liczone na bieżąco podczas wpisywania. Wszystkie wartości są orientacyjne.",
+  codes_title:"Kody G i M", codes_sub:"Baza wiedzy o 6 sterowaniach CNC: Fanuc, Haas, Siemens, Heidenhain, Mazak i Okuma.",
+  codes_note:"Zestaw kodów i ich składnia zależą od producenta maszyny oraz sterowania CNC.",
   search_ph:"Szukaj: G01, wiercenie, chłodziwo…", col_code:"Kod", col_desc:"Opis", col_ex:"Przykład", no_results:"Brak wyników",
   articles_title:"Artykuły o CNC", articles_sub:"Praktyka, porady i podstawy dla operatorów i programistów.",
   tag_all:"Wszystkie", art_search_ph:"Szukaj w artykułach…",
@@ -80,6 +134,7 @@ pl: {
   col_mat:"Materiał", col_vc:"Vc frez., m/min", col_den:"Gęstość, kg/m³", col_kc:"kc, N/mm²",
   ad_label:"Miejsce reklamowe", footer_text:"© CNCHelper — narzędzie dla operatorów CNC",
   footer_disc:"Obliczenia mają charakter pomocniczy. Odpowiedzialność za parametry i bezpieczeństwo ponosi operator.",
+
   c_mill:"Frezowanie: obroty i posuw", c_turn:"Toczenie", c_drill:"Wiercenie", c_mass:"Masa materiału",
   c_power:"Wydajność skrawania i moc", c_thread:"Gwint metryczny / średnica wiertła", c_conv:"Konwerter jednostek",
   f_D:"Średnica narzędzia, mm", f_Dw:"Średnica przedmiotu, mm", f_z:"Liczba ostrzy", f_vc:"Prędkość skrawania Vc, m/min", f_fz:"Posuw na ostrze fz, mm",
@@ -97,16 +152,17 @@ pl: {
   hero_tag:"Za darmo · Bez rejestracji · Wygodne na telefonie przy maszynie", stat_calc:"kalkulatorów", stat_codes:"kodów G/M i cykli", stat_lang:"języki · 2 motywy", stat_art:"artykułów",
   cookie_text:"Używamy plików cookie do wyświetlania reklam (Google AdSense). Klikając „Akceptuję”, zgadzasz się na ich użycie. Kalkulatory, motyw i język działają bez reklamowych plików cookie.", cookie_accept:"Akceptuję", cookie_decline:"Odrzucam", cookie_settings:"Ustawienia cookie",
   quick_title:"Szybkie obliczenia", quick_sub:"Najpotrzebniejsze kalkulatory — prosto na stronie głównej", all_calcs:"Wszystkie kalkulatory →", all_codes:"Cała baza kodów →", all_articles:"Wszystkie artykuły →",
-  group_cut:"Parametry skrawania i moc", group_threads:"Gwinty i gwintowanie", group_trig:"Trygonometria, stożki i fazy", group_tol:"Tolerancje i pasowania ISO 286", ctl:"Sterowanie CNC",
-  ctl_iso:"ISO / Fanuc", ctl_haas:"Haas", ctl_siemens:"Siemens SINUMERIK", ctl_heid:"Heidenhain TNC",
+  group_cut:"Parametry skrawania, moc i trwałość", group_threads:"Gwinty, sprawdziany i frezowanie gwintów", group_trig:"Geometria, trygonometria i współrzędne", group_tol:"Tolerancje ISO 286, chropowatość i metrologia", ctl:"Sterowanie CNC",
+  ctl_iso:"ISO / Fanuc", ctl_haas:"Haas", ctl_siemens:"Siemens SINUMERIK", ctl_heid:"Heidenhain TNC", ctl_mazak:"Mazak (Mazatrol / EIA-ISO)", ctl_okuma:"Okuma OSP",
   save:"💾 Zapisz obliczenie", saved_ok:"Zapisano ✓", saved_title:"Zapisane obliczenia", saved_empty:"Nic jeszcze nie zapisano. Kliknij „Zapisz obliczenie” w dowolnym kalkulatorze.",
   clear_all:"Wyczyść wszystko", export_csv:"Eksport CSV", del:"Usuń", load:"Wczytaj", saved_note:"Dane są w Twojej przeglądarce (localStorage), nic nie jest wysyłane na serwer.",
+
   c_tri:"Trójkąt prostokątny", c_taper:"Stożek (toczenie)", c_bolt:"Otwory na okręgu (PCD)", c_sine:"Liniał sinusowy", c_csink:"Pogłębiacz / fazowanie wg kąta", c_arc:"Łuk z cięciwy i strzałki",
   f_a:"Przyprostokątna a, mm", f_b:"Przyprostokątna b, mm", f_D1:"Większa średnica D1, mm", f_D2:"Mniejsza średnica D2, mm", f_n:"Liczba otworów", f_pcd:"Średnica okręgu PCD, mm", f_a0:"Kąt początkowy, °", f_cx:"Środek X, mm", f_cy:"Środek Y, mm",
   f_bar:"Długość liniału sinusowego, mm", f_ang:"Kąt, °", f_tip:"Kąt wierzchołkowy, °", f_dtop:"Średnica u góry, mm", f_dhole:"Średnica otworu, mm", f_chord:"Cięciwa c, mm", f_h:"Strzałka h, mm",
   r_c:"Przeciwprostokątna c", r_alpha:"Kąt α (naprzeciw a)", r_beta:"Kąt β (naprzeciw b)", r_half:"Kąt pochylenia (połowa)", r_full:"Pełny kąt stożka", r_ratio:"Zbieżność C", r_ratio1:"Zbieżność 1 :",
   r_hg:"Wysokość płytek wzorcowych h", r_cd:"Głębokość", r_R:"Promień R", r_ca:"Kąt środkowy",
-  // new calculators: threads, TNRC, ISO fits
+
   c_thread_inch:"Gwinty calowe i rurowe (G, NPT, UNC, UNF)", f_thread_inch:"Wymiar gwintu",
   r_th_maj:"Średnica zewnętrzna D", r_tpi_pitch:"TPI i skok P", r_profile:"Zarys i zbieżność",
   c_thread_mill:"Frezowanie gwintów (parametry i posuw)", f_th_type:"Typ gwintu", opt_th_int:"Wewnętrzny (w otworze)", opt_th_ext:"Zewnętrzny (na czopie)",
@@ -119,66 +175,170 @@ pl: {
   r_hole_tol:"Tolerancja otworu", r_hole_lim:"Wymiary graniczne otworu", r_shaft_tol:"Tolerancja wałka", r_shaft_lim:"Wymiary graniczne wałka",
   r_fit_type:"Rodzaj pasowania", r_fit_val:"Wartość luzu / wcisku",
   r_es:"Odchyłka górna (ES / es)", r_ei:"Odchyłka dolna (EI / ei)", r_max_d:"Wymiar maksymalny", r_min_d:"Wymiar minimalny", r_it:"Pole tolerancji IT",
-  fit_clearance:"Pasowanie luźne", fit_interference:"Pasowanie wtłaczane (wcisk)", fit_transition:"Pasowanie mieszane"
+  fit_clearance:"Pasowanie luźne", fit_interference:"Pasowanie wtłaczane (wcisk)", fit_transition:"Pasowanie mieszane",
+
+  // New Calculators (PL)
+  c_roughness:"Chropowatość Ra/Rz i wysokość grzebienia", f_surf_mode:"Rodzaj obróbki", opt_surf_turn:"Toczenie (promień płytki)", opt_surf_ball:"Frez kulisty (grzebień)",
+  f_surf_f:"Posuw f, mm/obr", f_surf_re:"Promień naroża rε, mm", f_ball_r:"Promień frezu kulistego R, mm", f_ball_ae:"Krok boczny ae, mm",
+  r_rz_th:"Teoretyczna chropowatość Rz", r_ra_th:"Teoretyczna chropowatość Ra", r_scallop_h:"Wysokość grzebienia h (scallop)", r_rec_class:"Przybliżona klasa dokładności",
+
+  c_mrr_time:"MRR (wydajność skrawania) i czas obróbki", f_mrr_mode:"Typ operacji", opt_mrr_mill:"Frezowanie", opt_mrr_turn:"Toczenie",
+  f_mrr_ap:"Głębokość skrawania ap, mm", f_mrr_ae:"Szerokość skrawania ae, mm", f_mrr_vf:"Posuw minutowy Vf, mm/min", f_mrr_l:"Długość przejścia L, mm",
+  f_mrr_d1:"Średnica początkowa D1, mm", f_mrr_d2:"Średnica końcowa D2, mm", f_mrr_f:"Posuw f, mm/obr", f_mrr_vc:"Prędkość Vc, m/min",
+  r_mrr_val:"Wydajność objętościowa Q", r_cut_time:"Czas maszynowy T",
+
+  c_ball_eff:"Frez kulisty: Deff i ścienianie wióra", f_be_d:"Średnica nominalna D, mm", f_be_ap:"Głębokość osiowa ap, mm", f_be_ae:"Szerokość promieniowa ae, mm",
+  f_be_vc:"Prędkość skrawania Vc, m/min", f_be_fz:"Posuw na ostrze fz (lub hm), mm", f_be_z:"Liczba zębów z",
+  r_be_deff:"Efektywna średnica skrawania Deff", r_be_rpm:"Zalecane obroty n (Deff)", r_be_fz_mod:"Skorygowany posuw fz (ścienianie)", r_be_vf:"Posuw minutowy maszyny Vf",
+
+  c_thread_wires:"Pomiar gwintu metodą 3 wałeczków", f_tw_type:"Profil zarysu", opt_tw_m60:"Metryczny / UN / UNC / UNF (60°)", opt_tw_w55:"Whitworth / Rurowy G / BSW (55°)",
+  f_tw_nom_d:"Średnica nominalna d, mm", f_tw_pitch:"Skok gwintu P, mm", f_tw_wire:"Średnica wałeczka dw, mm",
+  r_tw_opt:"Optymalna średnica wałeczka dw", r_tw_d2:"Średnica podziałowa nominalna d2", r_tw_m:"Wymiar przez wałeczki M (mikrometr)",
+
+  c_sine_bar:"Liniał sinusowy i stos płytek wzorcowych", f_sb_len:"Baza liniału sinusowego L, mm", f_sb_deg:"Kąt: Stopnie (°)", f_sb_min:"Kąt: Minuty (')", f_sb_sec:"Kąt: Sekundy ('')",
+  r_sb_h:"Wysokość stosu płytek H", r_sb_rad:"Kąt w radianach",
+
+  c_drill_depth:"Wierzchołek wiertła i głębokość pogłębiania", f_dd_d:"Średnica wiertła D, mm", f_dd_ang:"Kąt wierzchołkowy wiertła σ, °", f_dd_cyl:"Głębokość walcowa Hcyl, mm",
+  f_dd_csink_d:"Średnica docelowa fazy Dfazy, mm", f_dd_csink_ang:"Kąt pogłębiacza / fazy, °",
+  r_dd_cone_l:"Długość stożka wierzchołka lp", r_dd_total_z:"Pełna głębokość w osi Z", r_dd_csink_depth:"Głębokość zagłębienia pogłębiacza h",
+
+  c_spindle_torque:"Moc i moment obrotowy wrzeciona", f_st_mat:"Materiał obrabiany", f_st_rpm:"Obroty wrzeciona n, obr/min", f_st_ap:"Głębokość ap, mm", f_st_ae:"Szerokość ae, mm", f_st_vf:"Posuw Vf, mm/min", f_st_eff:"Sprawność napędu η (0.8)",
+  r_st_power:"Wymagana moc skrawania Pc", r_st_torque:"Moment obrotowy wrzeciona Mc",
+
+  c_hardness:"Przelicznik twardości metali (HRC / HB / HV)", f_hd_scale:"Skala źródłowa", f_hd_val:"Wartość twardości",
+  opt_hd_hrc:"HRC (Rockwell C)", opt_hd_hb:"HBW (Brinell)", opt_hd_hv:"HV (Vickers)", opt_hd_rm:"Rm (Wytrzymałość na rozciąganie, MPa)",
+  r_hd_hrc:"Rockwell HRC", r_hd_hb:"Brinell HBW", r_hd_hv:"Vickers HV", r_hd_rm:"Wytrzymałość Rm (MPa)",
+
+  c_unit_conv:"Przelicznik jednostek obróbczych", f_uc_cat:"Kategoria", opt_uc_len:"Długość (mm ↔ cale)", opt_uc_spd:"Prędkość skrawania (m/min ↔ SFM)", opt_uc_feed:"Posuw minutowy (mm/min ↔ IPM)", opt_uc_frot:"Posuw na obrót (mm/obr ↔ IPR)", opt_uc_tq:"Moment obrotowy (N·m ↔ ft·lb)", opt_uc_prs:"Ciśnienie chłodziwa (bar ↔ PSI)",
+  f_uc_val:"Wartość do przeliczenia", r_uc_res1:"Jednostka metryczna", r_uc_res2:"Jednostka calowa / alternatywna",
+
+  c_thermal_exp:"Rozszerzalność cieplna detalu", f_te_len:"Wymiar nominalny detalu L, mm", f_te_temp:"Rzeczywista temperatura detalu, °C", f_te_mat:"Materiał półfabrykatu",
+  r_te_dtemp:"Różnica względem 20°C (ΔT)", r_te_dl:"Liniowa zmiana wymiaru ΔL", r_te_act_len:"Rzeczywisty wymiar w danej temperaturze",
+
+  c_taylor:"Trwałość narzędzia wg reguły Taylora", f_ty_vc1:"Prędkość bazowa Vc1, m/min", f_ty_t1:"Trwałość bazowa T1, min", f_ty_vc2:"Nowa prędkość Vc2, m/min", f_ty_mat:"Materiał narzędzia (wykładnik m)",
+  r_ty_t2:"Oczekiwana trwałość T2", r_ty_ratio:"Zmiana żywotności ostrza", r_ty_c:"Stała Taylora C",
+
+  c_hole_grid:"Siatka otworów i prosta linia (kod G)", f_hg_mode:"Typ szyku", opt_hg_line:"Otwory w linii prostej", opt_hg_grid:"Siatka prostokątna (macierz)",
+  f_hg_x0:"Bazowy X0, mm", f_hg_y0:"Bazowy Y0, mm", f_hg_step_l:"Krok w linii dL, mm", f_hg_ang:"Kąt pochylenia / obrotu, °", f_hg_n:"Liczba otworów N",
+  f_hg_nx:"Liczba w osi X (Nx)", f_hg_dx:"Krok w osi X (dX), mm", f_hg_ny:"Liczba w osi Y (Ny)", f_hg_dy:"Krok w osi Y (dY), mm",
+  r_hg_total:"Łączna liczba otworów", r_hg_points:"Współrzędne otworów (X, Y)", r_hg_gcode:"Kod G do wiercenia (G81)",
+
+  mat_steel_carbon:"Stal węglowa (α = 11.5)", mat_steel_tool:"Stal narzędziowa (α = 12.0)", mat_inox_304:"Stal nierdzewna (α = 16.5)",
+  mat_alu_alloys:"Stopy aluminium (α = 23.4)", mat_brass_cu:"Mosiądz / miedź (α = 18.0)", mat_cast_iron:"Żeliwo szare (α = 10.5)",
+  mat_titanium:"Tytan i stopy (α = 8.6)", mat_carbide_vhm:"Węglik spiekany VHM (α = 5.0)", mat_invar:"Inwar (α = 1.2)",
+  tool_carbide:"Węglik spiekany (Carbide, m ≈ 0.25)", tool_hss:"Stal szybkotnąca (HSS, m ≈ 0.125)", tool_cbn_ceramic:"Ceramika / CBN (m ≈ 0.40)", tool_pcd:"Diament (PCD, m ≈ 0.33)"
 },
 en: {
   nav_home:"Home", nav_calc:"Calculators", nav_codes:"G & M codes", nav_articles:"Articles",
-  hero_title:"CNC Operator's Helper", hero_sub:"Cutting data and material mass calculators, a G and M code reference and useful articles — all in one place, for free.",
+  hero_title:"CNC Operator's Helper", hero_sub:"Calculators for cutting data, surface finish, spindle power, threads and tolerances, a 260+ G and M code reference and knowledge base — all in one place, for free.",
   hero_cta1:"Open calculators", hero_cta2:"G & M code database",
-  feat1_t:"17 calculators", feat1_d:"Speed, feed, mass, power, threads (metric, inch, pipe), thread milling, ISO 286 fits, tapers, TNRC.",
-  feat2_t:"G/M code database", feat2_d:"ISO/Fanuc, Haas, Siemens, Heidenhain: search and examples.",
+  feat1_t:"25 calculators", feat1_d:"Speed & feed, Ra/Rz finish, ball nose scallop, spindle power & torque, 3-wire threads, ISO 286 fits, hole grid, thermal expansion.",
+  feat2_t:"G/M code database", feat2_d:"Fanuc/ISO, Haas, Siemens, Heidenhain, Mazak, Okuma: search and examples.",
   feat3_t:"Articles", feat3_d:"Practical material on setup and programming.",
   feat4_t:"3 languages, 2 themes", feat4_d:"Русский, Polski, English. Light and dark theme.",
   latest:"Latest articles", read_more:"Read →", back:"← All articles",
-  calc_title:"Calculators", calc_sub:"Results update instantly as you type. Values are approximate.",
-  codes_title:"G & M codes", codes_sub:"Reference per ISO / Fanuc standard. For your specific control (Siemens, Heidenhain, Haas, Mazak) check the manual.",
-  codes_note:"Available codes and their behavior depend on the machine builder and CNC control.",
+  calc_title:"CNC Calculators", calc_sub:"Instant real-time calculations. All computed values are approximate guidance.",
+  codes_title:"G and M codes", codes_sub:"Comprehensive reference for 6 major controls: Fanuc, Haas, Siemens, Heidenhain, Mazak and Okuma.",
+  codes_note:"Code syntax and availability depend on the specific machine builder and CNC system.",
   search_ph:"Search: G01, drilling, coolant…", col_code:"Code", col_desc:"Description", col_ex:"Example", no_results:"Nothing found",
   articles_title:"CNC articles", articles_sub:"Practice, tips and basics for operators and programmers.",
   tag_all:"All", art_search_ph:"Search articles…",
   ref_title:"Material reference", ref_note:"Approximate values for carbide tooling. Always check the tool manufacturer's catalog.",
   col_mat:"Material", col_vc:"Milling Vc, m/min", col_den:"Density, kg/m³", col_kc:"kc, N/mm²",
-  ad_label:"Ad space", footer_text:"© CNCHelper — a tool for CNC operators",
-  footer_disc:"Calculations are for reference only. The operator is responsible for cutting parameters and safety.",
-  c_mill:"Milling: speed & feed", c_turn:"Turning", c_drill:"Drilling", c_mass:"Material mass",
-  c_power:"Material removal & power", c_thread:"Metric thread / tap drill size", c_conv:"Unit converter",
+  ad_label:"Ad slot", footer_text:"© CNCHelper — CNC machinist toolkit",
+  footer_disc:"Calculations are for reference only. Cutting conditions and safety remain the operator's responsibility.",
+
+  c_mill:"Milling: speed and feed", c_turn:"Turning", c_drill:"Drilling", c_mass:"Stock mass",
+  c_power:"Material removal and power", c_thread:"Metric thread / tap drill size", c_conv:"Unit converter",
   f_D:"Tool diameter, mm", f_Dw:"Workpiece diameter, mm", f_z:"Number of teeth", f_vc:"Cutting speed Vc, m/min", f_fz:"Feed per tooth fz, mm",
-  f_L:"Cutting length, mm", f_f:"Feed per rev f, mm/rev", f_r:"Insert nose radius, mm", f_depth:"Hole depth, mm",
+  f_L:"Length of cut, mm", f_f:"Feed per rev f, mm/rev", f_r:"Insert corner radius, mm", f_depth:"Hole depth, mm",
   f_shape:"Shape", f_mat:"Material", f_W:"Width, mm", f_H:"Thickness, mm", f_Dout:"Outer diameter, mm", f_wall:"Wall thickness, mm",
-  f_S:"Across flats, mm", f_Len:"Length, mm", f_qty:"Quantity, pcs", f_ap:"Depth of cut ap, mm", f_ae:"Width of cut ae, mm",
-  f_F:"Feed F, mm/min", f_eff:"Machine efficiency η", f_thread:"Thread", f_mm:"Millimeters, mm", f_in:"Inches, in", f_mpm:"Speed, m/min", f_sfm:"Speed, SFM", f_fmm:"Feed, mm/min", f_ipm:"Feed, IPM",
-  sh_plate:"Plate / sheet", sh_round:"Round bar", sh_tube:"Tube", sh_hex:"Hex bar",
-  r_n:"Spindle speed n", r_F:"Feed rate F", r_t:"Cutting time", r_Ra:"Theoretical roughness Ra", r_mass:"Mass of 1 pc", r_total:"Total mass", r_vol:"Volume of 1 pc",
-  r_mrr:"Removal rate Q", r_pc:"Cutting power Pc", r_pitch:"Pitch (coarse)", r_drill:"Tap drill (cutting tap)", r_drillF:"Tap drill (forming tap)", r_minor:"Minor diameter", r_tdepth:"Thread depth",
+  f_S:"Hex width, mm", f_Len:"Length, mm", f_qty:"Quantity, pcs", f_ap:"Depth of cut ap, mm", f_ae:"Width of cut ae, mm",
+  f_F:"Feed rate F, mm/min", f_eff:"Machine efficiency η", f_thread:"Thread", f_mm:"Millimeters, mm", f_in:"Inches, in", f_mpm:"Speed, m/min", f_sfm:"Speed, SFM", f_fmm:"Feed, mm/min", f_ipm:"Feed, IPM",
+  sh_plate:"Plate / sheet", sh_round:"Round bar", sh_tube:"Tube / pipe", sh_hex:"Hexagon",
+  r_n:"Spindle speed n", r_F:"Feed rate F", r_t:"Cutting time", r_Ra:"Theor. roughness Ra", r_mass:"Mass 1 pc", r_total:"Total mass", r_vol:"Volume 1 pc",
+  r_mrr:"Removal rate Q", r_pc:"Cutting power Pc", r_pitch:"Pitch (coarse)", r_drill:"Cutting tap drill", r_drillF:"Forming tap drill", r_minor:"Minor diameter", r_tdepth:"Thread depth",
   r_in:"Inches", r_mm:"Millimeters", r_sfm:"SFM", r_mpm:"m/min", r_fipm:"IPM", r_fmm:"mm/min",
-  mat_steel:"Structural steel", mat_inox:"Stainless steel", mat_alu:"Aluminum", mat_brass:"Brass", mat_cu:"Copper", mat_ti:"Titanium", mat_ci:"Cast iron", mat_bronze:"Bronze", mat_pom:"POM plastic",
-  u_min:"min", u_kw:"kW", u_cm3min:"cm³/min", u_cm3:"cm³", u_kg:"kg", u_rpm:"rpm", u_mmmin:"mm/min", u_um:"µm",
-  invalid:"Enter valid values",
-  hero_tag:"Free · No sign-up · Phone-friendly right at the machine", stat_calc:"calculators", stat_codes:"G/M codes & cycles", stat_lang:"languages · 2 themes", stat_art:"articles",
-  cookie_text:"We use cookies to show ads (Google AdSense). By clicking “Accept” you agree to their use. Calculators, theme and language work without advertising cookies.", cookie_accept:"Accept", cookie_decline:"Decline", cookie_settings:"Cookie settings",
-  quick_title:"Quick calculations", quick_sub:"The most-used calculators right on the home page", all_calcs:"All calculators →", all_codes:"Full code database →", all_articles:"All articles →",
-  group_cut:"Cutting data & power", group_threads:"Threads & Threading", group_trig:"Trigonometry, tapers & chamfers", group_tol:"ISO 286 Fits & Tolerances", ctl:"CNC control",
-  ctl_iso:"ISO / Fanuc", ctl_haas:"Haas", ctl_siemens:"Siemens SINUMERIK", ctl_heid:"Heidenhain TNC",
-  save:"💾 Save calculation", saved_ok:"Saved ✓", saved_title:"Saved calculations", saved_empty:"Nothing saved yet. Press “Save calculation” in any calculator.",
-  clear_all:"Clear all", export_csv:"Export CSV", del:"Delete", load:"Load", saved_note:"Stored in your browser (localStorage); nothing is sent to a server.",
-  c_tri:"Right triangle", c_taper:"Taper (turning)", c_bolt:"Bolt hole circle (PCD)", c_sine:"Sine bar", c_csink:"Countersink / chamfer by angle", c_arc:"Arc from chord and height",
-  f_a:"Leg a, mm", f_b:"Leg b, mm", f_D1:"Large diameter D1, mm", f_D2:"Small diameter D2, mm", f_n:"Number of holes", f_pcd:"Circle diameter PCD, mm", f_a0:"Start angle, °", f_cx:"Center X, mm", f_cy:"Center Y, mm",
-  f_bar:"Sine bar length, mm", f_ang:"Angle, °", f_tip:"Included angle, °", f_dtop:"Top diameter, mm", f_dhole:"Hole diameter, mm", f_chord:"Chord c, mm", f_h:"Height (sagitta) h, mm",
-  r_c:"Hypotenuse c", r_alpha:"Angle α (opposite a)", r_beta:"Angle β (opposite b)", r_half:"Half angle (slope)", r_full:"Included taper angle", r_ratio:"Taper C", r_ratio1:"Taper 1 :",
-  r_hg:"Gauge block height h", r_cd:"Depth", r_R:"Radius R", r_ca:"Central angle",
-  // new calculators: threads, TNRC, ISO fits
-  c_thread_inch:"Inch & Pipe Threads (G, NPT, UNC, UNF)", f_thread_inch:"Thread designation",
-  r_th_maj:"Major diameter D", r_tpi_pitch:"TPI & pitch P", r_profile:"Form & taper",
-  c_thread_mill:"Thread Milling Parameters", f_th_type:"Thread type", opt_th_int:"Internal (bore)", opt_th_ext:"External (boss/stud)",
+  mat_steel:"Carbon steel", mat_inox:"Stainless steel", mat_alu:"Aluminum", mat_brass:"Brass", mat_cu:"Copper", mat_ti:"Titanium", mat_ci:"Cast iron", mat_bronze:"Bronze", mat_pom:"POM plastic",
+  u_min:"min", u_kw:"kW", u_cm3min:"cm³/min", u_cm3:"cm³", u_kg:"kg", u_rpm:"RPM", u_mmmin:"mm/min", u_um:"µm",
+  invalid:"Enter valid positive numbers",
+  hero_tag:"Free · No signup · Works on mobile at the machine", stat_calc:"calculators", stat_codes:"G/M codes & cycles", stat_lang:"languages · 2 themes", stat_art:"articles",
+  cookie_text:"We use cookies for Google AdSense advertising. By clicking \"Accept\" you agree to their use. The calculators, themes, and languages work without advertising cookies.", cookie_accept:"Accept", cookie_decline:"Decline", cookie_settings:"Cookie settings",
+  quick_title:"Quick calculations", quick_sub:"The most essential calculators — right on the home page", all_calcs:"All calculators →", all_codes:"All G/M codes →", all_articles:"All articles →",
+  group_cut:"Cutting data, power & tool life", group_threads:"Threads, gauges & thread milling", group_trig:"Geometry, trigonometry & coordinates", group_tol:"ISO 286 fits, roughness & metrology", ctl:"CNC control",
+  ctl_iso:"ISO / Fanuc", ctl_haas:"Haas", ctl_siemens:"Siemens SINUMERIK", ctl_heid:"Heidenhain TNC", ctl_mazak:"Mazak (Mazatrol / EIA-ISO)", ctl_okuma:"Okuma OSP",
+  save:"💾 Save calculation", saved_ok:"Saved ✓", saved_title:"Saved calculations", saved_empty:"Nothing saved yet. Click \"Save calculation\" on any calculator.",
+  clear_all:"Clear all", export_csv:"Export CSV", del:"Delete", load:"Load", saved_note:"Saved in your browser (localStorage), nothing is sent to a server.",
+
+  c_tri:"Right-angled triangle", c_taper:"Taper (turning)", c_bolt:"Bolt circle PCD", c_sine:"Sine bar", c_csink:"Countersink / chamfer depth", c_arc:"Arc chord and height",
+  f_a:"Side a, mm", f_b:"Side b, mm", f_D1:"Major diameter D1, mm", f_D2:"Minor diameter D2, mm", f_n:"Number of holes", f_pcd:"PCD diameter, mm", f_a0:"Start angle, °", f_cx:"Center X, mm", f_cy:"Center Y, mm",
+  f_bar:"Sine bar length, mm", f_ang:"Angle, °", f_tip:"Point angle, °", f_dtop:"Top diameter, mm", f_dhole:"Hole diameter, mm", f_chord:"Chord c, mm", f_h:"Height h, mm",
+  r_c:"Hypotenuse c", r_alpha:"Angle α (opp. a)", r_beta:"Angle β (opp. b)", r_half:"Taper half-angle", r_full:"Full taper angle", r_ratio:"Taper ratio C", r_ratio1:"Taper 1 :",
+  r_hg:"Gauge block height h", r_cd:"Depth", r_R:"Radius R", r_ca:"Included angle",
+
+  c_thread_inch:"Inch and pipe threads (G, NPT, UNC, UNF)", f_thread_inch:"Thread designation",
+  r_th_maj:"Major diameter D", r_tpi_pitch:"TPI and pitch P", r_profile:"Profile & taper",
+  c_thread_mill:"Thread milling parameters", f_th_type:"Thread type", opt_th_int:"Internal (hole)", opt_th_ext:"External (boss)",
   f_th_d:"Thread diameter D, mm", f_th_p:"Thread pitch P, mm", f_cut_d:"Cutter diameter Dcut, mm", f_z_flutes:"Number of flutes z",
-  r_f_edge:"Peripheral feed Fedge", r_f_prog:"Programmed feed Fcenter (CNC)", r_f_factor:"Feed correction factor", r_orbit_d:"Orbit diameter Dcenter", r_t_rev:"Time per revolution (360°)",
-  c_tnrc:"Tool Nose Radius Compensation (Manual TNRC)", f_tool_r:"Insert nose radius R, mm", f_chamfer_ang:"Angle to Z axis α, °", f_chamfer_c:"Chamfer width along Z (C), mm",
-  r_dz:"Z-axis offset (ΔZ)", r_dx:"X-axis offset on diameter (ΔX)", r_pt_start:"Start point (X, Z)", r_pt_end:"End point (X, Z)", r_gcode:"Movement G-code",
-  c_iso_fits:"ISO 286 Fits & Tolerances", f_fit_mode:"Mode", opt_pair:"Fit (hole + shaft)", opt_hole:"Hole only", opt_shaft:"Shaft only",
-  f_hole_tol:"Hole tolerance grade", f_shaft_tol:"Shaft tolerance grade",
-  r_hole_tol:"Hole tolerance", r_hole_lim:"Hole size limits", r_shaft_tol:"Shaft tolerance", r_shaft_lim:"Shaft size limits",
-  r_fit_type:"Fit type", r_fit_val:"Clearance / Interference value",
-  r_es:"Upper deviation (ES / es)", r_ei:"Lower deviation (EI / ei)", r_max_d:"Upper size limit", r_min_d:"Lower size limit", r_it:"Tolerance zone IT",
-  fit_clearance:"Clearance fit", fit_interference:"Interference fit", fit_transition:"Transition fit"
+  r_f_edge:"Peripheral feed Fedge", r_f_prog:"Center feed Fcenter (CNC)", r_f_factor:"Feed correction factor", r_orbit_d:"Orbit diameter Dcenter", r_t_rev:"Time per 360° pass",
+  c_tnrc:"Tool nose radius compensation (manual TNRC)", f_tool_r:"Insert nose radius R, mm", f_chamfer_ang:"Angle to Z-axis α, °", f_chamfer_c:"Chamfer size along Z (C), mm",
+  r_dz:"Z compensation (ΔZ)", r_dx:"X diameter compensation (ΔX)", r_pt_start:"Start coordinate (X, Z)", r_pt_end:"End coordinate (X, Z)", r_gcode:"CNC motion block",
+  c_iso_fits:"ISO 286 limits and fits", f_fit_mode:"Mode", opt_pair:"Fit pair (hole + shaft)", opt_hole:"Hole only", opt_shaft:"Shaft only",
+  f_hole_tol:"Hole tolerance class", f_shaft_tol:"Shaft tolerance class",
+  r_hole_tol:"Hole tolerance", r_hole_lim:"Hole limits", r_shaft_tol:"Shaft tolerance", r_shaft_lim:"Shaft limits",
+  r_fit_type:"Fit character", r_fit_val:"Clearance / interference range",
+  r_es:"Upper deviation (ES / es)", r_ei:"Lower deviation (EI / ei)", r_max_d:"Maximum size", r_min_d:"Minimum size", r_it:"Tolerance grade IT",
+  fit_clearance:"Clearance fit", fit_interference:"Interference fit", fit_transition:"Transition fit",
+
+  // New Calculators (EN)
+  c_roughness:"Surface roughness Ra/Rz & scallop", f_surf_mode:"Machining type", opt_surf_turn:"Turning (insert radius)", opt_surf_ball:"Ball nose milling (scallop)",
+  f_surf_f:"Feed f, mm/rev", f_surf_re:"Corner radius rε, mm", f_ball_r:"Ball nose radius R, mm", f_ball_ae:"Stepover ae, mm",
+  r_rz_th:"Theoretical roughness Rz", r_ra_th:"Theoretical roughness Ra", r_scallop_h:"Cusp / scallop height h", r_rec_class:"Approx. roughness class",
+
+  c_mrr_time:"MRR (material removal) and cutting time", f_mrr_mode:"Operation type", opt_mrr_mill:"Milling", opt_mrr_turn:"Turning",
+  f_mrr_ap:"Depth of cut ap, mm", f_mrr_ae:"Width of cut ae, mm", f_mrr_vf:"Feed rate Vf, mm/min", f_mrr_l:"Length of cut L, mm",
+  f_mrr_d1:"Initial diameter D1, mm", f_mrr_d2:"Final diameter D2, mm", f_mrr_f:"Feed f, mm/rev", f_mrr_vc:"Cutting speed Vc, m/min",
+  r_mrr_val:"Removal rate Q", r_cut_time:"Cutting time T",
+
+  c_ball_eff:"Ball nose: Deff and chip thinning", f_be_d:"Nominal cutter diameter D, mm", f_be_ap:"Axial depth ap, mm", f_be_ae:"Radial width ae, mm",
+  f_be_vc:"Cutting speed Vc, m/min", f_be_fz:"Feed per tooth fz (or hm), mm", f_be_z:"Number of flutes z",
+  r_be_deff:"Effective working diameter Deff", r_be_rpm:"Recommended spindle speed n (Deff)", r_be_fz_mod:"Corrected feed fz (chip thinning)", r_be_vf:"Programmed table feed Vf",
+
+  c_thread_wires:"Three-wire thread measurement", f_tw_type:"Thread standard", opt_tw_m60:"Metric / UN / UNC / UNF (60°)", opt_tw_w55:"Whitworth / Pipe G / BSW (55°)",
+  f_tw_nom_d:"Nominal major diameter d, mm", f_tw_pitch:"Pitch P, mm", f_tw_wire:"Wire diameter dw, mm",
+  r_tw_opt:"Optimal wire diameter dw", r_tw_d2:"Nominal pitch diameter d2", r_tw_m:"Measurement over wires M",
+
+  c_sine_bar:"Sine bar & gauge block stack", f_sb_len:"Sine bar center distance L, mm", f_sb_deg:"Angle: Degrees (°)", f_sb_min:"Angle: Minutes (')", f_sb_sec:"Angle: Seconds ('')",
+  r_sb_h:"Gauge block stack height H", r_sb_rad:"Angle in radians",
+
+  c_drill_depth:"Drill point length and countersink depth", f_dd_d:"Drill diameter D, mm", f_dd_ang:"Drill point angle σ, °", f_dd_cyl:"Cylindrical depth Hcyl, mm",
+  f_dd_csink_d:"Target chamfer diameter Dchamfer, mm", f_dd_csink_ang:"Countersink tool angle, °",
+  r_dd_cone_l:"Drill point cone length lp", r_dd_total_z:"Total Z-axis feed depth", r_dd_csink_depth:"Countersink feed depth h",
+
+  c_spindle_torque:"Spindle power and torque", f_st_mat:"Workpiece material", f_st_rpm:"Spindle speed n, RPM", f_st_ap:"Depth ap, mm", f_st_ae:"Width ae, mm", f_st_vf:"Feed Vf, mm/min", f_st_eff:"Drive efficiency η (0.8)",
+  r_st_power:"Cutting power Pc", r_st_torque:"Spindle torque Mc",
+
+  c_hardness:"Metal hardness converter (HRC / HB / HV)", f_hd_scale:"Input scale", f_hd_val:"Hardness value",
+  opt_hd_hrc:"HRC (Rockwell C)", opt_hd_hb:"HBW (Brinell)", opt_hd_hv:"HV (Vickers)", opt_hd_rm:"Rm (Tensile strength, MPa)",
+  r_hd_hrc:"Rockwell HRC", r_hd_hb:"Brinell HBW", r_hd_hv:"Vickers HV", r_hd_rm:"Tensile strength Rm (MPa)",
+
+  c_unit_conv:"Machinist's unit converter", f_uc_cat:"Category", opt_uc_len:"Length (mm ↔ inches)", opt_uc_spd:"Cutting speed (m/min ↔ SFM)", opt_uc_feed:"Feed rate (mm/min ↔ IPM)", opt_uc_frot:"Feed per rev (mm/rev ↔ IPR)", opt_uc_tq:"Torque (N·m ↔ ft·lb)", opt_uc_prs:"Coolant pressure (bar ↔ PSI)",
+  f_uc_val:"Value to convert", r_uc_res1:"Metric value", r_uc_res2:"Inch / alternative value",
+
+  c_thermal_exp:"Workpiece thermal expansion", f_te_len:"Nominal dimension L, mm", f_te_temp:"Actual workpiece temp, °C", f_te_mat:"Workpiece material",
+  r_te_dtemp:"Difference from 20°C standard (ΔT)", r_te_dl:"Length deviation ΔL", r_te_act_len:"Actual size at temperature",
+
+  c_taylor:"Taylor tool life calculation", f_ty_vc1:"Base speed Vc1, m/min", f_ty_t1:"Base tool life T1, min", f_ty_vc2:"New speed Vc2, m/min", f_ty_mat:"Tool material (Taylor exponent m)",
+  r_ty_t2:"Expected tool life T2", r_ty_ratio:"Life ratio change", r_ty_c:"Taylor constant C",
+
+  c_hole_grid:"Hole grid & linear pattern (G-code)", f_hg_mode:"Pattern type", opt_hg_line:"Linear hole line", opt_hg_grid:"Rectangular grid (matrix)",
+  f_hg_x0:"Base X0, mm", f_hg_y0:"Base Y0, mm", f_hg_step_l:"Linear step dL, mm", f_hg_ang:"Angle of rotation, °", f_hg_n:"Number of holes N",
+  f_hg_nx:"Holes along X (Nx)", f_hg_dx:"Step along X (dX), mm", f_hg_ny:"Holes along Y (Ny)", f_hg_dy:"Step along Y (dY), mm",
+  r_hg_total:"Total holes in pattern", r_hg_points:"Coordinates list (X, Y)", r_hg_gcode:"G-code drilling cycle (G81)",
+
+  mat_steel_carbon:"Carbon steel (α = 11.5)", mat_steel_tool:"Tool steel (α = 12.0)", mat_inox_304:"Stainless steel (α = 16.5)",
+  mat_alu_alloys:"Aluminum alloys (α = 23.4)", mat_brass_cu:"Brass / copper (α = 18.0)", mat_cast_iron:"Gray cast iron (α = 10.5)",
+  mat_titanium:"Titanium alloys (α = 8.6)", mat_carbide_vhm:"Solid carbide VHM (α = 5.0)", mat_invar:"Invar (α = 1.2)",
+  tool_carbide:"Carbide (Carbide, m ≈ 0.25)", tool_hss:"High speed steel (HSS, m ≈ 0.125)", tool_cbn_ceramic:"Ceramic / CBN (m ≈ 0.40)", tool_pcd:"Diamond (PCD, m ≈ 0.33)"
 }
 };
