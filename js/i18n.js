@@ -119,7 +119,7 @@ ru: {
   tool_carbide:"Твёрдый сплав (Carbide, m ≈ 0.25)", tool_hss:"Быстрорез (HSS, m ≈ 0.125)", tool_cbn_ceramic:"Керамика / КНБ (m ≈ 0.40)", tool_pcd:"Алмаз (PCD, m ≈ 0.33)",
 
   // Navigation & Dropdown
-  nav_all_calcs:"Все калькуляторы (Дашборд)", nav_calc_turn:"Токарный калькулятор", nav_calc_mill:"Фрезерный калькулятор",
+  nav_all_calcs:"Все калькуляторы (25)", nav_calc_turn:"Токарный калькулятор", nav_calc_mill:"Фрезерный калькулятор",
   nav_calc_drill:"Сверление и зенковка", nav_calc_thread:"Метрическая резьба", nav_calc_pcd:"Отверстия по окружности (PCD)",
 
   // Dashboard & Landing Pages
@@ -144,14 +144,14 @@ ru: {
   footer_privacy:"Политика конфиденциальности", footer_about:"О проекте и контакты",
   priv_title:"Политика конфиденциальности и файлы Cookie",
   priv_sub:"Информация о защите данных (GDPR / RODO), локальном хранилище и рекламных сервисах",
-  priv_h1:"1. Общие положения",
-  priv_p1:"CNCHelper — бесплатный информационный справочник и набор инженерных калькуляторов для операторов, наладчиков и программистов станков с ЧПУ. Использование инструментов не требует регистрации или создания учётной записи.",
-  priv_h2:"2. Локальное хранилище браузера (localStorage)",
-  priv_p2:"Для удобства работы сайт сохраняет в памяти вашего браузера (localStorage) исключительно технические настройки: выбранный язык интерфейса (ru/pl/en), тему оформления (светлая/тёмная), статус согласия с cookie и сохранённые вами результаты расчётов (кнопка «Сохранить расчёт»). Эти данные не передаются на сервер и могут быть удалены вами в любой момент через настройки браузера.",
+  priv_h1:"1. Общие положения и Администратор данных",
+  priv_p1:"Администратором сайта CNCHelper (https://cnc-helper.pro) является проект CNCHelper (контактный e-mail: Exttemeart@gmail.com). Сайт предоставляет бесплатные инженерные калькуляторы и справочники для операторов ЧПУ без необходимости регистрации. Обработка технических данных осуществляется в соответствии с Регламентом ЕС 2016/679 (GDPR / RODO): ст. 6 п. 1 лит. a (добровольное согласие на рекламные cookie) и ст. 6 п. 1 лит. f (законный интерес — обеспечение работоспособности сайта).",
+  priv_h2:"2. Локальное хранилище браузера (localStorage и sessionStorage)",
+  priv_p2:"Для удобства работы сайт сохраняет в памяти вашего браузера (localStorage / sessionStorage) исключительно технические настройки: выбранный язык интерфейса (ru/pl/en), тему оформления (светлая/тёмная), статус согласия с cookie и сохранённые вами результаты расчётов (кнопка «Сохранить расчёт»). Эти данные хранятся только на вашем устройстве, не передаются на сервер и могут быть удалены вами в любой момент.",
   priv_h3:"3. Файлы Cookie и реклама (Google AdSense)",
-  priv_p3:"На сайте используется сервис Google AdSense. При наличии вашего согласия (через баннер cookie) Google и его партнёры могут использовать файлы cookie для показа персонализированных или неперсонализированных объявлений. Вы можете в любой момент изменить своё решение, нажав на ссылку «Настройки cookie» в нижней части страницы.",
-  priv_h4:"4. Обратная связь и контакты",
-  priv_p4:"По вопросам конфиденциальности или удаления данных вы можете связаться с администратором проекта по электронной почте: Exttemeart@gmail.com.",
+  priv_p3:"На сайте используется рекламный сервис Google AdSense (Google Ireland Limited). Файлы cookie Google AdSense загружаются только после вашего явного согласия в баннере cookie. Подробнее о том, как Google обрабатывает данные, читайте в Политике Google (https://policies.google.com/technologies/partner-sites). Вы можете в любой момент изменить или отозвать согласие, нажав на кнопку «Настройки cookie» в подвале сайта.",
+  priv_h4:"4. Права пользователя (GDPR / RODO) и контакты",
+  priv_p4:"В соответствии с GDPR / RODO вы имеете право на доступ к своим данным, их исправление, удаление, ограничение обработки, отзыв согласия, а также право подать жалобу в надзорный орган по защите данных (в Польше — Prezes Urzędu Ochrony Danych Osobowych, UODO, uodo.gov.pl). По всем вопросам конфиденциальности пишите на: Exttemeart@gmail.com.",
   about_title:"О проекте CNCHelper и контакты",
   about_sub:"Практический инструмент у стойки станка — без регистрации и лишней теории",
   about_desc_h:"Зачем создан CNCHelper",
@@ -286,7 +286,7 @@ pl: {
   tool_carbide:"Węglik spiekany (Carbide, m ≈ 0.25)", tool_hss:"Stal szybkotnąca (HSS, m ≈ 0.125)", tool_cbn_ceramic:"Ceramika / CBN (m ≈ 0.40)", tool_pcd:"Diament (PCD, m ≈ 0.33)",
 
   // Navigation & Dropdown
-  nav_all_calcs:"Wszystkie kalkulatory (Pulpit)", nav_calc_turn:"Kalkulator toczenia", nav_calc_mill:"Kalkulator frezowania",
+  nav_all_calcs:"Wszystkie kalkulatory (25)", nav_calc_turn:"Kalkulator toczenia", nav_calc_mill:"Kalkulator frezowania",
   nav_calc_drill:"Wiercenie i pogłębianie", nav_calc_thread:"Gwint metryczny", nav_calc_pcd:"Otwory na okręgu (PCD)",
 
   // Dashboard & Landing Pages
@@ -311,14 +311,14 @@ pl: {
   footer_privacy:"Polityka prywatności (RODO)", footer_about:"O projekcie i kontakt",
   priv_title:"Polityka prywatności i pliki Cookie",
   priv_sub:"Informacje o ochronie danych osobowych (RODO), pamięci przeglądarki i reklamach",
-  priv_h1:"1. Informacje ogólne",
-  priv_p1:"CNCHelper to darmowy zestaw kalkulatorów inżynierskich i baza wiedzy dla operatorów, ustawiaczy oraz programistów maszyn CNC. Korzystanie z serwisu nie wymaga rejestracji ani podawania danych osobowych.",
-  priv_h2:"2. Pamięć lokalna przeglądarki (localStorage)",
-  priv_p2:"Dla wygody użytkownika serwis zapisuje w pamięci przeglądarki (localStorage) wyłącznie ustawienia techniczne: wybrany język (ru/pl/en), motyw (jasny/ciemny), status zgody na pliki cookie oraz zapisane przez użytkownika wyniki obliczeń (przycisk „Zapisz obliczenie”). Dane te nie są przesyłane na żaden serwer i można je usunąć w ustawieniach przeglądarki.",
+  priv_h1:"1. Informacje ogólne i Administrator Danych (RODO)",
+  priv_p1:"Administratorem serwisu CNCHelper (https://cnc-helper.pro) jest projekt CNCHelper, kontakt e-mail: Exttemeart@gmail.com. Serwis udostępnia darmowe kalkulatory inżynierskie i bazę wiedzy CNC bez rejestracji. Dane techniczne przetwarzane są zgodnie z Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO): art. 6 ust. 1 lit. a RODO (dobrowolna zgoda na pliki cookie reklamowe) oraz art. 6 ust. 1 lit. f RODO (prawnie uzasadniony interes administratora — poprawne działanie serwisu).",
+  priv_h2:"2. Pamięć lokalna przeglądarki (localStorage i sessionStorage)",
+  priv_p2:"Dla wygody użytkownika serwis zapisuje w pamięci przeglądarki (localStorage / sessionStorage) wyłącznie ustawienia techniczne: wybrany język (ru/pl/en), motyw (jasny/ciemny), status zgody na pliki cookie oraz zapisane przez użytkownika wyniki obliczeń (przycisk „Zapisz obliczenie”). Dane te pozostają wyłącznie na Twoim urządzeniu, nie są przesyłane na serwer i można je usunąć w każdej chwili w ustawieniach przeglądarki.",
   priv_h3:"3. Pliki Cookie i reklamy (Google AdSense)",
-  priv_p3:"Serwis korzysta z usługi Google AdSense. Po wyrażeniu zgody w banerze cookie, Google oraz partnerzy mogą używać plików cookie do wyświetlania reklam. W każdej chwili możesz zmienić lub cofnąć zgodę, klikając link „Ustawienia cookie” w stopce strony.",
-  priv_h4:"4. Kontakt w sprawach RODO / prywatności",
-  priv_p4:"W sprawach związanych z prywatnością możesz skontaktować się z administratorem serwisu pod adresem e-mail: Exttemeart@gmail.com.",
+  priv_p3:"Serwis korzysta z usługi Google AdSense (Google Ireland Limited). Skrypty i pliki cookie Google AdSense są uruchamiane wyłącznie po wyrażeniu zgody w banerze cookie. Szczegóły dotyczące wykorzystania danych przez Google znajdują się na stronie: https://policies.google.com/technologies/partner-sites. W każdej chwili możesz zmienić lub cofnąć zgodę, klikając przycisk „Ustawienia cookie” w stopce strony.",
+  priv_h4:"4. Prawa użytkownika (RODO) i prawo wniesienia skargi do UODO",
+  priv_p4:"Zgodnie z RODO przysługuje Ci prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, cofnięcia zgody w dowolnym momencie oraz prawo wniesienia skargi do organu nadzorczego — Prezesa Urzędu Ochrony Danych Osobowych (UODO, ul. Stawki 2, 00-193 Warszawa, https://uodo.gov.pl). Kontakt z administratorem: Exttemeart@gmail.com.",
   about_title:"O projekcie CNCHelper i kontakt",
   about_sub:"Praktyczne narzędzie przy maszynie CNC — bez rejestracji i zbędnej teorii",
   about_desc_h:"Dlaczego powstał CNCHelper",
@@ -453,7 +453,7 @@ en: {
   tool_carbide:"Carbide (Carbide, m ≈ 0.25)", tool_hss:"High speed steel (HSS, m ≈ 0.125)", tool_cbn_ceramic:"Ceramic / CBN (m ≈ 0.40)", tool_pcd:"Diamond (PCD, m ≈ 0.33)",
 
   // Navigation & Dropdown
-  nav_all_calcs:"All calculators (Dashboard)", nav_calc_turn:"Turning calculator", nav_calc_mill:"Milling calculator",
+  nav_all_calcs:"All calculators (25)", nav_calc_turn:"Turning calculator", nav_calc_mill:"Milling calculator",
   nav_calc_drill:"Drilling & countersink", nav_calc_thread:"Metric thread", nav_calc_pcd:"Bolt circle (PCD)",
 
   // Dashboard & Landing Pages
@@ -478,14 +478,14 @@ en: {
   footer_privacy:"Privacy Policy", footer_about:"About & Contact",
   priv_title:"Privacy Policy & Cookie Information",
   priv_sub:"Information on data protection (GDPR), browser localStorage, and advertising cookies",
-  priv_h1:"1. General Information",
-  priv_p1:"CNCHelper is a free engineering calculator toolkit and reference database for CNC operators, setters, and programmers. Using the site requires no registration or personal account.",
-  priv_h2:"2. Browser Local Storage (localStorage)",
-  priv_p2:"For convenience, this site stores only technical preferences in your browser's localStorage: selected language (ru/pl/en), UI theme (light/dark), cookie consent status, and calculations you explicitly save using the 'Save calculation' button. This data never leaves your device and can be cleared anytime in browser settings.",
+  priv_h1:"1. General Information & Data Controller (GDPR)",
+  priv_p1:"The data controller for CNCHelper (https://cnc-helper.pro) is the CNCHelper project (contact email: Exttemeart@gmail.com). Using the site requires no registration or personal account. Technical data is processed in accordance with EU Regulation 2016/679 (GDPR): Art. 6(1)(a) GDPR (voluntary consent for advertising cookies) and Art. 6(1)(f) GDPR (legitimate interest in maintaining site functionality).",
+  priv_h2:"2. Browser Local Storage (localStorage & sessionStorage)",
+  priv_p2:"For convenience, this site stores only technical preferences in your browser's localStorage and sessionStorage: selected language (ru/pl/en), UI theme (light/dark), cookie consent status, and calculations you explicitly save using the 'Save calculation' button. This data never leaves your device and can be cleared anytime in browser settings.",
   priv_h3:"3. Cookies & Advertising (Google AdSense)",
-  priv_p3:"This website uses Google AdSense. With your consent (via the cookie banner), Google and its partners may use cookies to serve personalized or non-personalized ads. You can change or withdraw your consent at any time via the 'Cookie settings' link in the footer.",
-  priv_h4:"4. Contact",
-  priv_p4:"For any privacy-related questions, please contact the site administrator via email at Exttemeart@gmail.com.",
+  priv_p3:"This website uses Google AdSense (Google Ireland Limited). Google AdSense cookies are loaded only after you grant consent via the cookie banner. Learn how Google uses data at https://policies.google.com/technologies/partner-sites. You can change or withdraw your consent at any time via the 'Cookie settings' button in the footer.",
+  priv_h4:"4. Your GDPR Rights & Supervisory Authority (UODO)",
+  priv_p4:"Under GDPR, you have the right to access, rectify, erase, or restrict processing of your data, withdraw consent at any time, and lodge a complaint with your national data protection authority (in Poland: Prezes Urzędu Ochrony Danych Osobowych — UODO, uodo.gov.pl). For any privacy questions, contact: Exttemeart@gmail.com.",
   about_title:"About CNCHelper & Contact",
   about_sub:"Practical shop-floor CNC toolkit — fast, free, and no sign-up required",
   about_desc_h:"Why CNCHelper Exists",

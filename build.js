@@ -306,8 +306,8 @@ function preRenderSeoGuide(type, lang) {
 <h3>3. Ручная компенсация радиуса резца (TNRC)</h3>
 <p>Если станок не поддерживает автоматическую компенсацию G41/G42 или точение выполняется в ручном режиме, радиус при вершине резца искажает геометрию фасок и конусов. Для фаски под углом 45° поправки на координаты составляют:</p>
 <ul>
-  <li>Смещение по оси Z: <code>ΔZ = r × (1 - tg(22.5°)) ≈ 0.414 × r</code></li>
-  <li>Диаметральное смещение по оси X: <code>ΔX = 2 × r × (1 - tg(22.5°)) ≈ 0.828 × r</code></li>
+  <li>Смещение по оси Z: <code>ΔZ = r × (1 - tg(22.5°)) ≈ 0.586 × r</code></li>
+  <li>Диаметральное смещение по оси X: <code>ΔX = 2 × r × (1 - tg(22.5°)) ≈ 1.172 × r</code></li>
 </ul>`,
       pl: `<h2>Teoria i wzory parametrów toczenia CNC</h2>
 <h3>1. Prędkość skrawania Vc i obroty wrzeciona n</h3>
@@ -326,8 +326,8 @@ function preRenderSeoGuide(type, lang) {
 <h3>3. Ręczna kompensacja promienia naroża płytki (TNRC)</h3>
 <p>W przypadku braku aktywnej kompensacji G41/G42 promień naroża płytki powoduje zniekształcenie wymiarów faz i stożków. Dla fazy pod kątem 45° naddatki wynoszą:</p>
 <ul>
-  <li>Korekcja w osi Z: <code>ΔZ = r × (1 - tg(22.5°)) ≈ 0.414 × r</code></li>
-  <li>Korekcja średnicowa w osi X: <code>ΔX = 2 × r × (1 - tg(22.5°)) ≈ 0.828 × r</code></li>
+  <li>Korekcja w osi Z: <code>ΔZ = r × (1 - tg(22.5°)) ≈ 0.586 × r</code></li>
+  <li>Korekcja średnicowa w osi X: <code>ΔX = 2 × r × (1 - tg(22.5°)) ≈ 1.172 × r</code></li>
 </ul>`,
       en: `<h2>CNC Lathe Turning Speeds, Feeds & Tool Nose Theory</h2>
 <h3>1. Cutting Speed Vc and Spindle RPM n</h3>
@@ -346,8 +346,8 @@ function preRenderSeoGuide(type, lang) {
 <h3>3. Manual Tool Nose Radius Compensation (TNRC)</h3>
 <p>When turning tapers or 45° chamfers without CNC radius compensation (G41/G42), the insert tool nose radius shifts the actual cutting edge. For a 45° chamfer:</p>
 <ul>
-  <li>Z-axis shift: <code>ΔZ = r × (1 - tan(22.5°)) ≈ 0.414 × r</code></li>
-  <li>X-axis diameter shift: <code>ΔX = 2 × r × (1 - tan(22.5°)) ≈ 0.828 × r</code></li>
+  <li>Z-axis shift: <code>ΔZ = r × (1 - tan(22.5°)) ≈ 0.586 × r</code></li>
+  <li>X-axis diameter shift: <code>ΔX = 2 × r × (1 - tan(22.5°)) ≈ 1.172 × r</code></li>
 </ul>`
     },
 

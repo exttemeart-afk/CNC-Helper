@@ -151,14 +151,7 @@
     const el = $("#termCode"); if (!el) return;
     const lines = ["O0001 (CNCHELPER)", "G21 G90 G54 G17 G40 G49", "T01 M06", "S3183 M03   ; D12 Vc120", "G43 H01 Z50. M08",
       "G00 X0 Y0", "G01 Z-5. F150", "G01 X100. F764   ; z4 fz0.06", "G02 X100. Y20. R20.", "G01 Y60.", "G00 Z100. M09", "M05", "M30"];
-    const full = lines.join("\n");
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { el.textContent = full; return; }
-    let i = 0;
-    (function tick() {
-      i++; el.textContent = full.slice(0, i) + "▌";
-      if (i < full.length) setTimeout(tick, full[i] === "\n" ? 220 : 35);
-      else { el.textContent = full; setTimeout(() => { i = 0; tick(); }, 4000); }
-    })();
+    el.textContent = lines.join("\n");
   }
 
   /* ---------- events ---------- */
