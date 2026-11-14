@@ -268,7 +268,7 @@ const CALCS = [
     return [
       {k:"r_pitch", v:P, u:"", d:2},
       {k:"r_drill", v:D-P, u:"", d:2, raw:"mm"},
-      {k:"r_drillF", v:D-P/2*0.9, u:"", d:2, raw:"mm"},
+      {k:"r_drillF", v:Math.floor((D-0.45*P)*100)/100, u:"", d:2, raw:"mm"},
       {k:"r_minor", v:D-1.0825*P, u:"", d:3, raw:"mm"},
       {k:"r_tdepth", v:0.6134*P, u:"", d:3, raw:"mm"}
     ];
@@ -777,7 +777,9 @@ const CALCS = [
 ];
 
 /* ---------- Rendering Engine ---------- */
-const calcState = {};
+const STATE_KEY = "cnc_calc_state";
+const calcState = (() => { try { return JSON.parse(sessionStorage.getItem(STATE_KEY)) || {}; } catch (e) { return {}; } })();
+const saveCalcState = () => { try { sessionStorage.setItem(STATE_KEY, JSON.stringify(calcState)); } catch (e) {} };
 const SAVE_KEY = "cnc_saved_calcs";
 let savedRoot = null, savedT = null;
 
@@ -868,6 +870,7 @@ function renderCalcGrid(root, t, filter) {
         v[f.id] = f.type === "select" ? (raw === "custom" || isNaN(+raw) || raw === "" ? raw : +raw) : parseFloat(raw);
         st[f.id] = raw;
       });
+      saveCalcState();
       c.fields.forEach(f => { if (f.showIf) fieldEls[f.id].w.hidden = !f.showIf(v); });
       const out = c.calc(v);
       if (!out) { lastRows = null; res.innerHTML = `<span>${t("invalid")}</span>`; return; }
@@ -876,7 +879,7 @@ function renderCalcGrid(root, t, filter) {
         const unit = o.raw != null ? o.raw : (o.u ? t(o.u) : "");
         return {label: t(o.k), text: (fmtNum(o.v, o.d) + " " + unit).trim()};
       });
-      res.innerHTML = lastRows.map(r => `<div class="res"><span>${r.label}</span><b>${r.text}</b></div>`).join("");
+      res.innerHTML = lastRows.map(r => `<div class="res"><span>${r.label}</span> <b>${r.text}</b></div>`).join("");
     };
     Object.values(fieldEls).forEach(e => e.input.addEventListener("input", update));
     saveBtn.addEventListener("click", () => {

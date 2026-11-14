@@ -257,7 +257,7 @@ function preRenderCalcCard(c, lang) {
           const formatted = isFinite(o.v) ? o.v.toLocaleString(undefined, { maximumFractionDigits: o.d == null ? 3 : o.d }) : '—';
           text = (formatted + ' ' + unit).trim();
         }
-        return `<div class="res"><span>${escHtml(label)}</span><b>${escHtml(text)}</b></div>`;
+        return `<div class="res"><span>${escHtml(label)}</span> <b>${escHtml(text)}</b></div>`;
       }).join('');
     }
   } catch (err) {
