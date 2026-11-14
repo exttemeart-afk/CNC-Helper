@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- GENERATED SOURCE: edit this template, then run build.ps1 to regenerate ru/ pl/ en/ pages, sitemap.xml and robots.txt -->
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Циклы глубокого сверления G83 и G73 против монолитных сверл с внутренним СОЖ | CNCHelper</title>
+<meta name="description" content="Выбор между циклами прерывистого сверления G83 (глубокое сверление с полным выводом) и G73 (высокоскоростное сверление с дроблением стружки) напрямую...">
+<link rel="canonical" href="https://cnc-helper.pro/ru/articles/peck-drilling-g83-g73.html">
+<link rel="alternate" hreflang="ru" href="https://cnc-helper.pro/ru/articles/peck-drilling-g83-g73.html">
+<link rel="alternate" hreflang="pl" href="https://cnc-helper.pro/pl/articles/peck-drilling-g83-g73.html">
+<link rel="alternate" hreflang="en" href="https://cnc-helper.pro/en/articles/peck-drilling-g83-g73.html">
+<link rel="alternate" hreflang="x-default" href="https://cnc-helper.pro/en/articles/peck-drilling-g83-g73.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Циклы глубокого сверления G83 и G73 против монолитных сверл с внутренним СОЖ | CNCHelper">
+<meta property="og:description" content="Выбор между циклами прерывистого сверления G83 (глубокое сверление с полным выводом) и G73 (высокоскоростное сверление с дроблением стружки) напрямую...">
+<meta property="og:url" content="https://cnc-helper.pro/ru/articles/peck-drilling-g83-g73.html">
+<meta property="og:image" content="https://cnc-helper.pro/images/hero.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","inLanguage":"ru","url":"https://cnc-helper.pro/ru/articles/peck-drilling-g83-g73.html","headline":"Циклы глубокого сверления G83 и G73 против монолитных сверл с внутренним СОЖ","description":"Выбор между циклами прерывистого сверления G83 (глубокое сверление с полным выводом) и G73 (высокоскоростное сверление с дроблением стружки) напрямую...","image":"https://cnc-helper.pro/images/hero.jpg"}</script>
+<script>
+  (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);localStorage.setItem('lang','ru');})();
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1775700331598232"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body data-route="article" data-article="peck-drilling-g83-g73" data-file="articles/peck-drilling-g83-g73.html">
+
+<header class="header">
+  <div class="container header-in">
+    <a class="logo" href="../index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
+    <nav class="nav" id="nav">
+      <a href="../index.html" data-route-link="home" data-i18n="nav_home">Главная</a>
+      <div class="nav-dropdown">
+        <a href="../calculators.html" data-route-link="calc" class="nav-drop-btn"><span data-i18n="nav_calc">Калькуляторы</span> <span class="drop-arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="../calculators.html" class="drop-all"><strong data-i18n="nav_all_calcs">Все калькуляторы (Дашборд)</strong></a>
+          <a href="../calc-turning.html"><span>🔩</span> <span data-i18n="nav_calc_turn">Токарный калькулятор</span></a>
+          <a href="../calc-milling.html"><span>🛠</span> <span data-i18n="nav_calc_mill">Фрезерный калькулятор</span></a>
+          <a href="../calc-drilling.html"><span>🕳</span> <span data-i18n="nav_calc_drill">Сверление и зенковка</span></a>
+          <a href="../calc-thread.html"><span>🔧</span> <span data-i18n="nav_calc_thread">Метрическая резьба</span></a>
+          <a href="../calc-pcd.html"><span>🎯</span> <span data-i18n="nav_calc_pcd">Отверстия по окружности (PCD)</span></a>
+        </div>
+      </div>
+      <a href="../codes.html" data-route-link="codes" data-i18n="nav_codes">G и M коды</a>
+      <a href="../articles.html" data-route-link="articles" data-i18n="nav_articles">Статьи</a>
+    </nav>
+    <div class="tools">
+      <select id="lang" aria-label="Language">
+        <option value="ru" selected>RU</option>
+        <option value="pl">PL</option>
+        <option value="en">EN</option>
+      </select>
+      <button id="themeBtn" class="icon-btn" aria-label="Theme">🌙</button>
+      <button id="burger" class="icon-btn burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+
+
+<!--
+  ====== AD SLOTS ======
+  Each .ad-slot is a placeholder. To activate: replace the inner <div class="ad-ph"> with your ad code
+  (e.g. Google AdSense <ins class="adsbygoogle">). Slots: top, side, inline, footer.
+  Sizes: top 728x90 / 320x100, side 300x600 / 300x250, inline 336x280 / responsive, footer 728x90.
+-->
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="top">
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="6618895499"></ins>
+</div></div>
+
+<main class="container" id="main">
+
+  <!-- HOME -->
+  
+
+  <div class="layout" id="layout">
+    <div class="content">
+      
+
+      <!-- DEDICATED CALC: TURNING -->
+      
+
+      <!-- DEDICATED CALC: MILLING -->
+      
+
+      <!-- DEDICATED CALC: DRILLING -->
+      
+
+      <!-- DEDICATED CALC: THREAD -->
+      
+
+      <!-- DEDICATED CALC: PCD -->
+      
+
+      
+
+      
+
+      <section class="page" data-page="article">
+        <a href="../articles.html" class="back" data-i18n="back">← Все статьи</a>
+        <article class="card article" id="articleBody"><h1>Циклы глубокого сверления G83 и G73 против монолитных сверл с внутренним СОЖ</h1><p>Выбор между циклами прерывистого сверления <b>G83 (глубокое сверление с полным выводом)</b> и <b>G73 (высокоскоростное сверление с дроблением стружки)</b> напрямую зависит от материала, типа сверла и способа подвода СОЖ. Цикл <code>G83 X... Y... Z... R... Q... F...</code> полностью выводит сверло в плоскость <code>R</code> после каждого прохода на глубину <code>Q</code>, что жизненно необходимо для спиральных сверл из быстрорежущей стали <code>HSS-Co</code> без внутреннего охлаждения при глубине свыше <code>3xD</code>, так как позволяет выбросить стружку из канавок и доставить эмульсию к вершине. Однако при работе твердосплавными сверлами <code>G83</code> часто становится причиной поломки инструмента: при полном подъеме мелкая стружка смывается потоком СОЖ обратно на дно отверстия и попадает под перемычку при следующем быстром подводе <code>G00</code>, вызывая мгновенное выкрашивание режущих кромок.</p><p>Цикл <code>G73</code> выполняет лишь короткий отскок назад на величину параметра ЧПУ (обычно <code>0.5–1.0 мм</code>, на стойках Fanuc задается параметром <code>5114</code>) для гарантированного слома сливной стружки без вывода сверла из отверстия. А при использовании современных <b>монолитных твердосплавных сверл с внутренним подводом СОЖ (Through-Coolant)</b> под давлением <code>20–50 бар</code> сверление на глубину <code>5xD–8xD</code> должно выполняться в один проход циклом <code>G81</code> вообще <b>без вывода и дробления (no pecking)</b>! Для сверл длиной <code>8xD–12xD</code> обязательно сначала просверлите пилотное отверстие глубиной <code>1.5–2xD</code> коротким жестким сверлом, угол при вершине которого равен или на <code>1–2°</code> больше угла длинного сверла (например, пилот <code>140°–142°</code> для основного сверла <code>140°</code>, никогда не используйте центровку <code>90°</code> или сверло <code>118°</code>, иначе внешние уголки твердого сплава сколются при врезании). Заход в пилотное отверстие выполняйте на оборотах <code>300–500 об/мин</code> с подачей <code>F100</code>, включая рабочие обороты и высокое давление СОЖ за <code>2 мм</code> до дна пилота.</p><h2>Новые статьи</h2><div class="grid"><a class="card art-card" href="trochoidal-milling.html"><span class="tag">Фрезерование</span><h3>Трохоидальное фрезерование: Как перестать ломать фрезы</h3><p>Устали ломать дорогие фрезы при обработке глубоких пазов? Пора вспомнить про трохоидальное фрезерование. Суть проста: фреза двигается по спирали, снимая металл...</p><span class="more">Читать →</span></a><a class="card art-card" href="coolant-care.html"><span class="tag">Обслуживание</span><h3>Выбор и уход за СОЖ: Это вам не просто вода</h3><p>СОЖ (смазочно-охлаждающая жидкость) — это кровь вашего станка. Но если в понедельник утром из бака пахнет как из болота, у вас проблемы. Многие операторы...</p><span class="more">Читать →</span></a><a class="card art-card" href="titanium-machining.html"><span class="tag">Материалы</span><h3>Укрощение титана: Секреты обработки</h3><p>Титан — металл красивый, прочный и жутко капризный. Главная ошибка новичков — пытаться резать его на тех же режимах, что и обычную сталь. Титан очень плохо...</p><span class="more">Читать →</span></a></div></article>
+        <div class="ad-slot ad-inline ad-live" data-slot="article-bottom"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
+      </section>
+
+      
+
+      
+    </div>
+    <aside class="side">
+      <div class="ad-slot ad-side ad-live" data-slot="side"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="3745767258"></ins></div>
+    </aside>
+  </div>
+</main>
+
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="footer"><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="7573331629"></ins></div></div>
+
+<footer class="footer">
+  <div class="container">
+    <p data-i18n="footer_text">© CNCHelper — инструмент для операторов ЧПУ</p>
+    <p class="note" data-i18n="footer_disc">Расчёты носят справочный характер. Ответственность за режимы и безопасность остаётся за оператором.</p>
+    <p class="note footer-links">
+      <a href="../about.html" data-i18n="footer_about">О проекте и контакты</a>
+      <span class="sep">·</span>
+      <a href="../privacy.html" data-i18n="footer_privacy">Политика конфиденциальности</a>
+      <span class="sep">·</span>
+      <button type="button" class="link-btn" id="cookieSettings" data-i18n="cookie_settings">Настройки cookie</button>
+    </p>
+  </div>
+</footer>
+
+<script src="../../js/i18n.js"></script>
+<script src="../../js/data.js"></script>
+<script src="../../js/articles.js"></script>
+<script src="../../js/calculators.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../js/consent.js"></script>
+</body>
+</html>

@@ -569,11 +569,12 @@ M30</pre>`
 }
 
 // 3. Pre-render Articles HTML
-function preRenderArticleCard(a, lang) {
+function preRenderArticleCard(a, lang, inSubdir = false) {
   const tag = a.tag[lang] || a.tag.en;
   const title = a.title[lang] || a.title.en;
   const summary = a.summary[lang] || a.summary.en;
-  return `<a class="card art-card" href="article.html?id=${a.id}">` +
+  const href = inSubdir ? `${a.id}.html` : `articles/${a.id}.html`;
+  return `<a class="card art-card" href="${href}">` +
     `<span class="tag">${escHtml(tag)}</span>` +
     `<h3>${escHtml(title)}</h3>` +
     `<p>${escHtml(summary)}</p>` +
@@ -582,11 +583,11 @@ function preRenderArticleCard(a, lang) {
 }
 
 function preRenderArticlesList(lang) {
-  return articles.map(a => preRenderArticleCard(a, lang)).join('\n');
+  return articles.map(a => preRenderArticleCard(a, lang, false)).join('\n');
 }
 
 function preRenderHomeArticles(lang) {
-  return articles.slice(0, 6).map(a => preRenderArticleCard(a, lang)).join('\n');
+  return articles.slice(0, 6).map(a => preRenderArticleCard(a, lang, false)).join('\n');
 }
 
 // 4. Pre-render Codes Table
@@ -608,17 +609,33 @@ function preRenderMatTable(lang) {
   return header + rows;
 }
 
-// 6. Pre-render Default Article
-function preRenderArticleBody(lang) {
-  const a0 = articles[0];
+// 6. Pre-render Article Body (supports specific article or default fallback)
+function preRenderArticleBody(lang, targetArticle = null, inSubdir = false) {
+  const a0 = targetArticle || articles[0];
   const title = a0.title[lang] || a0.title.en;
   const body = a0.body[lang] || a0.body.en;
-  const others = articles.slice(1, 4).map(a => preRenderArticleCard(a, lang)).join('');
+  const others = articles.filter(x => x.id !== a0.id).slice(0, 3).map(a => preRenderArticleCard(a, lang, inSubdir)).join('');
   return `<h1>${escHtml(title)}</h1>${body}<h2>${escHtml(t(lang, 'latest'))}</h2><div class="grid">${others}</div>`;
 }
 
+const HERO_TERMINAL_CODE = [
+  'O0001 (CNCHELPER)',
+  'G21 G90 G54 G17 G40 G49',
+  'T01 M06',
+  'S3183 M03   ; D12 Vc120',
+  'G43 H01 Z50. M08',
+  'G00 X0 Y0',
+  'G01 Z-5. F150',
+  'G01 X100. F764   ; z4 fz0.06',
+  'G02 X100. Y20. R20.',
+  'G01 Y60.',
+  'G00 Z100. M09',
+  'M05',
+  'M30'
+].join('\n');
+
 // 7. Full Page Translation & SSR Hydration
-function translateHtml(templateHtml, lang, pageKey, file) {
+function translateHtml(templateHtml, lang, pageKey, file, targetArticle = null, inSubdir = false) {
   let html = templateHtml;
 
   // Substitute data-i18n tags with translated text (handles nav menu, titles, buttons, footers)
@@ -637,6 +654,8 @@ function translateHtml(templateHtml, lang, pageKey, file) {
 
   // Insert pre-rendered contents into static DOM containers
   if (pageKey === 'index') {
+    html = html.replace('<pre id="termCode"></pre>', `<pre id="termCode">${escHtml(HERO_TERMINAL_CODE)}</pre>`);
+    html = html.replace(/<b id="statArt">\d+<\/b>/, `<b id="statArt">${articles.length}</b>`);
     html = html.replace('<div class="grid calcs" id="calcsQuick"></div>', `<div class="grid calcs" id="calcsQuick">${preRenderQuickCalcs(lang)}</div>`);
     html = html.replace('<div class="grid" id="homeArticles"></div>', `<div class="grid" id="homeArticles">${preRenderHomeArticles(lang)}</div>`);
   } else if (pageKey === 'calculators') {
@@ -653,7 +672,7 @@ function translateHtml(templateHtml, lang, pageKey, file) {
   } else if (pageKey === 'articles') {
     html = html.replace('<div class="grid" id="articlesList"></div>', `<div class="grid" id="articlesList">${preRenderArticlesList(lang)}</div>`);
   } else if (pageKey === 'article') {
-    html = html.replace('<article class="card article" id="articleBody"></article>', `<article class="card article" id="articleBody">${preRenderArticleBody(lang)}</article>`);
+    html = html.replace('<article class="card article" id="articleBody"></article>', `<article class="card article" id="articleBody">${preRenderArticleBody(lang, targetArticle, inSubdir)}</article>`);
   } else if (pageKey === 'calc-turning') {
     html = html.replace('<div class="grid calcs" id="calcsTurning"></div>', `<div class="grid calcs" id="calcsTurning">${preRenderDedicatedCalcs('turning', lang)}</div>`);
     html = html.replace('<div class="seo-guide" id="seoGuideTurning"></div>', `<div class="seo-guide" id="seoGuideTurning">${preRenderSeoGuide('turning', lang)}</div>`);
@@ -700,20 +719,33 @@ const pagesToBuild = [
   { key: 'calc-pcd', file: 'calc-pcd.html', route: 'calc-pcd' },
   { key: 'codes', file: 'codes.html', route: 'codes' },
   { key: 'articles', file: 'articles.html', route: 'articles' },
-  { key: 'article', file: 'article.html', route: 'article' }
+  { key: 'article', file: 'article.html', route: 'article' },
+  { key: 'privacy', file: 'privacy.html', route: 'privacy' },
+  { key: 'about', file: 'about.html', route: 'about' }
 ];
 
 console.log('Generating pre-rendered static HTML pages...');
 
+function buildMetaDesc(text) {
+  let s = String(text || '').replace(/\s+/g, ' ').trim();
+  if (s.length <= 155) return s;
+  const cut = s.slice(0, 152);
+  const idx = cut.lastIndexOf(' ');
+  return (idx > 90 ? cut.slice(0, idx) : cut) + '...';
+}
+
 langs.forEach(lang => {
   const dir = path.join(root, lang);
+  const artDir = path.join(dir, 'articles');
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  if (!fs.existsSync(artDir)) fs.mkdirSync(artDir, { recursive: true });
 
   pagesToBuild.forEach(p => {
     const meta = (seo.pages[p.key] && seo.pages[p.key][lang]) || { t: 'CNCHelper', d: 'CNC Machinist Toolkit' };
     const canonical = `${domain}/${lang}/${p.file}`;
     const hreflangs = langs.map(l => `<link rel="alternate" hreflang="${l}" href="${domain}/${l}/${p.file}">`).join('\n') +
-      `\n<link rel="alternate" hreflang="x-default" href="${domain}/en/${p.file}">`;
+      `\n<link rel="alternate" hreflang="x-default" href="${domain}/en/${p.file}">` +
+      (p.key === 'article' ? '\n<meta name="robots" content="noindex, follow">' : '');
 
     let jsonLd = '';
     if (p.route === 'article') {
@@ -755,9 +787,52 @@ langs.forEach(lang => {
 
     fs.writeFileSync(path.join(dir, p.file), out, 'utf8');
   });
+
+  // Generate individual static SEO pages for every article: /{lang}/articles/{id}.html
+  articles.forEach(a => {
+    const artTitle = (a.title[lang] || a.title.en) + ' | CNCHelper';
+    const artDesc = buildMetaDesc(a.summary[lang] || a.summary.en);
+    const relFile = `articles/${a.id}.html`;
+    const canonical = `${domain}/${lang}/${relFile}`;
+    const hreflangs = langs.map(l => `<link rel="alternate" hreflang="${l}" href="${domain}/${l}/${relFile}">`).join('\n') +
+      `\n<link rel="alternate" hreflang="x-default" href="${domain}/en/${relFile}">`;
+
+    const jsonLd = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      inLanguage: lang,
+      url: canonical,
+      headline: a.title[lang] || a.title.en,
+      description: artDesc,
+      image: `${domain}/images/hero.jpg`
+    });
+
+    let out = templateHtml
+      .replace(/{{LANG}}/g, lang)
+      .replace(/{{TITLE}}/g, escHtml(artTitle))
+      .replace(/{{DESC}}/g, escHtml(artDesc))
+      .replace(/{{CANONICAL}}/g, canonical)
+      .replace(/{{HREFLANGS}}/g, hreflangs)
+      .replace(/{{DOMAIN}}/g, domain)
+      .replace(/{{OGLOCALE}}/g, ogLocales[lang])
+      .replace(/{{JSONLD}}/g, jsonLd)
+      .replace(/{{ROUTE}}/g, 'article')
+      .replace(/{{ARTICLE}}/g, a.id)
+      .replace(/{{FILE}}/g, relFile);
+
+    out = translateHtml(out, lang, 'article', relFile, a, true);
+
+    // Adjust relative paths for 2-level depth (/{lang}/articles/{id}.html)
+    out = out
+      .replace(/href="\.\.\/css\//g, 'href="../../css/')
+      .replace(/src="\.\.\/js\//g, 'src="../../js/')
+      .replace(/href="(index|calculators|calc-turning|calc-milling|calc-drilling|calc-thread|calc-pcd|codes|articles|privacy|about)\.html"/g, 'href="../$1.html"');
+
+    fs.writeFileSync(path.join(artDir, `${a.id}.html`), out, 'utf8');
+  });
 });
 
-console.log('Static pages generated for ru/, pl/, en/.');
+console.log(`Static pages & ${articles.length} individual article pages generated for ru/, pl/, en/.`);
 
 // 9. Generate sitemap.xml
 console.log('Generating sitemap.xml...');
@@ -765,8 +840,8 @@ const today = new Date().toISOString().slice(0, 10);
 let sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n';
 
-// Main pages
-pagesToBuild.forEach(p => {
+// Main pages (exclude fallback article.html)
+pagesToBuild.filter(p => p.key !== 'article').forEach(p => {
   langs.forEach(l => {
     sitemap += `  <url><loc>${domain}/${l}/${p.file}</loc><lastmod>${today}</lastmod>\n`;
     langs.forEach(alt => {
@@ -776,12 +851,12 @@ pagesToBuild.forEach(p => {
   });
 });
 
-// Deep article URLs
+// Static SEO article URLs
 articles.forEach(a => {
   langs.forEach(l => {
-    sitemap += `  <url><loc>${domain}/${l}/article.html?id=${a.id}</loc><lastmod>${today}</lastmod>\n`;
+    sitemap += `  <url><loc>${domain}/${l}/articles/${a.id}.html</loc><lastmod>${today}</lastmod>\n`;
     langs.forEach(alt => {
-      sitemap += `    <xhtml:link rel="alternate" hreflang="${alt}" href="${domain}/${alt}/article.html?id=${a.id}"/>\n`;
+      sitemap += `    <xhtml:link rel="alternate" hreflang="${alt}" href="${domain}/${alt}/articles/${a.id}.html"/>\n`;
     });
     sitemap += '  </url>\n';
   });

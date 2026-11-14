@@ -324,6 +324,72 @@
         <article class="card article" id="articleBody"></article>
         <div class="ad-slot ad-inline ad-live" data-slot="article-bottom"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
       </section>
+
+      <section class="page" data-page="privacy">
+        <div class="breadcrumbs">
+          <a href="index.html" data-i18n="nav_home"></a>
+          <span class="sep">/</span>
+          <span data-i18n="footer_privacy"></span>
+        </div>
+        <article class="card article">
+          <h1 data-i18n="priv_title"></h1>
+          <p class="sub" data-i18n="priv_sub"></p>
+          <h2 data-i18n="priv_h1"></h2>
+          <p data-i18n="priv_p1"></p>
+          <h2 data-i18n="priv_h2"></h2>
+          <p data-i18n="priv_p2"></p>
+          <h2 data-i18n="priv_h3"></h2>
+          <p data-i18n="priv_p3"></p>
+          <h2 data-i18n="priv_h4"></h2>
+          <p data-i18n="priv_p4"></p>
+        </article>
+      </section>
+
+      <section class="page" data-page="about">
+        <div class="breadcrumbs">
+          <a href="index.html" data-i18n="nav_home"></a>
+          <span class="sep">/</span>
+          <span data-i18n="footer_about"></span>
+        </div>
+        <article class="card article">
+          <h1 data-i18n="about_title"></h1>
+          <p class="sub" data-i18n="about_sub"></p>
+          <h2 data-i18n="about_desc_h"></h2>
+          <p data-i18n="about_desc_p1"></p>
+          <p data-i18n="about_desc_p2"></p>
+          <div class="contact-box">
+            <h2 data-i18n="contact_h"></h2>
+            <p data-i18n="contact_p"></p>
+            <div class="email-row">
+              <span data-i18n="contact_email_lbl"></span>
+              <a href="mailto:Exttemeart@gmail.com">Exttemeart@gmail.com</a>
+              <button type="button" class="btn-sm" id="copyEmailBtn" data-i18n="contact_copy"></button>
+            </div>
+            <form class="contact-form" id="contactForm">
+              <div>
+                <label for="cfName" data-i18n="form_name"></label>
+                <input type="text" id="cfName" required>
+              </div>
+              <div>
+                <label for="cfEmail" data-i18n="form_email"></label>
+                <input type="email" id="cfEmail" required>
+              </div>
+              <div>
+                <label for="cfSubj" data-i18n="form_subj"></label>
+                <input type="text" id="cfSubj" required>
+              </div>
+              <div>
+                <label for="cfMsg" data-i18n="form_msg"></label>
+                <textarea id="cfMsg" required></textarea>
+              </div>
+              <div>
+                <button type="submit" class="btn" data-i18n="form_send"></button>
+              </div>
+              <p class="note" data-i18n="form_note"></p>
+            </form>
+          </div>
+        </article>
+      </section>
     </div>
     <aside class="side">
       <div class="ad-slot ad-side ad-live" data-slot="side"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="3745767258"></ins></div>
@@ -337,7 +403,13 @@
   <div class="container">
     <p data-i18n="footer_text"></p>
     <p class="note" data-i18n="footer_disc"></p>
-    <p class="note"><a href="#" id="cookieSettings"></a></p>
+    <p class="note footer-links">
+      <a href="about.html" data-i18n="footer_about">About &amp; Contact</a>
+      <span class="sep">·</span>
+      <a href="privacy.html" data-i18n="footer_privacy">Privacy Policy</a>
+      <span class="sep">·</span>
+      <button type="button" class="link-btn" id="cookieSettings" data-i18n="cookie_settings">Cookie settings</button>
+    </p>
   </div>
 </footer>
 

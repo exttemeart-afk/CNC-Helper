@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- GENERATED SOURCE: edit this template, then run build.ps1 to regenerate ru/ pl/ en/ pages, sitemap.xml and robots.txt -->
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Зацентровка под твердосплавное сверло: почему угол 90° убивает сверла 140° | CNCHelper</title>
+<meta name="description" content="Одна из самых распространенных и дорогих ошибок в цехах ЧПУ — зацентровка отверстий стандартной центровкой с углом при вершине 90° перед сверлением...">
+<link rel="canonical" href="https://cnc-helper.pro/ru/articles/spot-drilling-chamfer-angle.html">
+<link rel="alternate" hreflang="ru" href="https://cnc-helper.pro/ru/articles/spot-drilling-chamfer-angle.html">
+<link rel="alternate" hreflang="pl" href="https://cnc-helper.pro/pl/articles/spot-drilling-chamfer-angle.html">
+<link rel="alternate" hreflang="en" href="https://cnc-helper.pro/en/articles/spot-drilling-chamfer-angle.html">
+<link rel="alternate" hreflang="x-default" href="https://cnc-helper.pro/en/articles/spot-drilling-chamfer-angle.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Зацентровка под твердосплавное сверло: почему угол 90° убивает сверла 140° | CNCHelper">
+<meta property="og:description" content="Одна из самых распространенных и дорогих ошибок в цехах ЧПУ — зацентровка отверстий стандартной центровкой с углом при вершине 90° перед сверлением...">
+<meta property="og:url" content="https://cnc-helper.pro/ru/articles/spot-drilling-chamfer-angle.html">
+<meta property="og:image" content="https://cnc-helper.pro/images/hero.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","inLanguage":"ru","url":"https://cnc-helper.pro/ru/articles/spot-drilling-chamfer-angle.html","headline":"Зацентровка под твердосплавное сверло: почему угол 90° убивает сверла 140°","description":"Одна из самых распространенных и дорогих ошибок в цехах ЧПУ — зацентровка отверстий стандартной центровкой с углом при вершине 90° перед сверлением...","image":"https://cnc-helper.pro/images/hero.jpg"}</script>
+<script>
+  (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);localStorage.setItem('lang','ru');})();
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1775700331598232"
+     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body data-route="article" data-article="spot-drilling-chamfer-angle" data-file="articles/spot-drilling-chamfer-angle.html">
+
+<header class="header">
+  <div class="container header-in">
+    <a class="logo" href="../index.html"><span class="logo-ic">⚙</span> CNC<b>Helper</b></a>
+    <nav class="nav" id="nav">
+      <a href="../index.html" data-route-link="home" data-i18n="nav_home">Главная</a>
+      <div class="nav-dropdown">
+        <a href="../calculators.html" data-route-link="calc" class="nav-drop-btn"><span data-i18n="nav_calc">Калькуляторы</span> <span class="drop-arrow">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="../calculators.html" class="drop-all"><strong data-i18n="nav_all_calcs">Все калькуляторы (Дашборд)</strong></a>
+          <a href="../calc-turning.html"><span>🔩</span> <span data-i18n="nav_calc_turn">Токарный калькулятор</span></a>
+          <a href="../calc-milling.html"><span>🛠</span> <span data-i18n="nav_calc_mill">Фрезерный калькулятор</span></a>
+          <a href="../calc-drilling.html"><span>🕳</span> <span data-i18n="nav_calc_drill">Сверление и зенковка</span></a>
+          <a href="../calc-thread.html"><span>🔧</span> <span data-i18n="nav_calc_thread">Метрическая резьба</span></a>
+          <a href="../calc-pcd.html"><span>🎯</span> <span data-i18n="nav_calc_pcd">Отверстия по окружности (PCD)</span></a>
+        </div>
+      </div>
+      <a href="../codes.html" data-route-link="codes" data-i18n="nav_codes">G и M коды</a>
+      <a href="../articles.html" data-route-link="articles" data-i18n="nav_articles">Статьи</a>
+    </nav>
+    <div class="tools">
+      <select id="lang" aria-label="Language">
+        <option value="ru" selected>RU</option>
+        <option value="pl">PL</option>
+        <option value="en">EN</option>
+      </select>
+      <button id="themeBtn" class="icon-btn" aria-label="Theme">🌙</button>
+      <button id="burger" class="icon-btn burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+
+
+<!--
+  ====== AD SLOTS ======
+  Each .ad-slot is a placeholder. To activate: replace the inner <div class="ad-ph"> with your ad code
+  (e.g. Google AdSense <ins class="adsbygoogle">). Slots: top, side, inline, footer.
+  Sizes: top 728x90 / 320x100, side 300x600 / 300x250, inline 336x280 / responsive, footer 728x90.
+-->
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="top">
+  <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="6618895499"></ins>
+</div></div>
+
+<main class="container" id="main">
+
+  <!-- HOME -->
+  
+
+  <div class="layout" id="layout">
+    <div class="content">
+      
+
+      <!-- DEDICATED CALC: TURNING -->
+      
+
+      <!-- DEDICATED CALC: MILLING -->
+      
+
+      <!-- DEDICATED CALC: DRILLING -->
+      
+
+      <!-- DEDICATED CALC: THREAD -->
+      
+
+      <!-- DEDICATED CALC: PCD -->
+      
+
+      
+
+      
+
+      <section class="page" data-page="article">
+        <a href="../articles.html" class="back" data-i18n="back">← Все статьи</a>
+        <article class="card article" id="articleBody"><h1>Зацентровка под твердосплавное сверло: почему угол 90° убивает сверла 140°</h1><p>Одна из самых распространенных и дорогих ошибок в цехах ЧПУ — зацентровка отверстий стандартной центровкой с углом при вершине <code>90°</code> перед сверлением монолитным твердосплавным сверлом с углом <code>135°–140°</code>. Для классических быстрорежущих сверл <code>HSS</code> (<code>118°</code>) лунка <code>90°</code> подходила приемлемо, так как быстрорез упругий и прощает удар уголками. Но твердый сплав хрупок на удар: когда сверло <code>140°</code> входит в узкий конус <code>90°</code>, его поперечная кромка (перемычка) висит в воздухе в центре, а <b>внешние уголки режущих кромок</b> первыми врезаются в наклонные стенки лунки! В этот момент вся осевая нагрузка приходится на самые тонкие и уязвимые уголки ленточек — они мгновенно скалываются, и сверло лопается на первых миллиметрах прохода.</p><p>Как правильно готовить вход для монолитных твердосплавных сверл:</p><ul><li><b>Без зацентровки вообще:</b> на плоской фрезерованной или торцованной поверхности короткие твердосплавные сверла (<code>3xD–5xD</code>) с современной самоцентрирующейся подточкой (<code>4-гранная</code> или <code>S-образная</code> перемычка) <b>не требуют зацентровки</b>! Достаточно снизить подачу <code>fn</code> на <code>50%</code> на входе до полного захода конуса сверла (на глубину <code>1.5–2.0 мм</code>), а затем включить <code>100%</code> рабочей подачи.</li><li><b>Центровка с углом <code>142°–145°</code>:</b> если вы сверлите наклонную, литую или криволинейную поверхность, либо работаете сверлом <code>8xD–12xD</code>, используйте специальную твердосплавную центровку с углом <code>142°–145°</code>. Тогда сверло <code>140°</code> коснется металла строго центральной перемычкой, мягко отцентрируется в конусе, и внешние уголки вступят в резание последними без малейшего удара.</li></ul><h2>Новые статьи</h2><div class="grid"><a class="card art-card" href="trochoidal-milling.html"><span class="tag">Фрезерование</span><h3>Трохоидальное фрезерование: Как перестать ломать фрезы</h3><p>Устали ломать дорогие фрезы при обработке глубоких пазов? Пора вспомнить про трохоидальное фрезерование. Суть проста: фреза двигается по спирали, снимая металл...</p><span class="more">Читать →</span></a><a class="card art-card" href="coolant-care.html"><span class="tag">Обслуживание</span><h3>Выбор и уход за СОЖ: Это вам не просто вода</h3><p>СОЖ (смазочно-охлаждающая жидкость) — это кровь вашего станка. Но если в понедельник утром из бака пахнет как из болота, у вас проблемы. Многие операторы...</p><span class="more">Читать →</span></a><a class="card art-card" href="titanium-machining.html"><span class="tag">Материалы</span><h3>Укрощение титана: Секреты обработки</h3><p>Титан — металл красивый, прочный и жутко капризный. Главная ошибка новичков — пытаться резать его на тех же режимах, что и обычную сталь. Титан очень плохо...</p><span class="more">Читать →</span></a></div></article>
+        <div class="ad-slot ad-inline ad-live" data-slot="article-bottom"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
+      </section>
+
+      
+
+      
+    </div>
+    <aside class="side">
+      <div class="ad-slot ad-side ad-live" data-slot="side"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="3745767258"></ins></div>
+    </aside>
+  </div>
+</main>
+
+<div class="container"><div class="ad-slot ad-top ad-live" data-slot="footer"><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="7573331629"></ins></div></div>
+
+<footer class="footer">
+  <div class="container">
+    <p data-i18n="footer_text">© CNCHelper — инструмент для операторов ЧПУ</p>
+    <p class="note" data-i18n="footer_disc">Расчёты носят справочный характер. Ответственность за режимы и безопасность остаётся за оператором.</p>
+    <p class="note footer-links">
+      <a href="../about.html" data-i18n="footer_about">О проекте и контакты</a>
+      <span class="sep">·</span>
+      <a href="../privacy.html" data-i18n="footer_privacy">Политика конфиденциальности</a>
+      <span class="sep">·</span>
+      <button type="button" class="link-btn" id="cookieSettings" data-i18n="cookie_settings">Настройки cookie</button>
+    </p>
+  </div>
+</footer>
+
+<script src="../../js/i18n.js"></script>
+<script src="../../js/data.js"></script>
+<script src="../../js/articles.js"></script>
+<script src="../../js/calculators.js"></script>
+<script src="../../js/app.js"></script>
+<script src="../../js/consent.js"></script>
+</body>
+</html>

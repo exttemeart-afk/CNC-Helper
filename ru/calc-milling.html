@@ -4,21 +4,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Калькулятор фрезерования ЧПУ — скорость, подача, мощность Pc и утончение стружки RCT | CNCHelper</title>
-<meta name="description" content="Калькулятор фрезерования на станках с ЧПУ: расчет частоты вращения шпинделя n, подачи F, минутного съёма металла MRR, чистой мощности резания Pc, мощности шпинделя Pm и компенсации утончения стружки (RCT при ae &lt; 0.5D).">
+<title>Калькулятор фрезерования ЧПУ — подача, мощность Pc и утончение RCT | CNCHelper</title>
+<meta name="description" content="Калькулятор фрезерования ЧПУ: расчёт оборотов n, подачи F, съёма металла MRR, чистой мощности Pc, мощности шпинделя Pm и поправки RCT.">
 <link rel="canonical" href="https://cnc-helper.pro/ru/calc-milling.html">
 <link rel="alternate" hreflang="ru" href="https://cnc-helper.pro/ru/calc-milling.html">
 <link rel="alternate" hreflang="pl" href="https://cnc-helper.pro/pl/calc-milling.html">
 <link rel="alternate" hreflang="en" href="https://cnc-helper.pro/en/calc-milling.html">
 <link rel="alternate" hreflang="x-default" href="https://cnc-helper.pro/en/calc-milling.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Калькулятор фрезерования ЧПУ — скорость, подача, мощность Pc и утончение стружки RCT | CNCHelper">
-<meta property="og:description" content="Калькулятор фрезерования на станках с ЧПУ: расчет частоты вращения шпинделя n, подачи F, минутного съёма металла MRR, чистой мощности резания Pc, мощности шпинделя Pm и компенсации утончения стружки (RCT при ae &lt; 0.5D).">
+<meta property="og:title" content="Калькулятор фрезерования ЧПУ — подача, мощность Pc и утончение RCT | CNCHelper">
+<meta property="og:description" content="Калькулятор фрезерования ЧПУ: расчёт оборотов n, подачи F, съёма металла MRR, чистой мощности Pc, мощности шпинделя Pm и поправки RCT.">
 <meta property="og:url" content="https://cnc-helper.pro/ru/calc-milling.html">
 <meta property="og:image" content="https://cnc-helper.pro/images/hero.jpg">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","inLanguage":"ru","url":"https://cnc-helper.pro/ru/calc-milling.html","name":"Калькулятор фрезерования ЧПУ — скорость, подача, мощность Pc и утончение стружки RCT | CNCHelper","description":"Калькулятор фрезерования на станках с ЧПУ: расчет частоты вращения шпинделя n, подачи F, минутного съёма металла MRR, чистой мощности резания Pc, мощности шпинделя Pm и компенсации утончения стружки (RCT при ae < 0.5D)."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","inLanguage":"ru","url":"https://cnc-helper.pro/ru/calc-milling.html","name":"Калькулятор фрезерования ЧПУ — подача, мощность Pc и утончение RCT | CNCHelper","description":"Калькулятор фрезерования ЧПУ: расчёт оборотов n, подачи F, съёма металла MRR, чистой мощности Pc, мощности шпинделя Pm и поправки RCT."}</script>
 <script>
   (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);localStorage.setItem('lang','ru');})();
 </script>
@@ -142,6 +142,10 @@
       
 
       
+
+      
+
+      
     </div>
     <aside class="side">
       <div class="ad-slot ad-side ad-live" data-slot="side"><ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="3745767258"></ins></div>
@@ -155,7 +159,13 @@
   <div class="container">
     <p data-i18n="footer_text">© CNCHelper — инструмент для операторов ЧПУ</p>
     <p class="note" data-i18n="footer_disc">Расчёты носят справочный характер. Ответственность за режимы и безопасность остаётся за оператором.</p>
-    <p class="note"><a href="#" id="cookieSettings"></a></p>
+    <p class="note footer-links">
+      <a href="about.html" data-i18n="footer_about">О проекте и контакты</a>
+      <span class="sep">·</span>
+      <a href="privacy.html" data-i18n="footer_privacy">Политика конфиденциальности</a>
+      <span class="sep">·</span>
+      <button type="button" class="link-btn" id="cookieSettings" data-i18n="cookie_settings">Настройки cookie</button>
+    </p>
   </div>
 </footer>
 

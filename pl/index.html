@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CNCHelper — kalkulatory i baza kodów G/M dla operatora CNC</title>
-<meta name="description" content="Darmowe kalkulatory parametrów skrawania, chropowatości, mocy wrzeciona, gwintów i wałeczków, pasowań ISO 286, baza 260+ kodów G i M, artykuły dla operatorów i ustawiaczy CNC.">
+<meta name="description" content="Darmowe kalkulatory CNC (obroty, posuw, Ra/Rz, ISO 286, gwinty), baza 260+ kodów G/M oraz ponad 150 artykułów dla operatorów i ustawiaczy.">
 <link rel="canonical" href="https://cnc-helper.pro/pl/index.html">
 <link rel="alternate" hreflang="ru" href="https://cnc-helper.pro/ru/index.html">
 <link rel="alternate" hreflang="pl" href="https://cnc-helper.pro/pl/index.html">
@@ -13,12 +13,12 @@
 <link rel="alternate" hreflang="x-default" href="https://cnc-helper.pro/en/index.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CNCHelper — kalkulatory i baza kodów G/M dla operatora CNC">
-<meta property="og:description" content="Darmowe kalkulatory parametrów skrawania, chropowatości, mocy wrzeciona, gwintów i wałeczków, pasowań ISO 286, baza 260+ kodów G i M, artykuły dla operatorów i ustawiaczy CNC.">
+<meta property="og:description" content="Darmowe kalkulatory CNC (obroty, posuw, Ra/Rz, ISO 286, gwinty), baza 260+ kodów G/M oraz ponad 150 artykułów dla operatorów i ustawiaczy.">
 <meta property="og:url" content="https://cnc-helper.pro/pl/index.html">
 <meta property="og:image" content="https://cnc-helper.pro/images/hero.jpg">
 <meta property="og:locale" content="pl_PL">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","inLanguage":"pl","url":"https://cnc-helper.pro/pl/index.html","name":"CNCHelper — kalkulatory i baza kodów G/M dla operatora CNC","description":"Darmowe kalkulatory parametrów skrawania, chropowatości, mocy wrzeciona, gwintów i wałeczków, pasowań ISO 286, baza 260+ kodów G i M, artykuły dla operatorów i ustawiaczy CNC."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","inLanguage":"pl","url":"https://cnc-helper.pro/pl/index.html","name":"CNCHelper — kalkulatory i baza kodów G/M dla operatora CNC","description":"Darmowe kalkulatory CNC (obroty, posuw, Ra/Rz, ISO 286, gwinty), baza 260+ kodów G/M oraz ponad 150 artykułów dla operatorów i ustawiaczy."}</script>
 <script>
   (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);localStorage.setItem('lang','pl');})();
 </script>
@@ -75,12 +75,24 @@
         <div><b>25</b><span data-i18n="stat_calc">kalkulatorów</span></div>
         <div><b>260+</b><span data-i18n="stat_codes">kodów G/M i cykli</span></div>
         <div><b>3</b><span data-i18n="stat_lang">języki · 2 motywy</span></div>
-        <div><b id="statArt">92</b><span data-i18n="stat_art">artykułów</span></div>
+        <div><b id="statArt">152</b><span data-i18n="stat_art">artykułów</span></div>
       </div>
     </div>
     <div class="terminal" aria-hidden="true">
       <div class="term-bar"><i></i><i></i><i></i><span>O0001.nc</span></div>
-      <pre id="termCode"></pre>
+      <pre id="termCode">O0001 (CNCHELPER)
+G21 G90 G54 G17 G40 G49
+T01 M06
+S3183 M03   ; D12 Vc120
+G43 H01 Z50. M08
+G00 X0 Y0
+G01 Z-5. F150
+G01 X100. F764   ; z4 fz0.06
+G02 X100. Y20. R20.
+G01 Y60.
+G00 Z100. M09
+M05
+M30</pre>
     </div>
   </div>
 </section>
@@ -114,12 +126,12 @@
     </div>
     <div class="ad-slot ad-inline ad-live" data-slot="inline"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
     <h2 data-i18n="latest">Najnowsze artykuły</h2>
-    <div class="grid" id="homeArticles"><a class="card art-card" href="article.html?id=trochoidal-milling"><span class="tag">Frezowanie</span><h3>Frezowanie trochoidalne: Jak przestać łamać frezy</h3><p>Masz dość łamania drogich frezów przy głębokich rowkach? Czas zaprzyjaźnić się z frezowaniem trochoidalnym. Zasada jest prosta: frez porusza się ruchem...</p><span class="more">Czytaj →</span></a>
-<a class="card art-card" href="article.html?id=coolant-care"><span class="tag">Konserwacja</span><h3>Wybór i pielęgnacja chłodziwa: To nie jest zwykła woda</h3><p>Chłodziwo to krew maszyny CNC. Ale jeśli w poniedziałek rano pachnie jak bagno, masz spory problem. Wielu operatorów po prostu dolewa wody lub koncentratu &quot;na...</p><span class="more">Czytaj →</span></a>
-<a class="card art-card" href="article.html?id=titanium-machining"><span class="tag">Materiały</span><h3>Poskramianie tytanu: Sekrety obróbki</h3><p>Tytan jest piękny, wytrzymały i potwornie kapryśny. Głównym błędem nowicjuszy jest traktowanie go jak zwykłej stali. Tytan słabo odprowadza ciepło, więc cała...</p><span class="more">Czytaj →</span></a>
-<a class="card art-card" href="article.html?id=chatter-vibrations"><span class="tag">Frezowanie</span><h3>Drgania (Chatter) i jak z nimi walczyć</h3><p>Słyszysz ten przeraźliwy pisk przy frezowaniu? To &quot;chatter&quot; (drgania samowzbudne), który właśnie w tej chwili niszczy twoje narzędzie i łożyska wrzeciona.</p><span class="more">Czytaj →</span></a>
-<a class="card art-card" href="article.html?id=mql-lubrication"><span class="tag">Chłodzenie</span><h3>Mikrosmarowanie (MQL): Zapomnij o kałużach wokół maszyny</h3><p>Wszyscy przyzwyczaili się do rzek chłodziwa zalewających detal. A co, jeśli powiem, że w 70% przypadków to zupełnie niepotrzebne? MQL (Minimum Quantity...</p><span class="more">Czytaj →</span></a>
-<a class="card art-card" href="article.html?id=climb-vs-conventional"><span class="tag">Frezowanie</span><h3>Frezowanie współbieżne kontra przeciwbieżne</h3><p>Frezowanie współbieżne (Climb) czy przeciwbieżne (Conventional)? Na nowoczesnych maszynach CNC odpowiedź w 99% brzmi: współbieżne. Ząb frezu od razu agresywnie...</p><span class="more">Czytaj →</span></a></div>
+    <div class="grid" id="homeArticles"><a class="card art-card" href="articles/trochoidal-milling.html"><span class="tag">Frezowanie</span><h3>Frezowanie trochoidalne: Jak przestać łamać frezy</h3><p>Masz dość łamania drogich frezów przy głębokich rowkach? Czas zaprzyjaźnić się z frezowaniem trochoidalnym. Zasada jest prosta: frez porusza się ruchem...</p><span class="more">Czytaj →</span></a>
+<a class="card art-card" href="articles/coolant-care.html"><span class="tag">Konserwacja</span><h3>Wybór i pielęgnacja chłodziwa: To nie jest zwykła woda</h3><p>Chłodziwo to krew maszyny CNC. Ale jeśli w poniedziałek rano pachnie jak bagno, masz spory problem. Wielu operatorów po prostu dolewa wody lub koncentratu &quot;na...</p><span class="more">Czytaj →</span></a>
+<a class="card art-card" href="articles/titanium-machining.html"><span class="tag">Materiały</span><h3>Poskramianie tytanu: Sekrety obróbki</h3><p>Tytan jest piękny, wytrzymały i potwornie kapryśny. Głównym błędem nowicjuszy jest traktowanie go jak zwykłej stali. Tytan słabo odprowadza ciepło, więc cała...</p><span class="more">Czytaj →</span></a>
+<a class="card art-card" href="articles/chatter-vibrations.html"><span class="tag">Frezowanie</span><h3>Drgania (Chatter) i jak z nimi walczyć</h3><p>Słyszysz ten przeraźliwy pisk przy frezowaniu? To &quot;chatter&quot; (drgania samowzbudne), który właśnie w tej chwili niszczy twoje narzędzie i łożyska wrzeciona.</p><span class="more">Czytaj →</span></a>
+<a class="card art-card" href="articles/mql-lubrication.html"><span class="tag">Chłodzenie</span><h3>Mikrosmarowanie (MQL): Zapomnij o kałużach wokół maszyny</h3><p>Wszyscy przyzwyczaili się do rzek chłodziwa zalewających detal. A co, jeśli powiem, że w 70% przypadków to zupełnie niepotrzebne? MQL (Minimum Quantity...</p><span class="more">Czytaj →</span></a>
+<a class="card art-card" href="articles/climb-vs-conventional.html"><span class="tag">Frezowanie</span><h3>Frezowanie współbieżne kontra przeciwbieżne</h3><p>Frezowanie współbieżne (Climb) czy przeciwbieżne (Conventional)? Na nowoczesnych maszynach CNC odpowiedź w 99% brzmi: współbieżne. Ząb frezu od razu agresywnie...</p><span class="more">Czytaj →</span></a></div>
     <p class="more-link"><a href="articles.html" data-i18n="all_articles">Wszystkie artykuły →</a></p>
   </section>
 
@@ -132,7 +144,13 @@
   <div class="container">
     <p data-i18n="footer_text">© CNCHelper — narzędzie dla operatorów CNC</p>
     <p class="note" data-i18n="footer_disc">Obliczenia mają charakter pomocniczy. Odpowiedzialność za parametry i bezpieczeństwo ponosi operator.</p>
-    <p class="note"><a href="#" id="cookieSettings"></a></p>
+    <p class="note footer-links">
+      <a href="about.html" data-i18n="footer_about">O projekcie i kontakt</a>
+      <span class="sep">·</span>
+      <a href="privacy.html" data-i18n="footer_privacy">Polityka prywatności (RODO)</a>
+      <span class="sep">·</span>
+      <button type="button" class="link-btn" id="cookieSettings" data-i18n="cookie_settings">Ustawienia cookie</button>
+    </p>
   </div>
 </footer>
 

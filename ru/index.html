@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CNCHelper — калькуляторы и справочник G/M кодов для оператора ЧПУ</title>
-<meta name="description" content="Бесплатные онлайн-калькуляторы режимов резания, шероховатости, мощности шпинделя, резьб и проволочек, допусков ISO 286, база 260+ кодов G и M, статьи для операторов и наладчиков ЧПУ.">
+<meta name="description" content="Бесплатные калькуляторы ЧПУ (обороты, подача, Ra/Rz, ISO 286, резьбы), база 260+ G и M кодов и 150+ практических статей для наладчиков.">
 <link rel="canonical" href="https://cnc-helper.pro/ru/index.html">
 <link rel="alternate" hreflang="ru" href="https://cnc-helper.pro/ru/index.html">
 <link rel="alternate" hreflang="pl" href="https://cnc-helper.pro/pl/index.html">
@@ -13,12 +13,12 @@
 <link rel="alternate" hreflang="x-default" href="https://cnc-helper.pro/en/index.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="CNCHelper — калькуляторы и справочник G/M кодов для оператора ЧПУ">
-<meta property="og:description" content="Бесплатные онлайн-калькуляторы режимов резания, шероховатости, мощности шпинделя, резьб и проволочек, допусков ISO 286, база 260+ кодов G и M, статьи для операторов и наладчиков ЧПУ.">
+<meta property="og:description" content="Бесплатные калькуляторы ЧПУ (обороты, подача, Ra/Rz, ISO 286, резьбы), база 260+ G и M кодов и 150+ практических статей для наладчиков.">
 <meta property="og:url" content="https://cnc-helper.pro/ru/index.html">
 <meta property="og:image" content="https://cnc-helper.pro/images/hero.jpg">
 <meta property="og:locale" content="ru_RU">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","inLanguage":"ru","url":"https://cnc-helper.pro/ru/index.html","name":"CNCHelper — калькуляторы и справочник G/M кодов для оператора ЧПУ","description":"Бесплатные онлайн-калькуляторы режимов резания, шероховатости, мощности шпинделя, резьб и проволочек, допусков ISO 286, база 260+ кодов G и M, статьи для операторов и наладчиков ЧПУ."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","inLanguage":"ru","url":"https://cnc-helper.pro/ru/index.html","name":"CNCHelper — калькуляторы и справочник G/M кодов для оператора ЧПУ","description":"Бесплатные калькуляторы ЧПУ (обороты, подача, Ra/Rz, ISO 286, резьбы), база 260+ G и M кодов и 150+ практических статей для наладчиков."}</script>
 <script>
   (function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);localStorage.setItem('lang','ru');})();
 </script>
@@ -75,12 +75,24 @@
         <div><b>25</b><span data-i18n="stat_calc">калькуляторов</span></div>
         <div><b>260+</b><span data-i18n="stat_codes">G/M-кодов и циклов</span></div>
         <div><b>3</b><span data-i18n="stat_lang">языка · 2 темы</span></div>
-        <div><b id="statArt">92</b><span data-i18n="stat_art">статей</span></div>
+        <div><b id="statArt">152</b><span data-i18n="stat_art">статей</span></div>
       </div>
     </div>
     <div class="terminal" aria-hidden="true">
       <div class="term-bar"><i></i><i></i><i></i><span>O0001.nc</span></div>
-      <pre id="termCode"></pre>
+      <pre id="termCode">O0001 (CNCHELPER)
+G21 G90 G54 G17 G40 G49
+T01 M06
+S3183 M03   ; D12 Vc120
+G43 H01 Z50. M08
+G00 X0 Y0
+G01 Z-5. F150
+G01 X100. F764   ; z4 fz0.06
+G02 X100. Y20. R20.
+G01 Y60.
+G00 Z100. M09
+M05
+M30</pre>
     </div>
   </div>
 </section>
@@ -114,12 +126,12 @@
     </div>
     <div class="ad-slot ad-inline ad-live" data-slot="inline"><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-1775700331598232" data-ad-slot="5053486209"></ins></div>
     <h2 data-i18n="latest">Новые статьи</h2>
-    <div class="grid" id="homeArticles"><a class="card art-card" href="article.html?id=trochoidal-milling"><span class="tag">Фрезерование</span><h3>Трохоидальное фрезерование: Как перестать ломать фрезы</h3><p>Устали ломать дорогие фрезы при обработке глубоких пазов? Пора вспомнить про трохоидальное фрезерование. Суть проста: фреза двигается по спирали, снимая металл...</p><span class="more">Читать →</span></a>
-<a class="card art-card" href="article.html?id=coolant-care"><span class="tag">Обслуживание</span><h3>Выбор и уход за СОЖ: Это вам не просто вода</h3><p>СОЖ (смазочно-охлаждающая жидкость) — это кровь вашего станка. Но если в понедельник утром из бака пахнет как из болота, у вас проблемы. Многие операторы...</p><span class="more">Читать →</span></a>
-<a class="card art-card" href="article.html?id=titanium-machining"><span class="tag">Материалы</span><h3>Укрощение титана: Секреты обработки</h3><p>Титан — металл красивый, прочный и жутко капризный. Главная ошибка новичков — пытаться резать его на тех же режимах, что и обычную сталь. Титан очень плохо...</p><span class="more">Читать →</span></a>
-<a class="card art-card" href="article.html?id=chatter-vibrations"><span class="tag">Фрезерование</span><h3>Вибрации (Chatter) и как с ними бороться</h3><p>Слышите этот жуткий визг при фрезеровании? Это &quot;chatter&quot; (автоколебания), и он прямо сейчас убивает вашу фрезу и подшипники шпинделя. Первый инстинкт — снизить...</p><span class="more">Читать →</span></a>
-<a class="card art-card" href="article.html?id=mql-lubrication"><span class="tag">Охлаждение</span><h3>Микросмазка (MQL): Забудьте о лужах вокруг станка</h3><p>Все привыкли к потокам СОЖ, водопадами заливающим деталь. Но что, если я скажу, что в 70% случаев это совершенно не нужно? MQL (Minimum Quantity Lubrication)...</p><span class="more">Читать →</span></a>
-<a class="card art-card" href="article.html?id=climb-vs-conventional"><span class="tag">Фрезерование</span><h3>Попутное против Встречного фрезерования</h3><p>Попутное (Climb) или встречное (Conventional) фрезерование? На современных станках с ЧПУ ответ в 99% случаев — попутное. При нём зуб фрезы сразу агрессивно...</p><span class="more">Читать →</span></a></div>
+    <div class="grid" id="homeArticles"><a class="card art-card" href="articles/trochoidal-milling.html"><span class="tag">Фрезерование</span><h3>Трохоидальное фрезерование: Как перестать ломать фрезы</h3><p>Устали ломать дорогие фрезы при обработке глубоких пазов? Пора вспомнить про трохоидальное фрезерование. Суть проста: фреза двигается по спирали, снимая металл...</p><span class="more">Читать →</span></a>
+<a class="card art-card" href="articles/coolant-care.html"><span class="tag">Обслуживание</span><h3>Выбор и уход за СОЖ: Это вам не просто вода</h3><p>СОЖ (смазочно-охлаждающая жидкость) — это кровь вашего станка. Но если в понедельник утром из бака пахнет как из болота, у вас проблемы. Многие операторы...</p><span class="more">Читать →</span></a>
+<a class="card art-card" href="articles/titanium-machining.html"><span class="tag">Материалы</span><h3>Укрощение титана: Секреты обработки</h3><p>Титан — металл красивый, прочный и жутко капризный. Главная ошибка новичков — пытаться резать его на тех же режимах, что и обычную сталь. Титан очень плохо...</p><span class="more">Читать →</span></a>
+<a class="card art-card" href="articles/chatter-vibrations.html"><span class="tag">Фрезерование</span><h3>Вибрации (Chatter) и как с ними бороться</h3><p>Слышите этот жуткий визг при фрезеровании? Это &quot;chatter&quot; (автоколебания), и он прямо сейчас убивает вашу фрезу и подшипники шпинделя. Первый инстинкт — снизить...</p><span class="more">Читать →</span></a>
+<a class="card art-card" href="articles/mql-lubrication.html"><span class="tag">Охлаждение</span><h3>Микросмазка (MQL): Забудьте о лужах вокруг станка</h3><p>Все привыкли к потокам СОЖ, водопадами заливающим деталь. Но что, если я скажу, что в 70% случаев это совершенно не нужно? MQL (Minimum Quantity Lubrication)...</p><span class="more">Читать →</span></a>
+<a class="card art-card" href="articles/climb-vs-conventional.html"><span class="tag">Фрезерование</span><h3>Попутное против Встречного фрезерования</h3><p>Попутное (Climb) или встречное (Conventional) фрезерование? На современных станках с ЧПУ ответ в 99% случаев — попутное. При нём зуб фрезы сразу агрессивно...</p><span class="more">Читать →</span></a></div>
     <p class="more-link"><a href="articles.html" data-i18n="all_articles">Все статьи →</a></p>
   </section>
 
@@ -132,7 +144,13 @@
   <div class="container">
     <p data-i18n="footer_text">© CNCHelper — инструмент для операторов ЧПУ</p>
     <p class="note" data-i18n="footer_disc">Расчёты носят справочный характер. Ответственность за режимы и безопасность остаётся за оператором.</p>
-    <p class="note"><a href="#" id="cookieSettings"></a></p>
+    <p class="note footer-links">
+      <a href="about.html" data-i18n="footer_about">О проекте и контакты</a>
+      <span class="sep">·</span>
+      <a href="privacy.html" data-i18n="footer_privacy">Политика конфиденциальности</a>
+      <span class="sep">·</span>
+      <button type="button" class="link-btn" id="cookieSettings" data-i18n="cookie_settings">Настройки cookie</button>
+    </p>
   </div>
 </footer>
 

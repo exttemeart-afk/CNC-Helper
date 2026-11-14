@@ -25,18 +25,21 @@
 
   /* ---------- language: each language lives in its own folder (SEO) ---------- */
   const langSel = $("#lang");
+  const isDeepArticle = file && file.indexOf("articles/") === 0;
   if (langSel) {
     langSel.value = lang;
     langSel.addEventListener("change", e => {
-      const q = (route === "article" && location.search) ? location.search : (location.hash || "");
-      location.href = "../" + e.target.value + "/" + file + q;
+      const q = (route === "article" && !articleId && location.search) ? location.search : (location.hash || "");
+      const prefix = isDeepArticle ? "../../" : "../";
+      location.href = prefix + e.target.value + "/" + file + q;
     });
   }
   $$("[data-i18n]").forEach(e => e.textContent = t(e.dataset.i18n));
   $$("[data-i18n-ph]").forEach(e => e.placeholder = t(e.dataset.i18nPh));
 
   /* ---------- renderers ---------- */
-  const articleCard = a => `<a class="card art-card" href="article.html?id=${a.id}"><span class="tag">${esc(li(a.tag))}</span>
+  const articleHref = id => (isDeepArticle ? "" : "articles/") + id + ".html";
+  const articleCard = a => `<a class="card art-card" href="${articleHref(a.id)}"><span class="tag">${esc(li(a.tag))}</span>
       <h3>${esc(li(a.title))}</h3><p>${esc(li(a.summary))}</p><span class="more">${t("read_more")}</span></a>`;
 
   let activeTag = "";
@@ -61,9 +64,14 @@
     }
     if ($("#homeArticles")) $("#homeArticles").innerHTML = ARTICLES.slice(0, 6).map(articleCard).join("");
     if (route === "article") {
-      const qId = new URLSearchParams(location.search).get("id") || (location.hash ? location.hash.replace("#", "") : "") || articleId;
+      const qParam = new URLSearchParams(location.search).get("id");
+      const qId = qParam || (location.hash ? location.hash.replace("#", "") : "") || articleId;
+      if (!articleId && qParam && ARTICLES.some(x => x.id === qParam)) {
+        location.replace("articles/" + qParam + ".html");
+        return;
+      }
       const a = ARTICLES.find(x => x.id === qId) || ARTICLES[0];
-      if (a) {
+      if (a && !articleId) {
         document.title = li(a.title) + " | CNCHelper";
         $("#articleBody").innerHTML = `<h1>${esc(li(a.title))}</h1>${li(a.body)}`;
         const others = ARTICLES.filter(x => x.id !== a.id).slice(0, 3);
@@ -197,4 +205,32 @@
   renderCalcPages();
   if ($("#savedList")) renderSaved($("#savedList"), t);
   typeTerminal();
+
+  /* ---------- contact / about page ---------- */
+  const copyEmailBtn = $("#copyEmailBtn");
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener("click", () => {
+      const email = "Exttemeart@gmail.com";
+      const done = () => {
+        const orig = copyEmailBtn.textContent;
+        copyEmailBtn.textContent = t("contact_copied");
+        setTimeout(() => { copyEmailBtn.textContent = orig; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(done).catch(() => {});
+      }
+    });
+  }
+  const contactForm = $("#contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const name = ($("#cfName") && $("#cfName").value.trim()) || "";
+      const email = ($("#cfEmail") && $("#cfEmail").value.trim()) || "";
+      const subj = ($("#cfSubj") && $("#cfSubj").value.trim()) || "CNCHelper Feedback";
+      const msg = ($("#cfMsg") && $("#cfMsg").value.trim()) || "";
+      const body = `Name: ${name}\nReply-To: ${email}\n\n${msg}`;
+      location.href = `mailto:Exttemeart@gmail.com?subject=${encodeURIComponent("[CNCHelper] " + subj)}&body=${encodeURIComponent(body)}`;
+    });
+  }
 })();
